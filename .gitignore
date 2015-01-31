@@ -1,3 +1,6 @@
+# Private files
+downloads/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

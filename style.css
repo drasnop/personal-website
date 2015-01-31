@@ -1,0 +1,47 @@
+body{
+	font-family: 'Roboto',sans-serif;
+	font-size:19;
+	text-align: center;
+	text-rendering: optimizeLegibility;
+}
+
+svg{
+	stroke: #444;
+	stroke-width: 5;
+	fill: none;
+}
+
+circle{
+	stroke-width: 4;
+}
+
+line{
+	/*shape-rendering: crispEdges;*/
+}
+
+rectange{
+	fill:blue;
+	opacity:.2;
+}
+
+#wrapper {
+	width: 650px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+h1 {
+	font-family: 'Garamond';
+	margin: 0;
+	color: #444;
+	font-size: 200;
+}
+
+a {
+	color: #4472C4;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
