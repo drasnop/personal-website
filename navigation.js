@@ -5,8 +5,8 @@ var state,
 	largeStroke=4,
 	smallStroke=2;
 
-initializeLogo();
-displayState(0);
+initializeLogo(largeSize,largeSize,largeSize/10,largeStroke);
+displayState(0,true);
 
 $("#logo").click(function(){
 	state=(state+1)%3;
@@ -17,11 +17,11 @@ $(".gotoProjects").click(function(){
 	displayState(2);
 })
 
-function displayState(s){
+function displayState(s,first){
 	state=s;
 	switch(state){
 		case 0:
-			showLogo();
+			showLogo(first);
 			break;
 		case 1:
 			showAbout();
@@ -32,8 +32,11 @@ function displayState(s){
 	}
 }
 
-function showLogo(){
-	drawLogo(largeSize,largeSize,largeSize/10,largeStroke);
+function showLogo(first){
+	if(first)
+		firstDrawLogo(largeSize,largeSize,largeSize/10,largeStroke);
+	else
+		drawLogo(largeSize,largeSize,largeSize/10,largeStroke);
 	$("#about, #projects").hide();
 }
 
