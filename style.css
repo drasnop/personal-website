@@ -5,30 +5,21 @@ body{
 	text-rendering: optimizeLegibility;
 }
 
-svg{
-	stroke: #444;
-	stroke-width: 5;
-	fill: none;
-}
-
-circle{
-	stroke-width: 4;
-}
-
-line{
-	/*shape-rendering: crispEdges;*/
-}
-
-rectange{
-	fill:blue;
-	opacity:.2;
-}
-
 #wrapper {
 	width: 650px;
 	margin: 0 auto;
 	text-align: left;
 }
+
+#about, #projects{
+	display:none;
+}
+
+svg{
+	stroke: #444;
+	fill: none;
+}
+
 
 h1 {
 	font-family: 'Garamond';
