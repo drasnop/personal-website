@@ -1,14 +1,24 @@
 body{
+	padding:0;
+	margin:0;
+	overflow:hidden;
+
 	font-family: 'Roboto',sans-serif;
 	font-size:19;
-	text-align: center;
 	text-rendering: optimizeLegibility;
+	color: #444;
 }
 
 #wrapper {
-	width: 650px;
-	margin: 0 auto;
-	text-align: left;
+	/*background-color: lightgray;*/
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
 }
 
 #about, #projects{
@@ -18,14 +28,16 @@ body{
 svg{
 	stroke: #444;
 	fill: none;
+	margin:0 auto;
+	cursor:pointer;
+	display:inline-block;
 }
 
-
-h1 {
-	font-family: 'Garamond';
-	margin: 0;
-	color: #444;
-	font-size: 200;
+#heading{
+	position:relative;
+	font-weight:300;
+	font-size:35;
+	display:inline-block;
 }
 
 a {
