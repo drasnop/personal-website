@@ -13,15 +13,26 @@ $(document).ready(function(){
 		"height":wrapperHeight+"px"})
 	initializeLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
 	displayState(0,true);
+
+	$("#logo").click(function(){
+		displayState((state+1)%3);
+	})
+
+	$(".gotoProjects").click(function(){
+		displayState(2);
+	})
+
+	$("#left-half").mouseenter(function(){
+		d3.select("#horizontal-line").moveToFront();
+		d3.select("#diagonal").moveToFront();
+	})
+
+	$("#right-half").mouseenter(function(){
+		d3.select("#ellipse").moveToFront();
+		d3.select("#vertical-line").moveToFront();
+	})
 })
 
-$("#logo").click(function(){
-	displayState((state+1)%3);
-})
-
-$(".gotoProjects").click(function(){
-	displayState(2);
-})
 
 function displayState(s,first){
 	switch(s){

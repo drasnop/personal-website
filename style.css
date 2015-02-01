@@ -32,6 +32,20 @@ svg{
 	fill: none;
 	margin:0 auto;
 	cursor:pointer;
+	pointer-events:none;
+}
+
+#left-half,#right-half{
+	visibility: hidden;
+	pointer-events:all;
+}
+
+#left-half:hover ~ .letterA{
+	stroke: #4472C4;
+}
+
+#right-half:hover ~ .letterP{
+	stroke: #D65240;
 }
 
 #heading{
@@ -51,5 +65,5 @@ a{
 }
 
 a:hover{
-	text-decoration: underline;
+	color:#D65240;
 }
