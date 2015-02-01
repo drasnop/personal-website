@@ -85,7 +85,7 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 	.attr("clip-path", "url(#half-left)")
 }
 
-function drawLogo(width,height,margin,strokeWidth){
+function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	var t0=d3.select("svg").transition("quad-in-out").duration(1000)
 
 	t0.attr("width",width+2*margin).attr("height",height+2*margin)
@@ -134,16 +134,20 @@ function drawLogo(width,height,margin,strokeWidth){
 	.attr("ry",height/4)
 	.attr("clip-path", "url(#half-left)")
 
-	var t1=t0.transition().duration(500)
-
 	d3.select("#heading")
-/*	.attr("left",0+"px")
-	.attr("top",0+"px")*/
+	.style("left",width+2*margin+"px")
+	.style("top",margin+"px")
+	.style("height",height+"px")
+	.style("line-height",height+"px")
 	.text(state==1? "bout me" : "rojects")
-/*	.style("opacity",0)
+	.style("display", state===0? "none":"")
+	.style("opacity",0)
 
-	t1.select("#heading")
-	.style("opacity", state===0? 0 : 1)*/
+	if(previousStateNonZero)
+		d3.select("#heading").style("opacity",1)
+	else
+		d3.select("#heading").transition().duration(500).delay(1000)
+		.style("opacity", 1)
 }
 
 function halfcircle(radius,strokeWidth){

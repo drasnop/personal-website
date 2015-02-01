@@ -7,6 +7,8 @@ body{
 	font-size:19;
 	text-rendering: optimizeLegibility;
 	color: #444;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 #wrapper {
@@ -30,17 +32,20 @@ svg{
 	fill: none;
 	margin:0 auto;
 	cursor:pointer;
-	display:inline-block;
 }
 
 #heading{
-	position:relative;
+	position:absolute;
 	font-weight:300;
 	font-size:35;
-	display:inline-block;
+	margin:0;
 }
 
-a {
+h3{
+	font-weight: 300;
+}
+
+a{
 	color: #4472C4;
 	text-decoration: none;
 }

@@ -16,8 +16,7 @@ $(document).ready(function(){
 })
 
 $("#logo").click(function(){
-	state=(state+1)%3;
-	displayState(state);
+	displayState((state+1)%3);
 })
 
 $(".gotoProjects").click(function(){
@@ -39,31 +38,33 @@ function displayState(s,first){
 }
 
 function showLogo(first){
+	state=0;
 	if(first)
 		firstDrawLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
 	else{
 		drawLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
 		$("#about, #projects").slideUp(1000);
 	}
-	state=0;
 }
 
 function showAbout(){
-	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke);
+	var prevState=state;
+	state=1;
+	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
 	if(state===0)
 		$("#about").slideDown(1000);
 	else
 		$("#about").show();
 	$("#projects").hide();
-	state=1;
 }
 
 function showProjects(){
-	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke);
+	var prevState=state;
+	state=2;
+	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
 	if(state===0)
 		$("#projects").slideDown(1000);
 	else
 		$("#projects").show();
 	$("#about").hide();
-	state=2;
 }
