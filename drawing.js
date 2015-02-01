@@ -36,7 +36,7 @@ function initializeLogo(width,height,margin,strokeWidth){
 
 	canvas.append("line")
 	.attr("id","diagonal")
-	.attr("class","letterA")
+	.attr("class","letterA nonStatic")
 
 	canvas.append("clipPath")
 	.attr("id","ellipse-clip-path")
@@ -45,7 +45,7 @@ function initializeLogo(width,height,margin,strokeWidth){
 
 	canvas.append("ellipse")
 	.attr("id","ellipse")
-	.attr("class","letterP")
+	.attr("class","letterP nonStatic")
 }
 
 function firstDrawLogo(width,height,margin,strokeWidth){
@@ -109,6 +109,7 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 }
 
 function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
+	console.log(state)
 	var t0=d3.select("svg").transition("quad-in-out").duration(1000)
 
 	t0.attr("width",width+2*margin).attr("height",height+2*margin)
@@ -144,8 +145,8 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	.attr("x2",width+margin)
 	.attr("y2",height/2+margin)
 
-	d3.select("#diagonal")
-	.style("display", state==2? "none":"")
+/*	d3.select("#diagonal")
+	.style("display", state==2? "none":"")*/
 
 	t0.select("#diagonal")
 	.attr("x1",width/2+margin)
@@ -153,8 +154,8 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	.attr("x2",width/2*(1-1/Math.sqrt(2))+margin)
 	.attr("y2",height/2*(1+1/Math.sqrt(2))+margin)
 
-	d3.select("#ellipse-mask, #ellipse")
-	.style("display", state==1? "none":"")
+/*	d3.select("#ellipse")
+	.style("display", state==1? "none":"")*/
 
 	t0.select("#ellipse-mask")
 	.attr("x",width/2+margin)

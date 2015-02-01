@@ -14,12 +14,33 @@ $(document).ready(function(){
 	initializeLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
 	displayState(0,true);
 
-	$("#logo").click(function(){
-		displayState((state+1)%3);
+	/* navigation */
+
+	$("#left-half").click(function(){
+		if(state==1)
+			displayState(0);
+		else
+			displayState(1)
+	})
+
+	$("#right-half").click(function(){
+		if(state==2)
+			displayState(0);
+		else
+			displayState(2);
 	})
 
 	$(".gotoProjects").click(function(){
 		displayState(2);
+	})
+
+	/* visual effects */
+
+	$("#logo").hover(function(){
+		if(state==1)
+			$(".nonStatic.letterP").toggle();
+		if(state==2)
+			$(".nonStatic.letterA").toggle();
 	})
 
 	$("#left-half").mouseenter(function(){
