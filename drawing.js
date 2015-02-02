@@ -60,12 +60,11 @@ function initializeLogo(width,height,margin,strokeWidth){
 
 function firstDrawLogo(width,height,margin,strokeWidth){
 
-	var t0=d3.select("svg").transition().ease("linear").duration(800)
-	var t1=t0.transition().ease("linear").duration(400)
-	var t2=t1.transition().ease("linear").duration(400)
-	var t3=t2.transition().ease("linear").duration(400)
-	var t4=t3.transition().ease("linear").duration(400)
-	var t5=t4.transition().ease("linear").duration(400)
+	var t0=d3.select("svg").transition().ease("linear").delay(500).duration(600)
+	var t1=t0.transition().ease("linear").duration(300)
+	var t2=t1.transition().ease("linear").duration(300)
+	var t3=t2.transition().ease("linear").duration(300)
+	var t4=t3.transition().ease("linear").duration(300)
 
 	d3.select("#left-half")
 	.attr("x",0)
@@ -106,27 +105,23 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 	/* fall from top to middle */
 
 	t3.select("#vertical-line")
-	.attr("x2",width/2)
 	.attr("y2",height/2)
 
-/*	t3.select("#diagonal")
-	.attr("x2",width/2*2/(1+Math.sqrt(2)))
-	.attr("y2",height/2)*/
+	t3.select("#diagonal")
+	.attr("x2",width/2*Math.sqrt(2)/(1+Math.sqrt(2)))
+	.attr("y2",height/2)
 
 	/* bouquet final */
-
-	t4.select("#horizontal-line")
-	.attr("x2",width)
 
 	t4.select("#vertical-line")
 	.attr("y2",height)
 
 	t4.select("#diagonal")
-	.attr("y2",height)
-
-	t5.select("#diagonal")
 	.attr("x2",width/2*(1-1/Math.sqrt(2)))
 	.attr("y2",height/2*(1+1/Math.sqrt(2)))
+
+	t4.select("#horizontal-line")
+	.attr("x2",width)
 }
 
 
