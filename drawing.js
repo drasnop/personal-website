@@ -46,6 +46,7 @@ function initializeLogo(width,height,margin,strokeWidth){
 	canvas.append("ellipse")
 	.attr("id","ellipse")
 	.attr("class","letterP nonStatic")
+	.attr("clip-path", "url('#ellipse-clip-path')")
 }
 
 function firstDrawLogo(width,height,margin,strokeWidth){
@@ -105,7 +106,6 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 	.attr("cy",height/4+margin)
 	.attr("rx",width/4*1.2)
 	.attr("ry",height/4)
-	.attr("clip-path", "url('#ellipse-clip-path')")
 }
 
 function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
@@ -167,7 +167,6 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	.attr("cy",height/4+margin)
 	.attr("rx",width/4*1.2)
 	.attr("ry",height/4)
-	.attr("clip-path", "url('#ellipse-clip-path')")
 
 	d3.select("#heading")
 	.style("left",width+2*margin+"px")
@@ -181,7 +180,7 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	if(previousStateNonZero)
 		d3.select("#heading").style("opacity",1)
 	else
-		d3.select("#heading").transition().duration(500).delay(1000)
+		d3.select("#heading").transition().duration(400).delay(1000)
 		.style("opacity", 1)
 }
 
