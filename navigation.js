@@ -99,7 +99,6 @@ function showAbout(){
 	state=1;
 	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
 	if(prevState===0){
-		console.log("ps0")
 		$("#about").slideDown(1000);
 		$("#pic").css("transition-delay","1s");
 	}
