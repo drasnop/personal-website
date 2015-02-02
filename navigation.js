@@ -37,6 +37,8 @@ $(document).ready(function(){
 
 	$(".gotoProjects").click(function(){
 		displayState(2);
+		$(".nonStatic.letterP").show();
+		$(".nonStatic.letterA").hide();
 	})
 
 	/* visual effects */
