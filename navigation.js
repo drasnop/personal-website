@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 	$("#right-half").mouseenter(function(){
 		$(".nonStatic.letterP").show();
-		d3.select("#ellipse").moveToFront();
+		d3.select("#boucle").moveToFront();
 		d3.select("#vertical-line").moveToFront();
 	})
 })

@@ -21,15 +21,12 @@ function initializeLogo(width,height,margin,strokeWidth){
 	.datum({endAngle: 0})
 	.attr("d", arcGenerator(width/2))
 
-	canvas.append("clipPath")
-	.attr("id","ellipse-clip-path")
-	.append("rect")
-	.attr("id","ellipse-mask")
-
-	canvas.append("ellipse")
-	.attr("id","ellipse")
+	canvas.append("path")
+	.attr("id","boucle")
 	.attr("class","letterP nonStatic")
-	.attr("clip-path", "url('#ellipse-clip-path')")
+	.attr("transform",translate(width/2,height/4))
+	.datum({endAngle: 0})
+	.attr("d", arcGenerator(width/4))
 
 	/* lines */
 
@@ -79,17 +76,8 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 	t0.select("#circle")
 	.call(arcTween, width/2, tau);
 
-	t2.select("#ellipse-mask")
-	.attr("x",width/2-strokeWidth/2)
-	.attr("y",0)
-	.attr("width",width/2+strokeWidth/2)
-	.attr("height",height)
-
-	t2.select("#ellipse")
-	.attr("cx",width/2)
-	.attr("cy",height/4)
-	.attr("rx",width/4*1.2)
-	.attr("ry",height/4)
+	t0.select("#boucle")
+	.call(arcTween, width/4, 0.5*tau);
 
 	/* lines */
 
@@ -140,17 +128,9 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	.attr("transform",translate(width/2,height/2))
 	.attr("d", arcGenerator(width/2))
 
-	t0.select("#ellipse-mask")
-	.attr("x",width/2)
-	.attr("y",0)
-	.attr("width",width/2)
-	.attr("height",height)
-
-	t0.select("#ellipse")
-	.attr("cx",width/2)
-	.attr("cy",height/4)
-	.attr("rx",width/4*1.2)
-	.attr("ry",height/4)
+	t0.select("#boucle")
+	.attr("transform",translate(width/2,height/4))
+	.attr("d", arcGenerator(width/4).endAngle(0.5*tau))
 
 	/* lines */
 
@@ -192,13 +172,6 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 
 
 
-function halfcircle(radius,strokeWidth){
-	return d3.svg.arc()
-	.innerRadius(radius-strokeWidth/2)
-	.outerRadius(radius+strokeWidth/2)
-	.startAngle(0)
-	.endAngle(Math.PI)
-}
 
 function arcGenerator(radius){
 	return d3.svg.arc()
@@ -227,10 +200,7 @@ d3.selection.prototype.moveToFront = function() {
 // any selected arcs from their current angle to the specified new angle.
 function arcTween(transition, radius, newAngle) {
 
-var arc = d3.svg.arc()
-    .innerRadius(radius)
-    .outerRadius(radius)
-    .startAngle(0);
+var arc = arcGenerator(radius);
 
   // The function passed to attrTween is invoked for each selected element when
   // the transition starts, and for each element returns the interpolator to use
