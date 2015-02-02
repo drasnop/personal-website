@@ -77,26 +77,34 @@ function showLogo(first){
 		drawLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
 		$("#about, #projects").slideUp(1000);
 	}
+	$("#pic").addClass("hidden")
 }
 
 function showAbout(){
 	var prevState=state;
 	state=1;
 	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
-	if(state===0)
+	if(prevState===0){
+		console.log("ps0")
 		$("#about").slideDown(1000);
-	else
+		$("#pic").css("transition-delay","1s");
+	}
+	else{
 		$("#about").show();
+		$("#pic").css("transition-delay","0s");
+	}
 	$("#projects").hide();
+	$("#pic").removeClass("hidden")
 }
 
 function showProjects(){
 	var prevState=state;
 	state=2;
 	drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
-	if(state===0)
+	if(prevState===0)
 		$("#projects").slideDown(1000);
 	else
 		$("#projects").show();
 	$("#about").hide();
+	$("#pic").addClass("hidden")
 }

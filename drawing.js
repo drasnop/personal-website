@@ -109,7 +109,6 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 }
 
 function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
-	console.log(state)
 	var t0=d3.select("svg").transition("quad-in-out").duration(1000)
 
 	t0.attr("width",width+2*margin).attr("height",height+2*margin)
