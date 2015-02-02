@@ -42,60 +42,89 @@ function initializeLogo(width,height,margin,strokeWidth){
 	.attr("id","vertical-line")
 	.attr("class","letterA letterP")
 	.attr("x1",width/2)
-	.attr("y1",height/2)
+	.attr("y1",0)
 	.attr("x2",width/2)
-	.attr("y2",height/2)
+	.attr("y2",0)
 
 	canvas.append("line")
 	.attr("id","diagonal")
 	.attr("class","letterA nonStatic")
+	.attr("x1",width/2)
+	.attr("y1",0)
+	.attr("x2",width/2)
+	.attr("y2",0)
+
 }
 
 
 
 function firstDrawLogo(width,height,margin,strokeWidth){
 
-	var t0=d3.select("svg").transition("quad-in-out").duration(800)
-	var t1=t0.transition("quad-in-out").duration(600)
-	var t2=t1.transition("quad-in-out").duration(600)
+	var t0=d3.select("svg").transition().ease("linear").duration(800)
+	var t1=t0.transition().ease("linear").duration(400)
+	var t2=t1.transition().ease("linear").duration(400)
+	var t3=t2.transition().ease("linear").duration(400)
+	var t4=t3.transition().ease("linear").duration(400)
+	var t5=t4.transition().ease("linear").duration(400)
 
-	t0.select("#left-half")
+	d3.select("#left-half")
 	.attr("x",0)
 	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
-	t0.select("#right-half")
+	d3.select("#right-half")
 	.attr("x",width/2)
 	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
-	/* circles */
+	/* half circles */
 
 	t0.select("#circle")
-	.call(arcTween, width/2, tau);
+	.call(arcTween, width/2, 0.5*tau);
 
 	t0.select("#boucle")
 	.call(arcTween, width/4, 0.5*tau);
 
-	/* lines */
+	/* quarter-circle & half-horizontal */
 
-	t1.select("#vertical-line")
-	.attr("x1",width/2)
-	.attr("y1",height)
-	.attr("x2",width/2)
-	.attr("y2",0)
+	t1.select("#circle")
+	.call(arcTween, width/2, 0.75*tau);
 
 	t1.select("#horizontal-line")
 	.attr("x1",0)
 	.attr("y1",height/2)
-	.attr("x2",width)
+	.attr("x2",width/2)
 	.attr("y2",height/2)
 
-	t2.select("#diagonal")
-	.attr("x1",width/2)
-	.attr("y1",0)
+	/* finish circle */
+
+	t2.select("#circle")
+	.call(arcTween, width/2, tau);
+
+	/* fall from top to middle */
+
+	t3.select("#vertical-line")
+	.attr("x2",width/2)
+	.attr("y2",height/2)
+
+/*	t3.select("#diagonal")
+	.attr("x2",width/2*2/(1+Math.sqrt(2)))
+	.attr("y2",height/2)*/
+
+	/* bouquet final */
+
+	t4.select("#horizontal-line")
+	.attr("x2",width)
+
+	t4.select("#vertical-line")
+	.attr("y2",height)
+
+	t4.select("#diagonal")
+	.attr("y2",height)
+
+	t5.select("#diagonal")
 	.attr("x2",width/2*(1-1/Math.sqrt(2)))
 	.attr("y2",height/2*(1+1/Math.sqrt(2)))
 }
