@@ -5,7 +5,7 @@ function initializeLogo(width,height,margin,strokeWidth){
 	var canvas=d3.select("svg").append("g")
 	.attr("id","canvas")
 	.style("stroke-width",strokeWidth)
-	.attr("transform","translate("+margin+","+margin+")")
+	.attr("transform",translate(margin,margin))
 
 	canvas.append("rect")
 	.attr("id","left-half")
@@ -15,11 +15,11 @@ function initializeLogo(width,height,margin,strokeWidth){
 
 	/* circles */
 
-	canvas.append("circle")
+	canvas.append("path")
 	.attr("id","circle")
-	.attr("cx",width/2)
-	.attr("cy",height/2)
-	.attr("r",height/3)
+	.attr("transform",translate(width/2,height/2))
+	.datum({endAngle: tau})
+	.attr("d", arc(width/2))
 
 	canvas.append("clipPath")
 	.attr("id","ellipse-clip-path")
@@ -77,9 +77,8 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 	/* circles */
 
 	t0.select("#circle")
-	.attr("cx",width/2)
-	.attr("cy",height/2)
-	.attr("r",height/2)
+	.attr("transform",translate(width/2,height/2))
+	.attr("d", arc(width/2))
 
 	t2.select("#ellipse-mask")
 	.attr("x",width/2-strokeWidth/2)
@@ -122,7 +121,7 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	t0.attr("width",width+2*margin).attr("height",height+2*margin)
 	
 	t0.select("#canvas").style("stroke-width",strokeWidth)
-	.attr("transform","translate("+margin+","+margin+")")
+	.attr("transform",translate(margin,margin))
 
 	t0.select("#left-half")
 	.attr("x",0)
@@ -139,9 +138,8 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	/* circles */
 
 	t0.select("#circle")
-	.attr("cx",width/2)
-	.attr("cy",height/2)
-	.attr("r",height/2)
+	.attr("transform",translate(width/2,height/2))
+	.attr("d", arc(width/2))
 
 	t0.select("#ellipse-mask")
 	.attr("x",width/2)
@@ -208,6 +206,10 @@ function arc(radius){
     .innerRadius(radius)
     .outerRadius(radius)
     .startAngle(0);
+}
+
+function translate(x,y){
+	return "translate(" + x + "," + y +")";
 }
 
 function marginForCenter(width){

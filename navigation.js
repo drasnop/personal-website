@@ -5,7 +5,8 @@ var state,
 	largeInnerWidth=300,
 	smallInnerWidth=80,
 	largeStroke=4,
-	smallStroke=2;
+	smallStroke=2,
+	tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
 $(document).ready(function(){
 	$("#wrapper").css({
