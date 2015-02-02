@@ -19,15 +19,19 @@ $(document).ready(function(){
 	$("#left-half").click(function(){
 		if(state==1)
 			displayState(0);
-		else
+		else{
 			displayState(1)
+			$(".nonStatic.letterP").hide();
+		}
 	})
 
 	$("#right-half").click(function(){
 		if(state==2)
 			displayState(0);
-		else
+		else{
 			displayState(2);
+			$(".nonStatic.letterA").hide();
+		}
 	})
 
 	$(".gotoProjects").click(function(){
@@ -36,19 +40,28 @@ $(document).ready(function(){
 
 	/* visual effects */
 
-	$("#logo").hover(function(){
+	$("#logo").mouseenter(function(){
 		if(state==1)
-			$(".nonStatic.letterP").toggle();
+			$(".nonStatic.letterP").show();
 		if(state==2)
-			$(".nonStatic.letterA").toggle();
+			$(".nonStatic.letterA").show();
+	})
+
+	$("#logo").mouseleave(function(){
+		if(state==1)
+			$(".nonStatic.letterP").hide();
+		if(state==2)
+			$(".nonStatic.letterA").hide();
 	})
 
 	$("#left-half").mouseenter(function(){
+		$(".nonStatic.letterA").show();
 		d3.select("#horizontal-line").moveToFront();
 		d3.select("#diagonal").moveToFront();
 	})
 
 	$("#right-half").mouseenter(function(){
+		$(".nonStatic.letterP").show();
 		d3.select("#ellipse").moveToFront();
 		d3.select("#vertical-line").moveToFront();
 	})
