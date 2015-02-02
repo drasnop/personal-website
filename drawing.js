@@ -53,57 +53,57 @@ function firstDrawLogo(width,height,margin,strokeWidth){
 
 	var t0=d3.select("svg").transition("quad-in-out").duration(800)
 
-	t0.select("#canvas")
-	.style("stroke-width",strokeWidth)
+	t0.select("#canvas").style("stroke-width",strokeWidth)
+	.attr("transform","translate("+margin+","+margin+")")
 
 	t0.select("#left-half")
-	.attr("x",0+margin)
-	.attr("y",0+margin)
+	.attr("x",0)
+	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
 	t0.select("#right-half")
-	.attr("x",width/2+margin)
-	.attr("y",0+margin)
+	.attr("x",width/2)
+	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
 	t0.select("#circle")
-	.attr("cx",width/2+margin)
-	.attr("cy",height/2+margin)
+	.attr("cx",width/2)
+	.attr("cy",height/2)
 	.attr("r",height/2)
 
 	var t1=t0.transition("quad-in-out").duration(600)
 
 	t1.select("#vertical-line")
-	.attr("x1",width/2+margin)
-	.attr("y1",height+margin)
-	.attr("x2",width/2+margin)
-	.attr("y2",0+margin)
+	.attr("x1",width/2)
+	.attr("y1",height)
+	.attr("x2",width/2)
+	.attr("y2",0)
 
 	t1.select("#horizontal-line")
-	.attr("x1",0+margin)
-	.attr("y1",height/2+margin)
-	.attr("x2",width+margin)
-	.attr("y2",height/2+margin)
+	.attr("x1",0)
+	.attr("y1",height/2)
+	.attr("x2",width)
+	.attr("y2",height/2)
 
 	var t2=t1.transition("quad-in-out").duration(600)
 
 	t2.select("#diagonal")
-	.attr("x1",width/2+margin)
-	.attr("y1",0+margin)
-	.attr("x2",width/2*(1-1/Math.sqrt(2))+margin)
-	.attr("y2",height/2*(1+1/Math.sqrt(2))+margin)
+	.attr("x1",width/2)
+	.attr("y1",0)
+	.attr("x2",width/2*(1-1/Math.sqrt(2)))
+	.attr("y2",height/2*(1+1/Math.sqrt(2)))
 
 	t2.select("#ellipse-mask")
-	.attr("x",width/2-strokeWidth/2+margin)
-	.attr("y",0+margin)
-	.attr("width",width/2+strokeWidth/2+margin)
-	.attr("height",height+margin)
+	.attr("x",width/2-strokeWidth/2)
+	.attr("y",0)
+	.attr("width",width/2+strokeWidth/2)
+	.attr("height",height)
 
 	t2.select("#ellipse")
-	.attr("cx",width/2+margin)
-	.attr("cy",height/4+margin)
+	.attr("cx",width/2)
+	.attr("cy",height/4)
 	.attr("rx",width/4*1.2)
 	.attr("ry",height/4)
 }
@@ -114,57 +114,58 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	t0.attr("width",width+2*margin).attr("height",height+2*margin)
 	
 	t0.select("#canvas").style("stroke-width",strokeWidth)
+	.attr("transform","translate("+margin+","+margin+")")
 
 	t0.select("#left-half")
-	.attr("x",0+margin)
-	.attr("y",0+margin)
+	.attr("x",0)
+	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
 	t0.select("#right-half")
-	.attr("x",width/2+margin)
-	.attr("y",0+margin)
+	.attr("x",width/2)
+	.attr("y",0)
 	.attr("width",width/2)
 	.attr("height",height)
 
 	t0.select("#circle")
-	.attr("cx",width/2+margin)
-	.attr("cy",height/2+margin)
+	.attr("cx",width/2)
+	.attr("cy",height/2)
 	.attr("r",height/2)
 
 	t0.select("#vertical-line")
-	.attr("x1",width/2+margin)
-	.attr("y1",height+margin)
-	.attr("x2",width/2+margin)
-	.attr("y2",0+margin)
+	.attr("x1",width/2)
+	.attr("y1",height)
+	.attr("x2",width/2)
+	.attr("y2",0)
 
 	t0.select("#horizontal-line")
-	.attr("x1",0+margin)
-	.attr("y1",height/2+margin)
-	.attr("x2",width+margin)
-	.attr("y2",height/2+margin)
+	.attr("x1",0)
+	.attr("y1",height/2)
+	.attr("x2",width)
+	.attr("y2",height/2)
 
 /*	d3.select("#diagonal")
 	.style("display", state==2? "none":"")*/
 
 	t0.select("#diagonal")
-	.attr("x1",width/2+margin)
-	.attr("y1",0+margin)
-	.attr("x2",width/2*(1-1/Math.sqrt(2))+margin)
-	.attr("y2",height/2*(1+1/Math.sqrt(2))+margin)
+	.attr("x1",width/2)
+	.attr("y1",0)
+	.attr("x2",width/2*(1-1/Math.sqrt(2)))
+	.attr("y2",height/2*(1+1/Math.sqrt(2)))
 
 /*	d3.select("#ellipse")
 	.style("display", state==1? "none":"")*/
 
 	t0.select("#ellipse-mask")
-	.attr("x",width/2+margin)
-	.attr("y",0+margin)
-	.attr("width",width/2+margin)
-	.attr("height",height+margin)
+	.attr("x",width/2)
+	.attr("y",0)
+	.attr("width",width/2)
+	.attr("height",height)
 
 	t0.select("#ellipse")
-	.attr("cx",width/2+margin)
-	.attr("cy",height/4+margin)
+	.attr("cx",width/2)
+	.attr("cy",height/4)
 	.attr("rx",width/4*1.2)
 	.attr("ry",height/4)
 
@@ -190,6 +191,13 @@ function halfcircle(radius,strokeWidth){
 	.outerRadius(radius+strokeWidth/2)
 	.startAngle(0)
 	.endAngle(Math.PI)
+}
+
+function arc(radius){
+	return d3.svg.arc()
+    .innerRadius(radius)
+    .outerRadius(radius)
+    .startAngle(0);
 }
 
 function marginForCenter(width){
