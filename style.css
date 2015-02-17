@@ -102,6 +102,7 @@ h3{
 a{
 	color: #48BDB5;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 a:hover{
