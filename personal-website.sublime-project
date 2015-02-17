@@ -1,0 +1,17 @@
+{
+   "folders":
+   [
+      {
+         "path": "/C/Users/Antoine/programmation/web/personal-website",
+         "name":"personal-website",
+         "folder_exclude_patterns":[
+            "git",
+            "libs"
+         ],
+         "file_exclude_patterns": [
+            ".git*",
+            "*.sublime*"
+            ]
+      }
+   ]
+}

@@ -160,9 +160,9 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 
 	t0.select("#vertical-line")
 	.attr("x1",width/2)
-	.attr("y1",height)
-	.attr("x2",width/2)
-	.attr("y2",0)
+	.attr("y1",0)
+   .attr("x2",width/2)
+   .attr("y2",height)
 
 	t0.select("#horizontal-line")
 	.attr("x1",0)

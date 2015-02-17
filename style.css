@@ -1,3 +1,13 @@
+/*
+
+#E6EBEE
+#556e7b
+#d16349
+#48BDB5
+
+*/
+
+
 body{
 	padding:0;
 	margin:0;
@@ -6,9 +16,11 @@ body{
 	font-family: 'Roboto',sans-serif;
 	font-size:19;
 	text-rendering: optimizeLegibility;
-	color: #444;
 	text-align: justify;
 	text-justify: inter-word;
+
+	color: #556e7b;
+	background-color: #E6EBEE; /*#DAE2E6*/
 }
 
 #wrapper {
@@ -28,7 +40,7 @@ body{
 }
 
 svg{
-	stroke: #444;
+	stroke: #556e7b;
 	fill: none;
 	margin:0 auto;
 	cursor:pointer;
@@ -41,11 +53,11 @@ svg{
 }
 
 #left-half:hover ~ .letterA{
-	stroke: #4472C4;
+	stroke: #48BDB5;
 }
 
 #right-half:hover ~ .letterP{
-	stroke: #D65240;
+	stroke: #d16349;
 }
 
 #heading{
@@ -88,10 +100,10 @@ h3{
 }
 
 a{
-	color: #4472C4;
+	color: #48BDB5;
 	text-decoration: none;
 }
 
 a:hover{
-	color:#D65240;
+	color:#d16349;
 }
