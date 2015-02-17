@@ -179,10 +179,6 @@ function drawLogo(width,height,margin,strokeWidth,previousStateNonZero){
 	/* other */
 
 	d3.select("#heading")
-	.style("left",width+2*margin+"px")
-	.style("top",margin+"px")
-	.style("height",height+"px")
-	.style("line-height",height-5+"px")
 	.text(state==1? "bout me" : "rojects")
 	.style("display", state===0? "none":"")
 	.style("opacity",0)
