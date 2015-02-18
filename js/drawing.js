@@ -7,7 +7,7 @@ function initializeLogo(width, height, strokeWidth) {
       .append("circle")
       .attr("class", "arc")
       .attr("transform", translate(width / 2, height / 2))
-      .attr("r",height/2)
+      .attr("r", height / 2)
 
    var canvas = d3.select("svg").append("g")
       .attr("id", "canvas")
@@ -59,7 +59,7 @@ function initializeLogo(width, height, strokeWidth) {
    canvas.append("path")
       .attr("id", "boucle")
       .attr("class", "letterP nonStatic arc")
-      .attr("transform", translate(width / 2, height / 4 +strokeWidth/4))
+      .attr("transform", translate(width / 2, height / 4 + strokeWidth / 4))
       .datum({
          endAngle: 0
       })
@@ -93,7 +93,7 @@ function firstDrawLogo(width, height, strokeWidth) {
       .call(arcTween, width / 2, strokeWidth, 0.5 * tau);
 
    t0.select("#boucle")
-      .call(arcTween, width / 4 + strokeWidth/4, strokeWidth, 0.5 * tau);
+      .call(arcTween, width / 4 + strokeWidth / 4, strokeWidth, 0.5 * tau);
 
    /* quarter-circle & half-horizontal */
 
@@ -135,8 +135,14 @@ function firstDrawLogo(width, height, strokeWidth) {
 
 
 
-function drawLogo(width, height, strokeWidth, previousStateNonZero) {
-   var t0 = d3.select("svg").transition("quad-in-out").duration(1000)
+function drawLogo(strokeWidth, animate, previousStateNonZero) {
+   // compute the desired width
+   var width = $(".logo-col").width(),
+      height = width;
+   
+   var t0 = d3.select("svg")
+   if(animate)
+      t0 = t0.transition("quad-in-out").duration(1000)
 
    t0.attr("width", width).attr("height", height)
 
@@ -161,12 +167,12 @@ function drawLogo(width, height, strokeWidth, previousStateNonZero) {
 
    t0.select("#boucle")
       .attr("transform", translate(width / 2, height / 4))
-      .attr("d", arcGenerator(width / 4 + strokeWidth/4, strokeWidth).endAngle(0.5 * tau))
+      .attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
 
    t0.select("#disk-clipper")
       .select("circle")
       .attr("transform", translate(width / 2, height / 2))
-      .attr("r",height/2)
+      .attr("r", height / 2)
 
    t0.select("#vertical-line")
       .attr("x1", width / 2)

@@ -15,9 +15,9 @@ $(document).ready(function(){
 	initializeLogo(largeInnerWidth,largeInnerWidth,largeStroke);
 	displayState(0,true);
 
-/*	window.addEventListener('resize', function(event){
-	  drawLogo();
-	});*/
+	window.addEventListener('resize', function(event){
+	  drawLogo(smallStroke,false,true);
+	});
 
 	/* navigation */
 
@@ -95,7 +95,7 @@ function showLogo(first){
 	if(first)
 		firstDrawLogo(largeInnerWidth,largeInnerWidth,largeStroke,true);
 	else{
-		drawLogo(largeInnerWidth,largeInnerWidth,largeStroke);
+		drawLogo(largeStroke,true);
 		$("#about, #projects").slideUp(1000);
 	}
 	$("#pic").addClass("hidden")
@@ -104,7 +104,7 @@ function showLogo(first){
 function showAbout(){
 	var prevState=state;
 	state=1;
-	drawLogo(smallInnerWidth,smallInnerWidth,smallStroke,prevState>0);
+	drawLogo(smallStroke,true,prevState>0);
 	if(prevState===0){
 		$("#about").slideDown(1000);
 		$("#pic").css("transition-delay","1s");
@@ -120,7 +120,7 @@ function showAbout(){
 function showProjects(){
 	var prevState=state;
 	state=2;
-	drawLogo(smallInnerWidth,smallInnerWidth,smallStroke,prevState>0);
+	drawLogo(smallStroke,true,prevState>0);
 	if(prevState===0)
 		$("#projects").slideDown(1000);
 	else
