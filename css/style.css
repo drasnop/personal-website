@@ -17,14 +17,17 @@ body{
 	font-family: 'AWConqueror','Roboto',sans-serif;
 	font-size:19;
 	text-rendering: optimizeLegibility;
-	text-align: justify;
-	text-justify: inter-word;
 
 	color: #556e7b;
 	background-color: #E6EBEE; /*#DAE2E6*/
 }
 
-
+@media (min-width: 768px) {
+	body{
+		text-align: justify;
+		text-justify: inter-word;
+	}
+}
 
 /*			bootstrap and spacing 				*/
 
@@ -57,7 +60,15 @@ body{
 	margin-right: -10px;
 }
 
-.vertical-align-center {
+/* Small devices and up */
+@media (min-width: 768px) { 
+    .vertical-align-center {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.vertical-align-center-always {
     display: flex;
     align-items: center;
 }
@@ -110,8 +121,8 @@ a:hover, a:focus{
 
 #heading{
 	font-weight:300;
-	font-size:35;
-	margin-left: -20px;
+	font-size:40;
+	margin-left: -10px;
 }
 
 /*			svg / logo 				*/
