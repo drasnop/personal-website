@@ -1,6 +1,6 @@
-function initializeLogo(width, height, margin, strokeWidth) {
+function initializeLogo(width, height, strokeWidth) {
 
-   d3.select("svg").attr("width", width + 2 * margin).attr("height", height + 2 * margin)
+   d3.select("svg").attr("width", width).attr("height", height)
 
    d3.select("svg").append("clipPath")
       .attr("id", "disk-clipper")
@@ -12,7 +12,6 @@ function initializeLogo(width, height, margin, strokeWidth) {
    var canvas = d3.select("svg").append("g")
       .attr("id", "canvas")
       .style("stroke-width", strokeWidth)
-      .attr("transform", translate(margin, margin))
       .attr("clip-path", "url(#disk-clipper)")
 
    canvas.append("rect")
@@ -68,23 +67,13 @@ function initializeLogo(width, height, margin, strokeWidth) {
 
 
 
-function firstDrawLogo(width, height, strokeWidth, fullAnimation) {
+function firstDrawLogo(width, height, strokeWidth) {
 
-   var t0, t1, t2, t3, t4;
-   if(fullAnimation){
-      t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
-      t1 = t0.transition().ease("linear").duration(300)
-      t2 = t1.transition().ease("linear").duration(300)
-      t3 = t2.transition().ease("linear").duration(300)
-      t4 = t3.transition().ease("linear").duration(300)
-   }
-   else{
-      t0 = d3.select("svg").transition("quad-in-out").duration(1000);
-      t1=t0;
-      t2=t0;
-      t3=t0;
-      t4=t0;
-   }
+   var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
+   var t1 = t0.transition().ease("linear").duration(300)
+   var t2 = t1.transition().ease("linear").duration(300)
+   var t3 = t2.transition().ease("linear").duration(300)
+   var t4 = t3.transition().ease("linear").duration(300)
 
    d3.select("#left-half")
       .attr("x", 0)
@@ -146,13 +135,13 @@ function firstDrawLogo(width, height, strokeWidth, fullAnimation) {
 
 
 
-function drawLogo(width, height, margin, strokeWidth, previousStateNonZero) {
+function drawLogo(width, height, strokeWidth, previousStateNonZero) {
    var t0 = d3.select("svg").transition("quad-in-out").duration(1000)
 
-   t0.attr("width", width + 2 * margin).attr("height", height + 2 * margin)
+   t0.attr("width", width).attr("height", height)
 
+   // We need to increase the strokeWidth, to keep the lines visible
    t0.select("#canvas").style("stroke-width", strokeWidth)
-      .attr("transform", translate(margin, margin))
 
    t0.select("#left-half")
       .attr("x", 0)
@@ -172,7 +161,12 @@ function drawLogo(width, height, margin, strokeWidth, previousStateNonZero) {
 
    t0.select("#boucle")
       .attr("transform", translate(width / 2, height / 4))
-      .attr("d", arcGenerator(width / 4, strokeWidth).endAngle(0.5 * tau))
+      .attr("d", arcGenerator(width / 4 + strokeWidth/4, strokeWidth).endAngle(0.5 * tau))
+
+   t0.select("#disk-clipper")
+      .select("circle")
+      .attr("transform", translate(width / 2, height / 2))
+      .attr("r",height/2)
 
    t0.select("#vertical-line")
       .attr("x1", width / 2)
@@ -205,15 +199,10 @@ function drawLogo(width, height, margin, strokeWidth, previousStateNonZero) {
 }
 
 
-/*function scaleLogo(scale,animate){
-   var svg;
-   if(animate)
-      svg=d3.select("svg").transition("quad-in-out").duration(1000)
-   else
-      svg=d3.select("svg")
 
-   svg.attr("transform", "scale("+scale+")");
-}*/
+
+/////////////////////      helper functions        ////////////////////
+
 
 function arcGenerator(radius, strokeWidth) {
    return d3.svg.arc()
@@ -224,10 +213,6 @@ function arcGenerator(radius, strokeWidth) {
 
 function translate(x, y) {
    return "translate(" + x + "," + y + ")";
-}
-
-function marginForCenter(width) {
-   return 0;
 }
 
 // http://stackoverflow.com/questions/14167863/how-can-i-bring-a-circle-to-the-front-with-d3

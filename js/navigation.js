@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$("#wrapper").css({
 		"width":wrapperWidth+"px",
 		"height":wrapperHeight+"px"})
-	initializeLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
+	initializeLogo(largeInnerWidth,largeInnerWidth,largeStroke);
 	displayState(0,true);
 
 /*	window.addEventListener('resize', function(event){
@@ -95,8 +95,7 @@ function showLogo(first){
 	if(first)
 		firstDrawLogo(largeInnerWidth,largeInnerWidth,largeStroke,true);
 	else{
-		firstDrawLogo(smallInnerWidth,smallInnerWidth,smallStroke,false);
-		// drawLogo(largeInnerWidth,largeInnerWidth,marginForCenter(largeInnerWidth),largeStroke);
+		drawLogo(largeInnerWidth,largeInnerWidth,largeStroke);
 		$("#about, #projects").slideUp(1000);
 	}
 	$("#pic").addClass("hidden")
@@ -105,8 +104,7 @@ function showLogo(first){
 function showAbout(){
 	var prevState=state;
 	state=1;
-		firstDrawLogo(smallInnerWidth,smallInnerWidth,smallStroke,false);
-	// drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
+	drawLogo(smallInnerWidth,smallInnerWidth,smallStroke,prevState>0);
 	if(prevState===0){
 		$("#about").slideDown(1000);
 		$("#pic").css("transition-delay","1s");
@@ -122,8 +120,7 @@ function showAbout(){
 function showProjects(){
 	var prevState=state;
 	state=2;
-		firstDrawLogo(smallInnerWidth,smallInnerWidth,smallStroke,false);
-	// drawLogo(smallInnerWidth,smallInnerWidth,2,smallStroke,prevState>0);
+	drawLogo(smallInnerWidth,smallInnerWidth,smallStroke,prevState>0);
 	if(prevState===0)
 		$("#projects").slideDown(1000);
 	else
