@@ -1,10 +1,8 @@
 /*
-
 #E6EBEE
 #556e7b
 #d16349
 #48BDB5
-
 */
 
 @font-face {
@@ -15,7 +13,6 @@
 body{
 	padding:0;
 	margin:0;
-	overflow:hidden;
 
 	font-family: 'AWConqueror','Roboto',sans-serif;
 	font-size:19;
@@ -27,9 +24,14 @@ body{
 	background-color: #E6EBEE; /*#DAE2E6*/
 }
 
+
+
+/*			bootstrap and spacing 				*/
+
+
 [class*="col-"] {
-    background-color: rgba(86, 61, 124, 0.15);
-    border: 1px solid rgba(86, 61, 124, 0.2);
+    /* background-color: rgba(86, 61, 124, 0.15); */
+    /*border: 1px solid rgba(86, 61, 124, 0.2);*/
 }
 
 .container{
@@ -39,19 +41,64 @@ body{
 
 @media (min-width: 1200px) {
     .container{
-        max-width: 970px;
+        max-width: 800px;
     }
 }
 
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
-    padding-left: 0px;
-    padding-right: 0px;
+/*     padding-left: 0px;
+padding-right: 0px; */
 }
 
 .vertical-align-center {
     display: flex;
     align-items: center;
 }
+
+.paragraph{
+	padding: 5px 0px;
+}
+
+.highlighted{
+	background-color: white;
+	padding: 15px 0;
+	margin-bottom: 10px;
+}
+
+/*			regular content 				*/
+
+
+.round-image{
+	border-radius:50%;
+}
+
+h3{
+	font-weight: 300;
+}
+
+a{
+	color: #48BDB5;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover, a:focus{
+	color:#d16349;
+	text-decoration: none;
+}
+
+.header{
+	padding: 40px 0;
+}
+
+#heading{
+	font-weight:300;
+	font-size:35;
+	margin-left: -20px;
+}
+
+/*			svg / logo 				*/
+
 
 svg{
 	stroke: #556e7b;
@@ -81,10 +128,6 @@ svg{
 	fill: #d16349;
 }
 
-#heading{
-	font-weight:300;
-	font-size:35;
-}
 
 /* #pic{
 	width:82px;
@@ -109,22 +152,3 @@ svg{
 	width:100px;
 	height:100px;
 } */
-
-.round-image{
-	border-radius:50%;
-}
-
-h3{
-	font-weight: 300;
-}
-
-a{
-	color: #48BDB5;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-a:hover, a:focus{
-	color:#d16349;
-	text-decoration: none;
-}
