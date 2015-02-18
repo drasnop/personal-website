@@ -43,6 +43,10 @@ body{
 	}
 }
 
+.container{
+	padding:100px 0;
+}
+
 [class*="col-"] {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -84,14 +88,14 @@ p.paragraph{
 }
 
 .row.paragraph [class*="col-"]{
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .highlighted{
 	background-color: white;
-	padding: 15px 0;
-	margin: 10px -15px;
+	padding: 10px 0;
+	margin: 10px 0;
 }
 
 .highlighted > [class*="col-"]{
@@ -100,10 +104,6 @@ p.paragraph{
 
 .highlighted > [class*="col-"] ~ [class*="col-"]{
 	padding-left: 10px;
-}
-
-.spacer{
-	height: 0px;
 }
 
 
@@ -118,6 +118,10 @@ h3{
 	font-weight: 300;
 }
 
+h2{
+	margin-top: 50px;
+}
+
 a{
 	color: #48BDB5;
 	text-decoration: none;
@@ -130,7 +134,7 @@ a:hover, a:focus{
 }
 
 .header{
-	padding: 40px 0;
+	padding-bottom: 25px;
 }
 
 #heading{

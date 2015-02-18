@@ -5,8 +5,9 @@
          "path": "/C/Users/Antoine/programmation/web/personal-website",
          "name":"personal-website",
          "folder_exclude_patterns":[
-            "git",
-            "libs"
+            ".git",
+            "libs",
+            ".design"
          ],
          "file_exclude_patterns": [
             ".git*",
