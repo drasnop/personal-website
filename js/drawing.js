@@ -68,19 +68,23 @@ function initializeLogo(width, height, margin, strokeWidth) {
 
 
 
-function firstDrawLogo(width, height, margin, strokeWidth) {
+function firstDrawLogo(width, height, strokeWidth, fullAnimation) {
 
-   var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
-   var t1 = t0.transition().ease("linear").duration(300)
-   var t2 = t1.transition().ease("linear").duration(300)
-   var t3 = t2.transition().ease("linear").duration(300)
-   var t4 = t3.transition().ease("linear").duration(300)
-
-/*   var t0 = d3.select("svg").transition().ease("linear").delay(10).duration(10)
-   var t1 = t0.transition().ease("linear").duration(10)
-   var t2 = t1.transition().ease("linear").duration(10)
-   var t3 = t2.transition().ease("linear").duration(10)
-   var t4 = t3.transition().ease("linear").duration(10)*/
+   var t0, t1, t2, t3, t4;
+   if(fullAnimation){
+      t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
+      t1 = t0.transition().ease("linear").duration(300)
+      t2 = t1.transition().ease("linear").duration(300)
+      t3 = t2.transition().ease("linear").duration(300)
+      t4 = t3.transition().ease("linear").duration(300)
+   }
+   else{
+      t0 = d3.select("svg").transition("quad-in-out").duration(1000);
+      t1=t0;
+      t2=t0;
+      t3=t0;
+      t4=t0;
+   }
 
    d3.select("#left-half")
       .attr("x", 0)
@@ -200,6 +204,16 @@ function drawLogo(width, height, margin, strokeWidth, previousStateNonZero) {
       .style("opacity", 1)
 }
 
+
+/*function scaleLogo(scale,animate){
+   var svg;
+   if(animate)
+      svg=d3.select("svg").transition("quad-in-out").duration(1000)
+   else
+      svg=d3.select("svg")
+
+   svg.attr("transform", "scale("+scale+")");
+}*/
 
 function arcGenerator(radius, strokeWidth) {
    return d3.svg.arc()
