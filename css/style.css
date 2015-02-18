@@ -44,6 +44,11 @@ svg{
 	pointer-events:none;
 }
 
+.arc{
+	stroke-width: 0;
+	fill: #556e7b;
+}
+
 #left-half,#right-half{
 	visibility: hidden;
 	pointer-events:all;
@@ -51,10 +56,12 @@ svg{
 
 #left-half:hover ~ .letterA{
 	stroke: #48BDB5;
+	fill: #48BDB5;
 }
 
 #right-half:hover ~ .letterP{
 	stroke: #d16349;
+	fill: #d16349;
 }
 
 #heading{
