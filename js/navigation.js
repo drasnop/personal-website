@@ -81,8 +81,10 @@ $(document).ready(function() {
 
 function resizeAll() {
    var width = $(".logo-col").width();
+	$(".round-image").width(width);
 
-   $(".round-image").width(width);
+   var height=$(".highlighted.master").height();
+   $(".highlighted.master").siblings(".highlighted.slave").height(height);
 }
 
 
