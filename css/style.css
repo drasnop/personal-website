@@ -121,6 +121,10 @@ p.paragraph{
 	/* transition: height 1s ease; */
 }
 
+#header [class*="col-"]{
+	pointer-events: none;
+}
+
 #heading{
 	font-weight:300;
 	font-size:40;

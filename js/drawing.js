@@ -74,9 +74,12 @@ function firstDrawLogo(width, height, strokeWidth) {
       .style("padding-bottom", (window.innerHeight - height) / 2)
 
    var cwidth = $("#header .container").width();
-   var container = d3.select("#header .container");
+/*   var container = d3.select("#header .container");
    container.style("padding-left", ( cwidth + 30 - width) / 2)
-   container.style("padding-right", ( cwidth + 30 - width) / 2)
+   container.style("padding-right", ( cwidth + 30 - width) / 2)*/
+   d3.select("svg")
+   .style("margin-left", ( cwidth - width) / 2)
+   .style("margin-right", ( cwidth - width) / 2)
 
    var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
    var t1 = t0.transition().ease("linear").duration(300)
@@ -156,13 +159,16 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
 
    var cwidth = $("#header .container").width();
-   var container = t0.select(".container");
+/*   var container = t0.select(".container");
    container.style("padding-left", state > 0 ? 15 : ( cwidth + 30 - width) / 2)
-   container.style("padding-right", state > 0 ? 15 : ( cwidth + 30 - width) / 2)
+   container.style("padding-right", state > 0 ? 15 : ( cwidth + 30 - width) / 2)*/
 
    // back to regular svg manipulations
    t0 = t0.select("svg")
    t0.attr("width", width).attr("height", height)
+
+   t0.style("margin-left", state > 0 ? 0 : ( cwidth - width) / 2)
+   .style("margin-right", state > 0 ? 0 : ( cwidth - width) / 2)
 
    // We need to increase the strokeWidth, to keep the lines visible
    t0.select("#canvas").style("stroke-width", strokeWidth)
