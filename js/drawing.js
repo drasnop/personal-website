@@ -135,15 +135,17 @@ function firstDrawLogo(width, height, strokeWidth) {
 
 
 
-function drawLogo(strokeWidth, animate, previousStateNonZero) {
-   // compute the desired width
-   var width = $(".logo-col").width(),
-      height = width;
+function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
    
-   var t0 = d3.select("svg")
+   var t0 = d3.select("#header")
    if(animate)
       t0 = t0.transition("quad-in-out").duration(1000)
 
+   // animate the dark background of the header
+   t0.style("height", state>0? 172 : window.innerHeight)
+
+   // back to regular svg manipulations
+   t0 = t0.select("svg")
    t0.attr("width", width).attr("height", height)
 
    // We need to increase the strokeWidth, to keep the lines visible

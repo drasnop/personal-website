@@ -1,7 +1,5 @@
 // 0=logo, 1=about, 2=projects
 var state,
-   wrapperWidth = 600,
-   wrapperHeight = 600,
    largeInnerWidth = 300,
    smallInnerWidth = 80,
    largeStroke = 4,
@@ -9,16 +7,12 @@ var state,
    tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
 $(document).ready(function() {
-   $("#wrapper").css({
-      "width": wrapperWidth + "px",
-      "height": wrapperHeight + "px"
-   })
    initializeLogo(largeInnerWidth, largeInnerWidth, largeStroke);
-   displayState(0, true);
+   displayState(0, true, true);
    resizeAll();
 
    window.addEventListener('resize', function(event) {
-      drawLogo(smallStroke, false, true);
+      displayState(state, false, false)
       resizeAll();
    });
 
@@ -26,24 +20,24 @@ $(document).ready(function() {
 
    $("#left-half").click(function() {
       if(state == 1)
-         displayState(0);
+         displayState(0, true);
       else {
-         displayState(1)
+         displayState(1, true)
          $(".nonStatic.letterP").hide();
       }
    })
 
    $("#right-half").click(function() {
       if(state == 2)
-         displayState(0);
+         displayState(0, true);
       else {
-         displayState(2);
+         displayState(2, true);
          $(".nonStatic.letterA").hide();
       }
    })
 
    $(".gotoProjects").click(function() {
-      displayState(2);
+      displayState(2, true);
       $(".nonStatic.letterP").show();
       $(".nonStatic.letterA").hide();
    })
@@ -62,7 +56,7 @@ $(document).ready(function() {
          $(".nonStatic.letterP").hide();
       if(state == 2)
          $(".nonStatic.letterA").hide();
-      })
+   })
 
    $("#left-half").mouseenter(function() {
       $(".nonStatic.letterA").show();
@@ -81,44 +75,52 @@ $(document).ready(function() {
 
 function resizeAll() {
    var width = $(".logo-col").width();
-	$(".round-image").width(width);
+   $(".round-image").width(width);
 
-   var height=$(".highlighted.master").height();
+   var height = $(".highlighted.master").height();
    $(".highlighted.master").siblings(".highlighted.slave").height(height);
 }
 
 
-function displayState(s, first) {
+function displayState(s, animate, first) {
    switch(s) {
       case 0:
-         showLogo(first);
+         showLogo(animate, first);
          break;
       case 1:
-         showAbout();
+         showAbout(animate);
          break;
       case 2:
-         showProjects();
+         showProjects(animate);
          break;
    }
 }
 
-function showLogo(first) {
+function showLogo(animate, first) {
    state = 0;
-   if(first)
-      firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke, true);
-   else {
-      drawLogo(largeStroke, true);
-      $("#about, #projects").slideUp(1000);
+   if(first) {
+      //$("#about, #projects, #footer").hide(); 		done in css
+      $("#header").height(window.innerHeight);
+      firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke, animate);
    }
-   $("#pic").addClass("hidden")
+   else {
+      drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, animate);
+      $("#about, #projects").slideUp(1000)
+      $("#footer").hide();
+   }
 }
 
-function showAbout() {
+function showAbout(animate) {
    var prevState = state;
    state = 1;
-   drawLogo(smallStroke, true, prevState > 0);
+
+   var width = $(".logo-col").width();
+   drawLogo(width, width, smallStroke, animate, prevState > 0);
+
    if(prevState === 0) {
-      $("#about").slideDown(1000);
+      $("#about").slideDown(1000, function() {
+         $("#footer").show();
+      });
       $("#pic").css("transition-delay", "1s");
    }
    else {
@@ -126,17 +128,20 @@ function showAbout() {
       $("#pic").css("transition-delay", "0s");
    }
    $("#projects").hide();
-   $("#pic").removeClass("hidden")
 }
 
-function showProjects() {
+function showProjects(animate) {
    var prevState = state;
    state = 2;
-   drawLogo(smallStroke, true, prevState > 0);
+
+   var width = $(".logo-col").width();
+   drawLogo(width, width, smallStroke, animate, prevState > 0);
+
    if(prevState === 0)
-      $("#projects").slideDown(1000);
+      $("#projects").slideDown(1000, function() {
+         $("#footer").show();
+      });
    else
       $("#projects").show();
    $("#about").hide();
-   $("#pic").addClass("hidden")
 }
