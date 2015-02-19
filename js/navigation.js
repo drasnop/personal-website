@@ -55,6 +55,12 @@ $(document).ready(function() {
          $(".nonStatic.letterP").show();
       if(state == 2)
          $(".nonStatic.letterA").show();
+
+      var width = $(".logo-col").width();
+      var strokeWidth = (state === 0)? largeStroke : smallStroke; 
+      d3.select("#boucle")
+      	.attr("transform", translate(width / 2, width / 4 + strokeWidth/4))
+      	.attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
    })
 
    $("#logo").mouseleave(function() {
@@ -62,6 +68,12 @@ $(document).ready(function() {
          $(".nonStatic.letterP").hide();
       if(state == 2)
          $(".nonStatic.letterA").hide();
+   
+      var width = $(".logo-col").width();
+      var strokeWidth = (state === 0)? largeStroke : smallStroke; 
+      d3.select("#boucle")
+      	.attr("transform", translate(width / 2, width / 4 + strokeWidth/4))
+      	.attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
    })
 
    $("#left-half").mouseenter(function() {
@@ -75,6 +87,12 @@ $(document).ready(function() {
       $(".nonStatic.letterP").show();
       d3.select("#boucle").moveToFront();
       d3.select("#vertical-line").moveToFront();
+
+      var width = $(".logo-col").width();
+      var strokeWidth = (state === 0)? largeStroke : smallStroke; 
+      d3.select("#boucle")
+         .attr("transform", translate(width / 2, width / 4 - strokeWidth / 4 + strokeWidth))
+         .attr("d", arcGenerator(width / 4 - strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
    })
 })
 

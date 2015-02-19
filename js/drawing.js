@@ -166,7 +166,7 @@ function drawLogo(strokeWidth, animate, previousStateNonZero) {
       .attr("d", arcGenerator(width / 2, strokeWidth))
 
    t0.select("#boucle")
-      .attr("transform", translate(width / 2, height / 4))
+      .attr("transform", translate(width / 2, width / 4 + strokeWidth/4))
       .attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
 
    t0.select("#disk-clipper")
@@ -176,9 +176,9 @@ function drawLogo(strokeWidth, animate, previousStateNonZero) {
 
    t0.select("#vertical-line")
       .attr("x1", width / 2)
-      .attr("y1", 0)
+      .attr("y1", strokeWidth)
       .attr("x2", width / 2)
-      .attr("y2", height)
+      .attr("y2", height-strokeWidth)
 
    t0.select("#horizontal-line")
       .attr("x1", 0)
