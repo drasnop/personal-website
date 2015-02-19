@@ -18,6 +18,7 @@
 body{
 	padding:0;
 	margin:0;
+	height: 100%;
 
 	font-family: 'AWConqueror',sans-serif;
 	font-size:19;
@@ -25,6 +26,10 @@ body{
 
 	color: #556e7b;
 	background-color: #E6EBEE; /*#DAE2E6*/
+}
+
+body{
+	height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -88,35 +93,50 @@ p.paragraph{
 	padding-bottom: 10px;
 }
 
-.row.paragraph [class*="col-"]{
+.paragraph [class*="col-"]{
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-.highlighted{
+.row .highlighted{
 	background-color: white;
-	padding: 10px 0;
-	margin: 10px 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-
-.highlighted > [class*="col-"]{
-	padding-left: 15px;
-}
-
-.highlighted > [class*="col-"] ~ [class*="col-"]{
-	padding-left: 10px;
-}
-
 
 /*			regular content 				*/
 
+#content{
+	padding-bottom: 150px;
+}
 
 .round-image{
 	border-radius:50%;
 }
 
+#header{
+	background-color: #556e7b;
+	color: #E6EBEE;
+	fill: #E6EBEE;
+	stroke: #E6EBEE;
+	
+	padding: 30px 0;
+}
+
+#heading{
+	font-weight:300;
+	font-size:40;
+	margin-left: -10px;
+}
+
 h3{
 	font-weight: 300;
+}
+
+#projects{
+	text-align: left;
+	/* temporary, until I add some h2 to the projects page */
+	padding-top: 50px;
 }
 
 h2{
@@ -135,21 +155,26 @@ a:hover, a:focus{
 	text-decoration: none;
 }
 
-#header{
-	background-color: #556e7b;
-	color: #E6EBEE;
-	fill: #E6EBEE;
-	stroke: #E6EBEE;
-	
-	padding: 30px 0;
+.marginRight{
+	margin-right: 10px;
 }
 
-#heading{
-	font-weight:300;
-	font-size:40;
-	margin-left: -10px;
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -22px; /* the bottom margin is the negative value of the footer's height */
 }
 
+.footer, .push {
+    height: 22px; /* .push must be the same height as .footer */
+    text-align: center;
+}
+
+#copyright{
+	font-size: 15;
+}
 /*			svg / logo 				*/
 
 
