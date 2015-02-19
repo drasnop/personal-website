@@ -1,6 +1,6 @@
 // 0=logo, 1=about, 2=projects
 var state,
-   largeInnerWidth = 300,
+   largeInnerWidth = 240,
    smallInnerWidth = 80,
    largeStroke = 4,
    smallStroke = 2,

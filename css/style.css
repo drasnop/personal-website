@@ -12,7 +12,7 @@
 
 @font-face {
 	font-family: AWConqueror;
-	src: url("/fonts/AWConquerorSans-Light.otf");
+	src: url("../fonts/AWConquerorSans-Light.otf");
 }
 
 body{
