@@ -69,6 +69,10 @@ function initializeLogo(width, height, strokeWidth) {
 
 function firstDrawLogo(width, height, strokeWidth) {
 
+   d3.select("#header").style("height", window.innerHeight)
+   .style("padding-top", (window.innerHeight-height)/2)
+   .style("padding-bottom", (window.innerHeight-height)/2)
+
    var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
    var t1 = t0.transition().ease("linear").duration(300)
    var t2 = t1.transition().ease("linear").duration(300)
@@ -142,7 +146,9 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       t0 = t0.transition("quad-in-out").duration(1000)
 
    // animate the dark background of the header
-   t0.style("height", state>0? 172 : window.innerHeight)
+   t0.style("height", state>0? width+2*30 : window.innerHeight)
+   .style("padding-top", state>0? 30 : (window.innerHeight-height)/2)
+   .style("padding-bottom", state>0? 30 : (window.innerHeight-height)/2)
 
    // back to regular svg manipulations
    t0 = t0.select("svg")

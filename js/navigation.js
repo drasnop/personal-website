@@ -100,7 +100,6 @@ function showLogo(animate, first) {
    state = 0;
    if(first) {
       //$("#about, #projects, #footer").hide(); 		done in css
-      $("#header").height(window.innerHeight);
       firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke, animate);
    }
    else {
