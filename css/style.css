@@ -19,7 +19,7 @@ body{
 	padding:0;
 	margin:0;
 
-	font-family: 'AWConqueror','Roboto',sans-serif;
+	font-family: 'AWConqueror',sans-serif;
 	font-size:19;
 	text-rendering: optimizeLegibility;
 
@@ -121,6 +121,7 @@ h3{
 
 h2{
 	margin-top: 50px;
+	font-family: 'Roboto Slab';
 }
 
 a{
