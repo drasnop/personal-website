@@ -70,8 +70,13 @@ function initializeLogo(width, height, strokeWidth) {
 function firstDrawLogo(width, height, strokeWidth) {
 
    d3.select("#header").style("height", window.innerHeight)
-   .style("padding-top", (window.innerHeight-height)/2)
-   .style("padding-bottom", (window.innerHeight-height)/2)
+      .style("padding-top", (window.innerHeight - height) / 2)
+      .style("padding-bottom", (window.innerHeight - height) / 2)
+
+   var cwidth = $("#header .container").width();
+   var container = d3.select("#header .container");
+   container.style("padding-left", ( cwidth + 30 - width) / 2)
+   container.style("padding-right", ( cwidth + 30 - width) / 2)
 
    var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
    var t1 = t0.transition().ease("linear").duration(300)
@@ -140,15 +145,20 @@ function firstDrawLogo(width, height, strokeWidth) {
 
 
 function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
-   
+
    var t0 = d3.select("#header")
    if(animate)
       t0 = t0.transition("quad-in-out").duration(1000)
 
    // animate the dark background of the header
-   t0.style("height", state>0? width+2*30 : window.innerHeight)
-   .style("padding-top", state>0? 30 : (window.innerHeight-height)/2)
-   .style("padding-bottom", state>0? 30 : (window.innerHeight-height)/2)
+   t0.style("height", state > 0 ? width + 2 * 30 : window.innerHeight)
+      .style("padding-top", state > 0 ? 30 : (window.innerHeight - height) / 2)
+      .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
+
+   var cwidth = $("#header .container").width();
+   var container = t0.select(".container");
+   container.style("padding-left", state > 0 ? 15 : ( cwidth + 30 - width) / 2)
+   container.style("padding-right", state > 0 ? 15 : ( cwidth + 30 - width) / 2)
 
    // back to regular svg manipulations
    t0 = t0.select("svg")
@@ -174,7 +184,7 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       .attr("d", arcGenerator(width / 2, strokeWidth))
 
    t0.select("#boucle")
-      .attr("transform", translate(width / 2, width / 4 + strokeWidth/4))
+      .attr("transform", translate(width / 2, width / 4 + strokeWidth / 4))
       .attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
 
    t0.select("#disk-clipper")
@@ -186,7 +196,7 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       .attr("x1", width / 2)
       .attr("y1", strokeWidth)
       .attr("x2", width / 2)
-      .attr("y2", height-strokeWidth)
+      .attr("y2", height - strokeWidth)
 
    t0.select("#horizontal-line")
       .attr("x1", 0)
