@@ -10,17 +10,17 @@
 
 */
 
-@font-face {
+/* @font-face {
 	font-family: AWConqueror;
 	src: url("../fonts/AWConquerorSans-Light.otf");
-}
+} */
 
 body{
 	padding:0;
 	margin:0;
 	height: 100%;
 
-	font-family: 'AWConqueror',sans-serif;
+	font-family: 'Roboto',sans-serif;
 	font-size:19;
 	text-rendering: optimizeLegibility;
 
