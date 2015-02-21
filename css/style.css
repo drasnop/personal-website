@@ -185,9 +185,9 @@ a:hover, a:focus{
 }
 
 
-#about, #projects, #footer{
-	display: none;		/* for initial load */
-}
+/* #about, #projects, #footer{
+	display: none;		for initial load
+} */
 /*			svg / logo 				*/
 
 

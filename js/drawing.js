@@ -135,7 +135,7 @@ function firstDrawLogo(width, height, strokeWidth) {
    /* bouquet final */
 
    t4.select("#vertical-line")
-      .attr("y2", height)
+      .attr("y2", height-strokeWidth)
 
    t4.select("#diagonal")
       .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
@@ -159,9 +159,6 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
 
    var cwidth = $("#header .container").width();
-/*   var container = t0.select(".container");
-   container.style("padding-left", state > 0 ? 15 : ( cwidth + 30 - width) / 2)
-   container.style("padding-right", state > 0 ? 15 : ( cwidth + 30 - width) / 2)*/
 
    // back to regular svg manipulations
    t0 = t0.select("svg")
