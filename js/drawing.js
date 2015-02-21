@@ -2,8 +2,7 @@ function initializeLogo(width, height, strokeWidth) {
 
    d3.select("svg").attr("width", width).attr("height", height)
 
-   d3.select("#disk-clipper")
-      .select("circle")
+   d3.select("#disk-clipper circle")
       .attr("transform", translate(width / 2, height / 2))
       .attr("r", height / 2)
 
@@ -64,7 +63,7 @@ function firstDrawLogo(width, height, strokeWidth) {
 
    // unroll the logo
 
-   var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
+   var t0 = d3.select("svg").transition().ease("linear").duration(600)
    var t1 = t0.transition().ease("linear").duration(300)
    var t2 = t1.transition().ease("linear").duration(300)
    var t3 = t2.transition().ease("linear").duration(300)

@@ -7,8 +7,6 @@ var state,
    tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
 $(document).ready(function() {
-   initializeLogo(largeInnerWidth, largeInnerWidth, largeStroke);
-   displayState(0, true, true);
    resizeAll();
 
    window.addEventListener('resize', function(event) {
