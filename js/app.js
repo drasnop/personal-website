@@ -6,18 +6,22 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
    });
 }]);
 
-app.config(['$routeProvider',
-   function($routeProvider) {
-      $routeProvider.
-      when('/about', {
-         templateUrl: 'html/about.html',
-      }).
-      when('/projects', {
-         templateUrl: 'html/projects.html',
-         controller: 'projectsCtrl'
-      }).
-      otherwise({
-         redirectTo: '/about'
-      });
+app.config(['$routeProvider', '$locationProvider',
+   function($routeProvider, $locationProvider) {
+      
+      // following Google’s Making AJAX applications crawlable guide
+      $locationProvider.hashPrefix('!');
+
+      $routeProvider
+         .when('/about', {
+            templateUrl: 'html/about.html',
+         })
+         .when('/projects', {
+            templateUrl: 'html/projects.html',
+            controller: 'projectsCtrl'
+         })
+         .otherwise({
+            template: ""
+         });
    }
 ]);

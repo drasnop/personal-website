@@ -184,10 +184,10 @@ a:hover, a:focus{
 	font-size: 15;
 }
 
-
-/* #about, #projects, #footer{
+#footer{
 	display: none;		for initial load
-} */
+} 
+
 /*			svg / logo 				*/
 
 
