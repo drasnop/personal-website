@@ -1,51 +1,71 @@
 <!DOCTYPE html PUBLIC>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <title>Antoine Ponsard</title>
-  
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Antoine Ponsard</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body ng-app="myApp">
-  <div class="wrapper">
-    <div id="header">
-      <div class="container">
-        <div class="row vertical-align-center-always">
-          <div class="col-sm-2 col-xs-4 logo-col">
-            <svg id="logo"></svg>
-          </div>
-          <div class="col-sm-10 col-xs-8">
-            <span id="heading"></span>
-          </div>
+    <div class="wrapper">
+        <div id="header">
+            <div class="container">
+                <div class="row vertical-align-center-always">
+                    <div class="col-sm-2 col-xs-4 logo-col">
+
+                        <div id="logo" ng-controller="logoCtrl">
+                            <svg>
+                                <clipPath id="disk-clipper">
+                                    <circle class="arc"></circle>
+                                </clipPath>
+                                <g clip-path="url(#disk-clipper)" id="canvas">
+                                    <rect id="left-half"></rect>
+                                    <rect id="right-half"></rect>
+                                    <path id="boucle" class="letterP nonStatic arc"></path>
+                                    <line id="vertical-line" class="letterA letterP"></line>
+                                    <line id="horizontal-line" class="letterA"></line>
+                                    <line id="diagonal" class="letterA nonStatic"></line>
+                                    <path id="circle" class="arc"></path>
+                                </g>
+                            </svg>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-10 col-xs-8">
+                        <span id="heading"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div id="content">
+            <div class="container">
+                <div ng-view></div>
+            </div>
+        </div>
+
+        <div class="push"></div>
     </div>
 
-    <div id="content">
-      <div class="container">
-        <div ng-view></div>
-      </div>
+    <div id="footer">
+        <span id="copyright">© Antoine Ponsard 2015</span>
     </div>
 
-    <div class="push"></div>
-  </div>
-
-  <div id="footer">
-    <span id="copyright">© Antoine Ponsard 2015</span>
-  </div>
-
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/navigation.js"></script>
-  <script type="text/javascript" src="js/drawing.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/navigation.js"></script>
+    <script type="text/javascript" src="js/drawing.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
+
 </html>

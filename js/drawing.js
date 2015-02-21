@@ -2,45 +2,29 @@ function initializeLogo(width, height, strokeWidth) {
 
    d3.select("svg").attr("width", width).attr("height", height)
 
-   d3.select("svg").append("clipPath")
-      .attr("id", "disk-clipper")
-      .append("circle")
-      .attr("class", "arc")
+   d3.select("#disk-clipper")
+      .select("circle")
       .attr("transform", translate(width / 2, height / 2))
       .attr("r", height / 2)
 
-   var canvas = d3.select("svg").append("g")
-      .attr("id", "canvas")
+   d3.select("#canvas")
       .style("stroke-width", strokeWidth)
-      .attr("clip-path", "url(#disk-clipper)")
-
-   canvas.append("rect")
-      .attr("id", "left-half")
-
-   canvas.append("rect")
-      .attr("id", "right-half")
 
    /* lines */
 
-   canvas.append("line")
-      .attr("id", "horizontal-line")
-      .attr("class", "letterA")
-      .attr("x1", width / 2)
+   d3.select("#horizontal-line")
+      .attr("x1", width / 2 + strokeWidth/4)
       .attr("y1", height / 2)
-      .attr("x2", width / 2)
+      .attr("x2", width / 2 + strokeWidth/4)
       .attr("y2", height / 2)
 
-   canvas.append("line")
-      .attr("id", "vertical-line")
-      .attr("class", "letterA letterP")
+   d3.select("#vertical-line")
       .attr("x1", width / 2)
       .attr("y1", 0)
       .attr("x2", width / 2)
       .attr("y2", 0)
 
-   canvas.append("line")
-      .attr("id", "diagonal")
-      .attr("class", "letterA nonStatic")
+   d3.select("#diagonal")
       .attr("x1", width / 2)
       .attr("y1", 0)
       .attr("x2", width / 2)
@@ -48,17 +32,13 @@ function initializeLogo(width, height, strokeWidth) {
 
    /* circles */
 
-   canvas.append("path")
-      .attr("id", "circle")
-      .attr("class", "arc")
+   d3.select("#circle")
       .attr("transform", translate(width / 2, height / 2))
       .datum({
          endAngle: 0
       })
 
-   canvas.append("path")
-      .attr("id", "boucle")
-      .attr("class", "letterP nonStatic arc")
+   d3.select("#boucle")
       .attr("transform", translate(width / 2, height / 4 + strokeWidth / 4))
       .datum({
          endAngle: 0
@@ -69,17 +49,20 @@ function initializeLogo(width, height, strokeWidth) {
 
 function firstDrawLogo(width, height, strokeWidth) {
 
+   // make #header full height, and prepare its shrinking animation
+
    d3.select("#header").style("height", window.innerHeight)
       .style("padding-top", (window.innerHeight - height) / 2)
       .style("padding-bottom", (window.innerHeight - height) / 2)
 
+   // center the logo
+
    var cwidth = $("#header .container").width();
-/*   var container = d3.select("#header .container");
-   container.style("padding-left", ( cwidth + 30 - width) / 2)
-   container.style("padding-right", ( cwidth + 30 - width) / 2)*/
    d3.select("svg")
    .style("margin-left", ( cwidth - width) / 2)
    .style("margin-right", ( cwidth - width) / 2)
+
+   // unroll the logo
 
    var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
    var t1 = t0.transition().ease("linear").duration(300)
@@ -115,7 +98,7 @@ function firstDrawLogo(width, height, strokeWidth) {
    t1.select("#horizontal-line")
       .attr("x1", 0)
       .attr("y1", height / 2)
-      .attr("x2", width / 2)
+      .attr("x2", width / 2 + strokeWidth/4)
       .attr("y2", height / 2)
 
    /* finish circle */

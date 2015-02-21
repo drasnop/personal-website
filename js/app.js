@@ -6,9 +6,13 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
    });
 }]);
 
+app.controller('logoCtrl', ['$scope', function($scope){
+   $scope.state=0;
+}]);
+
 app.config(['$routeProvider', '$locationProvider',
    function($routeProvider, $locationProvider) {
-      
+
       // following Google’s Making AJAX applications crawlable guide
       $locationProvider.hashPrefix('!');
 

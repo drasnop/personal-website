@@ -22,7 +22,8 @@ $(document).ready(function() {
       if(state == 1)
          displayState(0, true);
       else {
-         displayState(1, true)
+         displayState(1, true);
+         window.location.href="#!about"
          $(".nonStatic.letterP").hide();
       }
    })
@@ -31,13 +32,13 @@ $(document).ready(function() {
       if(state == 2)
          displayState(0, true);
       else {
-         displayState(2, true);
+         displayState(2,true);
+         window.location.href="#!projects"         
          $(".nonStatic.letterA").hide();
       }
    })
 
    $(".gotoProjects").click(function() {
-      displayState(2, true);
       $(".nonStatic.letterP").show();
       $(".nonStatic.letterA").hide();
    })
@@ -99,12 +100,10 @@ function displayState(s, animate, first) {
 function showLogo(animate, first) {
    state = 0;
    if(first) {
-      //$("#about, #projects, #footer").hide(); 		done in css
       firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke, animate);
    }
    else {
       drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, animate);
-      $("#about, #projects").slideUp(1000)
       $("#footer").hide();
    }
 }
@@ -115,18 +114,6 @@ function showAbout(animate) {
 
    var width = $(".logo-col").width();
    drawLogo(width, width, smallStroke, animate, prevState > 0);
-
-   if(prevState === 0) {
-      $("#about").slideDown(1000, function() {
-         $("#footer").show();
-      });
-      $("#pic").css("transition-delay", "1s");
-   }
-   else {
-      $("#about").show();
-      $("#pic").css("transition-delay", "0s");
-   }
-   $("#projects").hide();
 }
 
 function showProjects(animate) {
@@ -135,12 +122,4 @@ function showProjects(animate) {
 
    var width = $(".logo-col").width();
    drawLogo(width, width, smallStroke, animate, prevState > 0);
-
-   if(prevState === 0)
-      $("#projects").slideDown(1000, function() {
-         $("#footer").show();
-      });
-   else
-      $("#projects").show();
-   $("#about").hide();
 }
