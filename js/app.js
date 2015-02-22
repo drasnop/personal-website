@@ -1,39 +1,70 @@
 var app = angular.module('myApp', ['ngRoute']);
 
-app.controller('logoCtrl', ['$scope', function($scope){
-   $scope.model={
-      "state": 0,
-      "mouseover": false
+app.controller('logoCtrl', ['$scope', function($scope) {
+   $scope.model = {
+      "state": -1,
+      "mouseover": false,
+      "heading": ""
    }
-   
-   $scope.unfoldLogo=function(){
+
+   $scope.unfoldLogo = function() {
       initializeLogo(largeInnerWidth, largeInnerWidth, largeStroke);
       displayState(0, true, true);
       resizeAll();
       bindListeners();
    }
 
-   $scope.clickA=function(){
-      if($scope.model.state==1){
-         $scope.model.state=0;
-         window.location.href="#!";
+   $scope.clickA = function() {
+      if($scope.model.state == 1)
+         changeState(0);
+      else
+         changeState(1);
+   }
+
+   $scope.clickP = function() {
+      if($scope.model.state == 2)
+         changeState(0);
+      else
+         changeState(2);
+   }
+
+   function changeState(newState) {
+
+      // start appropriate drawing and transitions based on previous state
+      if(newState === 0) {
+         if($scope.model.state == -1)
+            firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke);
+         else
+            drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, true, false);
       }
-      else{
-         $scope.model.state=1;
-         window.location.href="#!about";
+      else {
+         var width = $(".logo-col").width();
+         if($scope.model.state <= 0)
+            drawLogo(width, width, smallStroke, true, true);
+         else
+            drawLogo(width, width, smallStroke, false, true);
+      }
+
+      // update state
+      $scope.model.state=newState;
+
+      // navigate to corresponding content
+      switch($scope.model.state) {
+         case 0:
+            window.location.href = "#!";
+            $scope.model.heading = "";
+            break;
+         case 1:
+            window.location.href = "#!about";
+            $scope.model.heading = "bout me";
+            break;
+         case 2:
+            window.location.href = "#!projects";
+            $scope.model.heading = "rojects";
+            break;
       }
    }
 
-   $scope.clickP=function(){
-      if($scope.model.state==2){
-         $scope.model.state=0;
-         window.location.href="#!";
-      }
-      else{
-         $scope.model.state=2;
-         window.location.href="#!projects";
-      }
-   }
 }]);
 
 app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {

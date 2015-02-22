@@ -15,18 +15,18 @@
 
 <body ng-app="myApp">
     <div class="wrapper">
-        <div id="header">
+        <div id="header"  ng-controller="logoCtrl">
             <div class="container">
                 <div class="row vertical-align-center-always">
                     <div class="col-sm-2 col-xs-4 logo-col">
 
-                        <div id="logo" ng-controller="logoCtrl">
+                        <div id="logo">
                           <div ng-include="'/html/logo.html'" onload="unfoldLogo()"></div>
                         </div>
 
                     </div>
                     <div class="col-sm-10 col-xs-8">
-                        <span id="heading"></span>
+                        <span id="heading" ng-show="model.state" ng-bind="model.heading"</span>
                     </div>
                 </div>
             </div>

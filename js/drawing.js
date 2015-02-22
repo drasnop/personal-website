@@ -196,8 +196,8 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
       .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
 
    d3.select("#heading")
-      .text(state == 1 ? "bout me" : "rojects")
-      .style("display", state === 0 ? "none" : "")
+/*      .text(state == 1 ? "bout me" : "rojects")
+      .style("display", state === 0 ? "none" : "")*/
       .style("opacity", 0)
 
    if(previousStateNonZero)
