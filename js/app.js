@@ -1,11 +1,38 @@
 var app = angular.module('myApp', ['ngRoute']);
 
 app.controller('logoCtrl', ['$scope', function($scope){
-   $scope.state=0;
+   $scope.model={
+      "state": 0,
+      "mouseover": false
+   }
    
    $scope.unfoldLogo=function(){
       initializeLogo(largeInnerWidth, largeInnerWidth, largeStroke);
       displayState(0, true, true);
+      resizeAll();
+      bindListeners();
+   }
+
+   $scope.clickA=function(){
+      if($scope.model.state==1){
+         $scope.model.state=0;
+         window.location.href="#!";
+      }
+      else{
+         $scope.model.state=1;
+         window.location.href="#!about";
+      }
+   }
+
+   $scope.clickP=function(){
+      if($scope.model.state==2){
+         $scope.model.state=0;
+         window.location.href="#!";
+      }
+      else{
+         $scope.model.state=2;
+         window.location.href="#!projects";
+      }
    }
 }]);
 

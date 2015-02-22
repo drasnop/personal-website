@@ -6,9 +6,7 @@ var state,
    smallStroke = 2,
    tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
-$(document).ready(function() {
-   resizeAll();
-
+function bindListeners() {
    window.addEventListener('resize', function(event) {
       displayState(state, false, false)
       resizeAll();
@@ -16,13 +14,12 @@ $(document).ready(function() {
 
    /* navigation */
 
-   $("#left-half").click(function() {
+/*   $("#left-half").click(function() {
       if(state == 1)
          displayState(0, true);
       else {
          displayState(1, true);
          window.location.href="#!about"
-         $(".nonStatic.letterP").hide();
       }
    })
 
@@ -32,44 +29,22 @@ $(document).ready(function() {
       else {
          displayState(2,true);
          window.location.href="#!projects"         
-         $(".nonStatic.letterA").hide();
       }
-   })
-
-   $(".gotoProjects").click(function() {
-      $(".nonStatic.letterP").show();
-      $(".nonStatic.letterA").hide();
-   })
+   })*/
 
    /* visual effects */
 
-   $("#logo").mouseenter(function() {
-      if(state == 1)
-         $(".nonStatic.letterP").show();
-      if(state == 2)
-         $(".nonStatic.letterA").show();
-   })
-
-   $("#logo").mouseleave(function() {
-      if(state == 1)
-         $(".nonStatic.letterP").hide();
-      if(state == 2)
-         $(".nonStatic.letterA").hide();
-   })
-
    $("#left-half").mouseenter(function() {
-      $(".nonStatic.letterA").show();
       d3.select("#horizontal-line").moveToFront();
       d3.select("#diagonal").moveToFront();
       d3.select("#circle").moveToFront();
    })
 
    $("#right-half").mouseenter(function() {
-      $(".nonStatic.letterP").show();
       d3.select("#boucle").moveToFront();
       d3.select("#vertical-line").moveToFront();
    })
-})
+}
 
 
 function resizeAll() {

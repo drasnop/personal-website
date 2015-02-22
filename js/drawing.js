@@ -19,7 +19,7 @@ function initializeLogo(width, height, strokeWidth) {
 
    d3.select("#vertical-line")
       .attr("x1", width / 2)
-      .attr("y1", 0)
+      .attr("y1", -strokeWidth/2)
       .attr("x2", width / 2)
       .attr("y2", 0)
 
@@ -179,7 +179,7 @@ function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
 
    t0.select("#vertical-line")
       .attr("x1", width / 2)
-      .attr("y1", strokeWidth)
+      .attr("y1", -strokeWidth/2)
       .attr("x2", width / 2)
       .attr("y2", height - strokeWidth)
 

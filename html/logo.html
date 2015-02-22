@@ -1,14 +1,14 @@
-<svg>
+<svg ng-mouseover="model.mouseover=true" ng-mouseleave="model.mouseover=false">
     <clipPath id="disk-clipper">
         <circle class="arc"></circle>
     </clipPath>
     <g clip-path="url(#disk-clipper)" id="canvas">
-        <rect id="left-half"></rect>
-        <rect id="right-half"></rect>
-        <path id="boucle" class="letterP nonStatic arc"></path>
+        <rect id="left-half" ng-click="clickA()"></rect>
+        <rect id="right-half" ng-click="clickP()"></rect>
+        <path id="boucle" class="letterP nonStatic arc" ng-hide="model.state==1 && !model.mouseover"></path>
         <line id="vertical-line" class="letterA letterP"></line>
         <line id="horizontal-line" class="letterA"></line>
-        <line id="diagonal" class="letterA nonStatic"></line>
+        <line id="diagonal" class="letterA nonStatic" ng-hide="model.state==2 && !model.mouseover"></line>
         <path id="circle" class="arc"></path>
     </g>
 </svg>
