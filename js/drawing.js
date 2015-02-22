@@ -81,7 +81,7 @@ var drawing = (function() {
 
       // unroll the logo
 
-      var t0 = d3.select("svg").transition().ease("linear").duration(600)
+      var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
       var t1 = t0.transition().ease("linear").duration(300)
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)

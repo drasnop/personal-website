@@ -28,6 +28,14 @@ body{
 
 	/* temporarily set the background color to dark, to speed up the change on initial page load */
 	background-color: #556e7b;
+
+	/* force scrollbar to avoid the page jumping aroung on AJAX loads */
+	overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+	/* alas, only webkit implement this...*/
+   display: none; 
 }
 
 body{

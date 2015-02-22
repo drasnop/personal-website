@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body ng-app="myApp" ng-controller="logoCtrl">
+<body ng-app="myApp" ng-controller="logoCtrl" ng-class="{'scrollbar-visible': model.state>0}">
     <div class="wrapper">
         <div id="header">
             <div class="container">
@@ -21,7 +21,7 @@
                     <div class="col-sm-2 col-xs-4 logo-col">
 
                         <div id="logo">
-                          <div ng-include="'/html/logo.html'" onload="unfoldLogo()"></div>
+                          <div ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
                         </div>
 
                     </div>
