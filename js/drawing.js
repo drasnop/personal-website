@@ -135,7 +135,7 @@ function firstDrawLogo(width, height, strokeWidth) {
 
 
 
-function drawLogo(width, height, strokeWidth, animate, state, previousStateNonZero) {
+function drawLogo(width, height, strokeWidth, state, animate, animateHeading) {
 
    var t0 = d3.select("#header")
    if(animate)
@@ -201,16 +201,13 @@ function drawLogo(width, height, strokeWidth, animate, state, previousStateNonZe
       .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
       .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
 
-   d3.select("#heading")
-/*      .text(state == 1 ? "bout me" : "rojects")
-      .style("display", state === 0 ? "none" : "")*/
-      .style("opacity", 0)
+   if(animate && state!==0){
+      d3.select("#heading").style("opacity", 0)
 
-   if(previousStateNonZero)
-      d3.select("#heading").style("opacity", 1)
-   else
-      d3.select("#heading").transition().duration(400).delay(1000)
+      d3.select("#heading")
+      .transition().duration(400).delay(1000)
       .style("opacity", 1)
+   }
 }
 
 

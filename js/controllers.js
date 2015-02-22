@@ -13,7 +13,7 @@ app.controller('logoCtrl', ['$scope', function($scope) {
    $(window).resize(function() {
       // redraw without actually changing the current state
       $scope.$apply(function() {
-         changeState($scope.model.state);
+         changeState($scope.model.state, true);
       });
    });
 
@@ -37,21 +37,22 @@ app.controller('logoCtrl', ['$scope', function($scope) {
          changeState(2);
    }
 
-   function changeState(newState) {
+   function changeState(newState, dontAnimate) {
 
       // start appropriate drawing and transitions based on previous state
       if(newState === 0) {
          if($scope.model.state == -1)
             firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke);
          else
-            drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, newState, true, false);
+            drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, newState, true && !dontAnimate);
       }
       else {
          var width = $(".logo-col").width();
+         // don't animate if the current is either 1 or 2
          if($scope.model.state <= 0)
-            drawLogo(width, width, smallStroke, newState, true, true);
+            drawLogo(width, width, smallStroke, newState, true);
          else
-            drawLogo(width, width, smallStroke, newState, false, true);
+            drawLogo(width, width, smallStroke, newState, false);
       }
 
       // update state
