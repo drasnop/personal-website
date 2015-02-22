@@ -3,6 +3,6 @@
     <h3>{{project.title}}</h3>
     <a ng-repeat="link in project.links"
         ng-class="{marginRight: !$last}" target="_blank"
-        href="link.href">{{link.text}}</a>
+        href="{{link.href}}">{{link.text}}</a>
   </div>
 </div>
