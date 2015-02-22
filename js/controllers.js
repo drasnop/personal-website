@@ -18,9 +18,8 @@ app.controller('logoCtrl', ['$scope', function($scope) {
    });
 
    $scope.unfoldLogo = function() {
-      initializeLogo(largeInnerWidth, largeInnerWidth, largeStroke);
+      drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
       changeState(0);
-      bindListeners();
    }
 
    $scope.clickA = function() {
@@ -42,17 +41,17 @@ app.controller('logoCtrl', ['$scope', function($scope) {
       // start appropriate drawing and transitions based on previous state
       if(newState === 0) {
          if($scope.model.state == -1)
-            firstDrawLogo(largeInnerWidth, largeInnerWidth, largeStroke);
+            drawing.firstDrawLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
          else
-            drawLogo(largeInnerWidth, largeInnerWidth, largeStroke, newState, true && !dontAnimate);
+            drawing.drawLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke, newState, true && !dontAnimate);
       }
       else {
          var width = $(".logo-col").width();
          // don't animate if the current is either 1 or 2
          if($scope.model.state <= 0)
-            drawLogo(width, width, smallStroke, newState, true);
+            drawing.drawLogo(width, width, drawing.smallStroke, newState, true);
          else
-            drawLogo(width, width, smallStroke, newState, false);
+            drawing.drawLogo(width, width, drawing.smallStroke, newState, false);
       }
 
       // update state
