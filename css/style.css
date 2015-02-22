@@ -25,7 +25,9 @@ body{
 	text-rendering: optimizeLegibility;
 
 	color: #556e7b;
-	background-color: #E6EBEE; /*#DAE2E6*/
+
+	/* temporarily set the background color to dark, to speed up the change on initial page load */
+	background-color: #556e7b;
 }
 
 body{

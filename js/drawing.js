@@ -75,6 +75,10 @@ var drawing = (function() {
          .style("margin-left", (cwidth - width) / 2)
          .style("margin-right", (cwidth - width) / 2)
 
+      // Now that the page is covered by the header, change the body back to its original color
+
+      $("body").css("background-color", "#E6EBEE");
+
       // unroll the logo
 
       var t0 = d3.select("svg").transition().ease("linear").duration(600)
