@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="logoCtrl">
     <div class="wrapper">
-        <div id="header"  ng-controller="logoCtrl">
+        <div id="header">
             <div class="container">
                 <div class="row vertical-align-center-always">
                     <div class="col-sm-2 col-xs-4 logo-col">
@@ -41,7 +41,7 @@
         <div class="push"></div>
     </div>
 
-    <div id="footer">
+    <div id="footer" ng-hide="model.state<=0">
         <span id="copyright">© Antoine Ponsard 2015</span>
     </div>
 

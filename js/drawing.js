@@ -1,3 +1,9 @@
+var largeInnerWidth = 240,
+   smallInnerWidth = 80,
+   largeStroke = 4,
+   smallStroke = 2,
+   tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
+
 function initializeLogo(width, height, strokeWidth) {
 
    d3.select("svg").attr("width", width).attr("height", height)
@@ -129,7 +135,7 @@ function firstDrawLogo(width, height, strokeWidth) {
 
 
 
-function drawLogo(width, height, strokeWidth, animate, previousStateNonZero) {
+function drawLogo(width, height, strokeWidth, animate, state, previousStateNonZero) {
 
    var t0 = d3.select("#header")
    if(animate)

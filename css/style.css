@@ -182,10 +182,6 @@ a:hover, a:focus{
 
 #copyright{
 	font-size: 15;
-}
-
-#footer{
-	display: none;		for initial load
 } 
 
 /*			svg / logo 				*/
