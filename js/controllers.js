@@ -1,4 +1,4 @@
-app.controller('logoCtrl', ['$scope', function($scope) {
+app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
 
    $scope.model = {
       // -1=empty, 0=logo, 1=about, 2=projects
@@ -7,6 +7,10 @@ app.controller('logoCtrl', ['$scope', function($scope) {
       "mouseover": false,
       // text shown at the top of the page
       "heading": ""
+   }
+
+   $scope.getTrustedHtml=function(html){
+      return $sce.trustAsHtml(html);
    }
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.

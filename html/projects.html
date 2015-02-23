@@ -1,8 +1,7 @@
 <div id="projects" class="paddingBottom">
   <div class="spacer"></div>
   <div ng-repeat="project in projects">
-    <h2 class="projectTitle">{{project.title}}</h2>
-    <h3 class="projectSubtitle">{{project.subtitle}}</h3>
+    <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
     <a ng-repeat="link in project.links"
         ng-class="{marginRight: !$last}" target="_blank"
         href="{{link.href}}">{{link.text}}</a>

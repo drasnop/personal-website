@@ -137,7 +137,14 @@ p.paragraph{
 }
 
 h2{
-	font-family: "Roboto";
+	font-weight: 900;
+}
+
+h3{
+	font-size: 26px;
+}
+
+h3 strong{
 	font-weight: 900;
 }
 
