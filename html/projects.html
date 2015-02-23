@@ -3,7 +3,7 @@
   <div ng-repeat="project in projects">
     <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
     <a ng-repeat="link in project.links"
-        ng-class="{marginRight: !$last}" target="_blank"
+        ng-class="{marginRight: !$last, inactive: !link.href}" target="_blank"
         href="{{link.href}}">{{link.text}}</a>
   </div>
 </div>

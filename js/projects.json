@@ -1,37 +1,48 @@
 [{
-      "title": "<strong>PaperQuest:</strong> A Visualization Tool to Support Literature Review",
-      "links": [{
-         "text": "demo",
-         "href": "paperquest"
-      }, {
-         "text": "paper",
-         "href": "res/PaperQuest.pdf"
-      }]
+   "title": "<strong>Direct Customization:</strong> Affordances and Preview for Personalization",
+   "links": [{
+      "text": "(work in progress)",
+      "href": ""
+   }]
+}, {
+   "title": "<strong>PaperQuest:</strong> A Visualization Tool to Support Literature Review",
+   "links": [{
+      "text": "demo",
+      "href": "paperquest"
    }, {
-      "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones",
-      "links": [{
-         "text": "video",
-         "href": "//youtu.be/EhsgFFhHUuA"
-      }, {
-         "text": "paper",
-         "href": "res/TwistAndPulse.pdf"
+      "text": "paper",
+      "href": "res/PaperQuest.pdf"
+   }]
+}, {
+   "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones",
+   "links": [{
+      "text": "video",
+      "href": "//youtu.be/EhsgFFhHUuA"
+   }, {
+      "text": "paper",
+      "href": "res/TwistAndPulse.pdf"
 
-      }]
+   }]
+}, {
+   "title": "Integrating calendar and to-do lists",
+   "links": [{
+      "text": "demo",
+      "href": "hci-med-fi-prototype"
    }, {
-      "title": "Integrating calendar and to-do lists",
-      "links": [{
-         "text": "demo",
-         "href": "hci-med-fi-prototype"
-      }, {
-         "text": "paper",
-         "href": "res/NurseryWeb-stage4.pdf"
+      "text": "paper",
+      "href": "res/NurseryWeb-stage4.pdf"
 
-      }]
-   }, {
-      "title": "Playing with Angular.js",
-      "links": [{
-         "text": "demo",
-         "href": "personal-task-manager"
-      }]
-   }
-]
+   }]
+}, {
+   "title": "Multi-scale video exploration techniques",
+   "links": [{
+      "text": "(demo coming soon)",
+      "href": ""
+   }]
+}, {
+   "title": "Simple task manager in Angular.js",
+   "links": [{
+      "text": "demo",
+      "href": "personal-task-manager"
+   }]
+}]
