@@ -1,5 +1,6 @@
 [{
-      "title": "PaperQuest: A Visualization Tool to Support Literature Review",
+      "title": "PaperQuest",
+      "subtitle": "A Visualization Tool to Support Literature Review",
       "links": [{
          "text": "demo",
          "href": "paperquest"
@@ -8,7 +9,8 @@
          "href": "res/PaperQuest.pdf"
       }]
    }, {
-      "title": "Twist and Pulse: Ephemeral Adaptation to improve Icon Selection on Smartphones",
+      "title": "Twist and Pulse",
+      "subtitle":" Ephemeral Adaptation to improve Icon Selection on Smartphones",
       "links": [{
          "text": "video",
          "href": "//youtu.be/EhsgFFhHUuA"
@@ -18,7 +20,7 @@
 
       }]
    }, {
-      "title": "Integrating calendar and to-do lists",
+      "subtitle": "Integrating calendar and to-do lists",
       "links": [{
          "text": "demo",
          "href": "hci-med-fi-prototype"
@@ -28,7 +30,7 @@
 
       }]
    }, {
-      "title": "Playing with Angular.js",
+      "subtitle": "Playing with Angular.js",
       "links": [{
          "text": "demo",
          "href": "personal-task-manager"

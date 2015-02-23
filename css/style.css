@@ -10,11 +10,6 @@
 
 */
 
-/* @font-face {
-	font-family: AWConqueror;
-	src: url("../fonts/AWConquerorSans-Light.otf");
-} */
-
 body{
 	padding:0;
 	margin:0;
@@ -141,25 +136,17 @@ p.paragraph{
 	margin-left: -10px;
 }
 
-h3{
-	font-weight: 300;
-}
-
-#projects{
-	text-align: left;
-	/* temporary, until I add some h2 to the projects page */
-	padding-top: 50px;
-
-	padding-bottom: 150px;
-}
-
-#about{
-	padding-bottom: 150px;
-}
-
 h2{
-	margin-top: 50px;
-	font-family: 'Roboto Slab';
+	font-family: "Roboto";
+	font-weight: 900;
+}
+
+.spacer{
+	height: 60px;
+}
+
+.paddingBottom{
+	padding-bottom: 150px;
 }
 
 a{
