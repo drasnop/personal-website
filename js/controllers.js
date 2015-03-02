@@ -6,7 +6,9 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
       // true when hovering on the logo
       "mouseover": false,
       // text shown at the top of the page
-      "heading": ""
+      "heading": "",
+      // filter the projects by this tag
+      "tag": "All"
    }
 
    $scope.getTrustedHtml=function(html){
@@ -87,16 +89,27 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.projects = data;
    });
 
+   $scope.tags=["All", "Interaction Design","Visual Design", "Web", "Mobile", "User Research", "Other"]
+
    $scope.toggleProjectDetails=function(project){
       project.detailsVisible= !project.detailsVisible;
       project.pictureVisible= project.detailsVisible;  
    }
 }]);
 
-
+app.filter('filterByTag', function() {
+   return function(input, tag) {
+      console.log(input, tag)
+      if(tag=="All")
+         return input;
+      return input.filter(function(project){
+         return project.tags.indexOf(tag) >= 0;
+      })
+   }
+})
 
 app.controller('aboutCtrl', ['$scope', function($scope){
-   
+
    // Adjust this view just after the template has been loaded
    $scope.$on('$routeChangeSuccess', function () {
       // Resize the round images to have the size of the logo

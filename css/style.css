@@ -209,8 +209,28 @@ a.inactive{
 /*			angular 					*/
 
 #projects .spacer{
-	/* temporary, until select bar */
-	height: 15px;
+	height: 30px;
+}
+
+ul.filters{
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+ul.filters li{
+	display: inline-block;
+}
+
+.tag{
+  padding: 4px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.tag:hover, .tag.active{
+  background-color: #556e7b;
+  color: #E6EBEE;
+  /* border-radius: 4px; */
 }
 
 .project{
