@@ -1,8 +1,8 @@
 <div id="projects" class="paddingBottom">
  <div class="spacer"></div>
 
- <ul class="filters">
-   <li class="tag" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag">{{tag}}</li>
+ <ul class="filters inline-list">
+   <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag">{{tag}}</li>
 </ul>
 
 <div class="project" ng-click="toggleProjectDetails(project)" ng-repeat="project in projects | filterByTag:model.tag">
@@ -27,6 +27,9 @@
   </div>
   <div class="col-sm-10  col-xs-12">
    <p class="project-description">{{project.description}}</p>
+    <ul class="tags inline-list">
+      <li class="tag" ng-repeat="tag in project.tags" ng-click="model.tag=tag; $event.stopPropagation()">{{tag}}</li>
+   </ul>
    <p>Tools: {{project.tools}}</p>
 </div>
 </div>

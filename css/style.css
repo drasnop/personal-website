@@ -37,13 +37,6 @@ body{
 	height: 100%;
 }
 
-/* @media (min-width: 768px) {
-	body{
-		text-align: justify;
-		text-justify: inter-word;
-	}
-} */
-
 /*			bootstrap and spacing 				*/
 
 
@@ -212,25 +205,58 @@ a.inactive{
 	height: 30px;
 }
 
+ul.inline-list{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+ul.inline-list li{
+	display: inline-block;
+}
+
 ul.filters{
 	padding: 0;
 	margin-bottom: 15px;
 }
 
-ul.filters li{
-	display: inline-block;
+@media(max-width: 360px){
+	ul.filters li{
+		display: block;
+	}
 }
 
-.tag{
+.filter{
   padding: 4px 10px;
   margin: 0 5px;
   cursor: pointer;
 }
 
-.tag:hover, .tag.active{
+.filter:hover, .filter.active{
   background-color: #556e7b;
   color: #E6EBEE;
-  /* border-radius: 4px; */
+}
+
+@media(max-width: 360px){
+	ul.tags li{
+		margin: 5px 10px 5px 0px;
+	}
+}
+
+.tag{
+	padding: 1px 6px;
+	margin-right: 10px;
+	cursor: pointer;
+
+	font-size: 17px;
+	
+	border-radius: 0px;
+	border: 1px solid #556e7b; 
+}
+
+.tag:hover{
+	background-color: #556e7b;
+	color: #E6EBEE;
 }
 
 .project{
@@ -262,7 +288,7 @@ ul.filters li{
 	font-size: 18px;
 }
 
-.project-details p{
+.project-details p, .project-details ul{
 	margin-top: 15px;
 }
 
