@@ -20,7 +20,7 @@
       "href": "res/PaperQuest.pdf"
    }]
 }, {
-   "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones",
+   "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
    "picture": "img/ephemeralEffects.png",
    "icon": "img/twistGray.png",
    "pictureVisible":false,
@@ -62,5 +62,14 @@
    "links": [{
       "text": "demo",
       "href": "personal-task-manager"
+   }]
+}, {
+   "title": "Platform game: Path of a Ninja",
+   "picture": "img/sasuke.png",
+   "icon": "img/sasuke-icon.png",
+   "pictureVisible":false,
+   "links": [{
+      "text": ".exe",
+      "href": "res/sasuke.exe"
    }]
 }]
