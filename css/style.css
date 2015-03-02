@@ -198,9 +198,18 @@ a.inactive{
 
 /*			angular 					*/
 
-.projectPicture{
+.project-picture{
 	width: 100%;
 	padding: 20px 0;
+}
+
+.project-icon{
+	transition: all .2s ease;
+	transform: none;
+}
+
+.project-icon:hover{
+	transform: rotate(10deg);
 }
 
 
