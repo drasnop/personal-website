@@ -2,15 +2,19 @@
    "title": "<strong>Direct Customization:</strong> Affordances and Preview for Personalization",
    "picture": "img/directCustomization.png",
    "icon": "img/directCustomization-icon3.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "(work in progress)",
       "href": ""
-   }]
+   }],
+   "description": "Customization panels are the most common customization mechanism in today's software. Often implemented as dialog boxes, they let users modify their software via a set of predefined customization options. However, these panels are how developers think about customization: changing the values of some obscure parameters in a config file. We propose to take the users' side on customization, by embedding it as much as possible in the interface of the app, which they are already familiar with. We are exploring how to add affordances, preview and undo of the customization options available, to create a more direct form of customization.",
+   "tools": "jQuery, Angular.js"
 }, {
    "title": "<strong>PaperQuest:</strong> A Visualization Tool to Support Literature Review",
    "picture": "img/paperquest.png",
    "icon": "img/paperquest-icon.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
@@ -18,11 +22,14 @@
    }, {
       "text": "paper",
       "href": "res/PaperQuest.pdf"
-   }]
+   }],
+   "description": "The literature review is a key component of academic research, that allows researchers to build upon each other’s work. Yet it requires researchers to browse hundreds of publications to find the ones related to their own work. While modern search engines enable fast access to publications, there is a lack of support for filtering out the vast majority of papers that are irrelevant to the current research focus. We present PaperQuest, a visualization tool that supports efficient decisions, by only displaying the information useful at a given step of the process. We propose a relevance algorithm to find and sort papers that are likely to be valuable to users, based on the papers they have already expressed interest in, as well as the number of citations. The current implementation uses papers from the CHI and UIST conferences, and citation counts from Google Scholar, but is easily extensible to other domains of the literature.",
+   "tools": "D3.js"
 }, {
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
    "picture": "img/ephemeralEffects.png",
    "icon": "img/twistGray.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "video",
@@ -31,11 +38,14 @@
       "text": "paper",
       "href": "res/TwistAndPulse.pdf"
 
-   }]
+   }],
+   "description": "The concept of ephemeral adaptation was introduced to reduce visual search time in GUI menus, while preserving spatial consistency and minimizing distraction. We extend this concept to the visual search of app icons on smartphones in order to speed up launching apps from a homescreen. We created ephemeral highlighting effects based on preattentive visual properties including size, orientation, color, opacity and blur. A controlled experiment showed that Twist (icon rotates back and forth) and Pulse (icon grows and shrinks) improve search time performance by 8-10% over a control condition with no highlighting.",
+   "tools": "Android"
 }, {
    "title": "Integrating calendar and to-do lists",
    "picture": "img/todolists.png",
    "icon": "img/todolists-icon.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
@@ -44,32 +54,55 @@
       "text": "paper",
       "href": "res/NurseryWeb-stage4.pdf"
 
-   }]
+   }],
+   "description": "The goal of this team project was to tackle what we considered a major issue in Task Management: the lack of support for time-sensitive deadlines. On the one hand, calendars are time-centric tools, appropriate for keeping track of events, but they are not great for planning for deadlines. On the other hand, todo lists are task-centric tools, excellent for keeping track of tasks and subtasks; but it is hard to visualize time from a text-only format. Our proposed solution is to combine the strength of both types of tools by tightly coupling them.",
+   "tools": "Balsamiq, jQuery, Ember.js"
+}, {
+   "title": "This website",
+   "picture": "",
+   "icon": "img/logoLight.png",
+   "descriptionVisible": false,
+   "pictureVisible":false,
+   "links": [{
+      "text": "home",
+      "href": "#!"
+   }],
+   "description": "Since I was completely free for this project, I wanted to try to design something very minimalistic. Both the visual style and the information architecture are simple: one page about me, one page for my projects. My paraph on the landing screen is the key to the entire website: it is a distinctive personal element; it provides navigation to the different pages; and its circular shape is used consistently troughout the website. The vertical ligne shared by the A and the P can be found in each picture, to reinforce the visual structure.",
+   "tools": "Angular.js, D3.js, Bootstrap"
 }, {
    "title": "Multi-scale video exploration techniques",
    "picture": "img/boa.png",
    "icon": "img/boa-icon.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "(demo coming soon)",
       "href": ""
-   }]
+   }],
+   "description": "I've always been intrigued by that simple question: 'Why is it still so cumbersome to browse and edit videos compared to text files?'. For instance, finding a particular scene in a movie is much more difficult than finding a sentence in a text. During an internship at INRIA, I had access to a wall-sized display made of 32 high resolution monitors. It allowed me to 'lay out time in space', i.e. to project the temporal dimension of the video on the two spatial dimensions of this giant screen. I built three prototypes to try out different interaction techniques, such as temporal zoom based on the distance to the screen. One of my design goals was to preserve as much as possible the continuity of the video while projecting it, which led to the use of a 'snake' projection.",
+   "tools": "Node.js, jQuery, ffmpeg, HTML5 video player"
 }, {
    "title": "Simple task manager in Angular.js",
    "picture": "img/angularTodos.png",
    "icon": "img/angularTodos-icon.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
       "href": "personal-task-manager"
-   }]
+   }],
+   "description": "I built this simple task manager to learn Angular.js, in particular its templating and filtering features.",
+   "tools": "Angular.js"
 }, {
    "title": "Platform game: Path of a Ninja",
    "picture": "img/sasuke.png",
    "icon": "img/sasuke-icon.png",
+   "descriptionVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": ".exe",
       "href": "res/sasuke.exe"
-   }]
+   }],
+   "description": "A platform game I developed a long time ago, in which you control a ninja who jumps from building to building and throws shuriken. It was my first encounter with concepts like Object-Oriented Programming and the event loop. But the most difficult part was to handle gravity and collisions, and change the sprites appropriately—especially since the images I was using had a little bit of depth (2.5D).",
+   "tools": "Game Maker Studio"
 }]

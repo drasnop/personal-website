@@ -1,10 +1,11 @@
 <div id="projects" class="paddingBottom">
   <div class="spacer"></div>
-  <div ng-repeat="project in projects">
-   <div class="row paragraph vertical-align-center">
-   <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
+  <div class="project" ng-click="showProject(project)" ng-repeat="project in projects">
+
+     <div class="row vertical-align-center">
+      <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
         <img class="round-image center-block-small project-icon" ng-src="{{project.icon}}"
-        ng-click="project.pictureVisible= !project.pictureVisible"></img>
+        ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
      </div>
      <div class="col-sm-10 col-xs-12">
        <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
@@ -13,6 +14,16 @@
        href="{{link.href}}">{{link.text}}</a>
     </div>
  </div>
+
+ <div ng-if="project.descriptionVisible" class="row project-details">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-10  col-xs-12">
+      <p>{{project.description}}</p>
+      <p>Tools: {{project.tools}}</p>
+    </div>
+ </div>
+
  <div ng-if="project.pictureVisible" class="row">
     <div class="col-sm-2">
     </div>
@@ -20,4 +31,5 @@
        <img class="project-picture" ng-src="{{project.picture}}" alt="{{project.picture}}"></img>
     </div>
  </div>
+
 </div>

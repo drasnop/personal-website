@@ -86,6 +86,11 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
    $http.get('js/projects.json').success(function(data) {
       $scope.projects = data;
    });
+
+   $scope.showProject=function(project){
+      project.descriptionVisible= !project.descriptionVisible;
+      project.pictureVisible= project.descriptionVisible;  
+   }
 }]);
 
 
