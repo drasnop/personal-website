@@ -103,6 +103,6 @@
       "text": ".exe",
       "href": "res/sasuke.exe"
    }],
-   "description": "A platform game I developed a long time ago, in which you control a ninja who jumps from building to building and throws shuriken. It was my first encounter with concepts like Object-Oriented Programming and the event loop. But the most difficult part was to handle gravity and collisions, and change the sprites appropriately—especially since the images I was using had a little bit of depth (2.5D).",
+   "description": "A platform game I developed a long time ago, in which you control a ninja who jumps from building to building and throws shurikens. It was my first encounter with concepts like Object-Oriented Programming and the event loop. But the most difficult part was to handle gravity and collisions, and change the sprites appropriately—especially since the images I was using had a little bit of depth (2.5D).",
    "tools": "Game Maker Studio"
 }]

@@ -37,12 +37,12 @@ body{
 	height: 100%;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	body{
 		text-align: justify;
 		text-justify: inter-word;
 	}
-}
+} */
 
 /*			bootstrap and spacing 				*/
 
@@ -98,6 +98,11 @@ p.paragraph{
 	padding-bottom: 10px;
 }
 
+.paragraph{
+	text-align: justify;
+	text-justify: inter-word;
+}
+
 .paragraph [class*="col-"]{
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -144,7 +149,7 @@ h2{
 
 h3{
 	font-size: 26px;
-	text-align: left;
+	text-align: inherit;
 }
 
 h3 strong{
@@ -218,11 +223,6 @@ a.inactive{
 	background-color: white;
 }
 
-.project-picture{
-	width: 100%;
-	padding: 20px 0;
-}
-
 .project-icon{
 	transition: all .2s ease;
 	transform: none;
@@ -230,6 +230,12 @@ a.inactive{
 
 .project-icon:hover{
 	transform: rotate(10deg);
+}
+
+@media(max-width: 360px){
+	.project-header{
+		text-align: center;
+	}
 }
 
 .project-details{
@@ -240,6 +246,15 @@ a.inactive{
 	margin-top: 15px;
 }
 
+.project-description{
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+.project-picture{
+	width: 100%;
+	padding: 20px 0;
+}
 
 /*			svg / logo 				*/
 

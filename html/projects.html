@@ -7,11 +7,13 @@
         <img class="round-image center-block-small project-icon" ng-src="{{project.icon}}"
         ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
      </div>
-     <div class="col-sm-10 col-xs-12">
-       <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
-       <a ng-repeat="link in project.links" ng-class="{inactive: !link.href}"
-       class="marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
-      <a ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
+     <div class="col-sm-10 col-xs-12 project-header">
+       <h3 class="project-title" ng-bind-html="getTrustedHtml(project.title)"></h3>
+       <div>
+          <a ng-repeat="link in project.links" ng-class="{inactive: !link.href}"
+          class="marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
+         <a ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
+       </div>
     </div>
  </div>
 
@@ -19,7 +21,7 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-10  col-xs-12">
-      <p>{{project.description}}</p>
+      <p class="project-description">{{project.description}}</p>
       <p>Tools: {{project.tools}}</p>
     </div>
  </div>
