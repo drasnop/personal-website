@@ -2,14 +2,22 @@
   <div class="spacer"></div>
   <div ng-repeat="project in projects">
    <div class="row paragraph vertical-align-center">
-     <div class="col-sm-2">
-     <img class="round-image center-block-small" src="img/twist.png"></img>
-    </div>
-    <div class="col-sm-10">
+   <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
+        <img class="round-image center-block-small" src="img/twist.png"
+        ng-click="project.pictureVisible= !project.pictureVisible"></img>
+     </div>
+     <div class="col-sm-10 col-xs-12">
        <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
        <a ng-repeat="link in project.links"
        ng-class="{marginRight: !$last, inactive: !link.href}" target="_blank"
        href="{{link.href}}">{{link.text}}</a>
+    </div>
+ </div>
+ <div ng-if="project.pictureVisible" class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-10  col-xs-12">
+       <img class="projectPicture" ng-src="{{project.picture}}" alt="{{project.picture}}"></img>
     </div>
  </div>
 </div>
