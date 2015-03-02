@@ -113,6 +113,7 @@ p.paragraph{
 
 .round-image{
 	border-radius:50%;
+	width: 100%;
 }
 
 #header{
@@ -138,10 +139,12 @@ p.paragraph{
 
 h2{
 	font-weight: 900;
+	text-align: left;
 }
 
 h3{
 	font-size: 26px;
+	text-align: left;
 }
 
 h3 strong{
