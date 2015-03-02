@@ -2,7 +2,7 @@
    "title": "<strong>Direct Customization:</strong> Affordances and Preview for Personalization",
    "picture": "img/directCustomization.png",
    "icon": "img/directCustomization-icon3.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "(work in progress)",
@@ -14,7 +14,7 @@
    "title": "<strong>PaperQuest:</strong> A Visualization Tool to Support Literature Review",
    "picture": "img/paperquest.png",
    "icon": "img/paperquest-icon.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
@@ -29,7 +29,7 @@
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
    "picture": "img/ephemeralEffects.png",
    "icon": "img/twistGray.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "video",
@@ -45,7 +45,7 @@
    "title": "Integrating calendar and to-do lists",
    "picture": "img/todolists.png",
    "icon": "img/todolists-icon.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
@@ -61,7 +61,7 @@
    "title": "This website",
    "picture": "",
    "icon": "img/logoLight.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "home",
@@ -73,7 +73,7 @@
    "title": "Multi-scale video exploration techniques",
    "picture": "img/boa.png",
    "icon": "img/boa-icon.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "(demo coming soon)",
@@ -85,7 +85,7 @@
    "title": "Simple task manager in Angular.js",
    "picture": "img/angularTodos.png",
    "icon": "img/angularTodos-icon.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": "demo",
@@ -97,7 +97,7 @@
    "title": "Platform game: Path of a Ninja",
    "picture": "img/sasuke.png",
    "icon": "img/sasuke-icon.png",
-   "descriptionVisible": false,
+   "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
       "text": ".exe",

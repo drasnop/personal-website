@@ -87,9 +87,9 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.projects = data;
    });
 
-   $scope.showProject=function(project){
-      project.descriptionVisible= !project.descriptionVisible;
-      project.pictureVisible= project.descriptionVisible;  
+   $scope.toggleProjectDetails=function(project){
+      project.detailsVisible= !project.detailsVisible;
+      project.pictureVisible= project.detailsVisible;  
    }
 }]);
 

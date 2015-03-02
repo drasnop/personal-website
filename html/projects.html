@@ -1,6 +1,6 @@
 <div id="projects" class="paddingBottom">
   <div class="spacer"></div>
-  <div class="project" ng-click="showProject(project)" ng-repeat="project in projects">
+  <div class="project" ng-click="toggleProjectDetails(project)" ng-repeat="project in projects">
 
      <div class="row vertical-align-center">
       <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
@@ -9,13 +9,13 @@
      </div>
      <div class="col-sm-10 col-xs-12">
        <h3 class="projectTitle" ng-bind-html="getTrustedHtml(project.title)"></h3>
-       <a ng-repeat="link in project.links"
-       ng-class="{marginRight: !$last, inactive: !link.href}" target="_blank"
-       href="{{link.href}}">{{link.text}}</a>
+       <a ng-repeat="link in project.links" ng-class="{inactive: !link.href}"
+       class="marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
+      <a ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
     </div>
  </div>
 
- <div ng-if="project.descriptionVisible" class="row project-details">
+ <div ng-if="project.detailsVisible" class="row project-details">
     <div class="col-sm-2">
     </div>
     <div class="col-sm-10  col-xs-12">
