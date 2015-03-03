@@ -28,6 +28,16 @@ body{
 	overflow-y: scroll;
 }
 
+::-moz-selection{
+	background-color: #556e7b;
+	color: #E6EBEE;
+}
+
+::selection{
+	background-color: #556e7b;
+	color: #E6EBEE;
+}
+
 body::-webkit-scrollbar {
 	/* alas, only webkit implement this...*/
    display: none; 
@@ -262,13 +272,21 @@ ul.filters{
 .project{
 	padding: 15px;
 	margin: 0 -15px;
-	cursor: pointer;
 }
 
 .project:hover{
 	background-color: white;
 }
 
+.project-header{
+	cursor: pointer;
+}
+
+@media(max-width: 360px){
+	.project-header{
+		text-align: center;
+	}
+}
 .project-icon{
 	transition: all .2s ease;
 	transform: none;
@@ -278,11 +296,6 @@ ul.filters{
 	transform: rotate(10deg);
 }
 
-@media(max-width: 360px){
-	.project-header{
-		text-align: center;
-	}
-}
 
 .project-details{
 	font-size: 18px;
