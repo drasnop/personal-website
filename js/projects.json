@@ -1,7 +1,8 @@
 [{
    "title": "<strong>Direct Customization:</strong><br> Affordances and Preview for Personalization",
-   "picture": "img/directCustomization.png",
    "icon": "img/directCustomization-icon3.png",
+   "picture": "img/directCustomization.png",
+   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -13,8 +14,9 @@
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
    "title": "<strong>PaperQuest:</strong><br> A Visualization Tool to Support Literature Review",
-   "picture": "img/paperquest.png",
    "icon": "img/paperquest-icon.png",
+   "picture": "img/paperquest.png",
+   "pictureHref": "paperquest",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -29,8 +31,9 @@
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
-   "picture": "img/ephemeralEffects.png",
    "icon": "img/twistGray.png",
+   "picture": "img/ephemeralEffects.png",
+   "pictureHref": "//youtu.be/EhsgFFhHUuA",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -46,8 +49,9 @@
    "tags": ["Interaction Design", "Visual Design", "Mobile", "User Research"]
 }, {
    "title": "Integrating calendar and to-do lists",
-   "picture": "img/todolists.png",
    "icon": "img/todolists-icon.png",
+   "picture": "img/todolists.png",
+   "pictureHref": "hci-med-fi-prototype",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -63,8 +67,9 @@
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
    "title": "This website",
-   "picture": "",
    "icon": "img/logoLight.png",
+   "picture": "",
+   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -76,8 +81,9 @@
    "tags": ["Interaction Design", "Visual Design", "Web", "Mobile"]
 }, {
    "title": "Multi-scale video exploration techniques",
-   "picture": "img/boa.png",
    "icon": "img/boa-icon.png",
+   "picture": "img/boa.png",
+   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -89,8 +95,9 @@
    "tags": ["Interaction Design", "Web"]
 }, {
    "title": "Simple task manager in Angular.js",
-   "picture": "img/angularTodos.png",
    "icon": "img/angularTodos-icon.png",
+   "picture": "img/angularTodos.png",
+   "pictureHref": "personal-task-manager",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -102,8 +109,9 @@
    "tags": ["Web"]
 }, {
    "title": "Platform game: Path of a Ninja",
-   "picture": "img/sasuke.png",
    "icon": "img/sasuke-icon.png",
+   "picture": "img/sasuke.png",
+   "pictureHref": "res/sasuke.exe",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{

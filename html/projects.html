@@ -5,9 +5,9 @@
    <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag">{{tag}}</li>
 </ul>
 
-<div class="project" ng-click="toggleProjectDetails(project)" ng-repeat="project in projects | filterByTag:model.tag">
+<div class="project" ng-repeat="project in projects | filterByTag:model.tag">
 
- <div class="row vertical-align-center">
+ <div class="row vertical-align-center" ng-click="toggleProjectDetails(project)">
    <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
     <img class="round-image center-block-small project-icon" ng-src="{{project.icon}}"
     ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
@@ -15,7 +15,7 @@
  <div class="col-sm-10 col-xs-12 project-header">
   <h3 class="project-title" ng-bind-html="getTrustedHtml(project.title)"></h3>
   <div>
-     <a ng-repeat="link in project.links" ng-class="{inactive: !link.href}"
+     <a ng-repeat="link in project.links" ng-disabled="!link.href" ng-click="$event.stopPropagation()"
      class="marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
      <a ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
   </div>
@@ -28,7 +28,7 @@
   <div class="col-sm-10  col-xs-12">
    <p class="project-description">{{project.description}}</p>
     <ul class="tags inline-list">
-      <li class="tag" ng-repeat="tag in project.tags" ng-click="model.tag=tag; $event.stopPropagation()">{{tag}}</li>
+      <li class="tag" ng-repeat="tag in project.tags" ng-click="model.tag=tag">{{tag}}</li>
    </ul>
    <p>Tools: {{project.tools}}</p>
 </div>
@@ -38,7 +38,9 @@
   <div class="col-sm-2 col-xs-0">
   </div>
   <div class="col-sm-10  col-xs-12">
+   <a href="{{project.pictureHref}}" target="_blank" ng-disabled="!project.pictureHref">
      <img class="project-picture" ng-src="{{project.picture}}" alt="{{project.picture}}"></img>
+   </a>
   </div>
 </div>
 
