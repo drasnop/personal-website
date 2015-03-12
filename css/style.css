@@ -56,7 +56,7 @@ body{
 }
 
 @media (min-width: 1200px) {
-	.container{
+	.container.small-container{
 		max-width: 800px;
 	}
 }
@@ -147,7 +147,7 @@ p.paragraph{
 
 h2{
 	font-weight: 900;
-	text-align: left;
+	text-align: right;
 }
 
 h3{
