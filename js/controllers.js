@@ -42,26 +42,63 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
          changeState(2);
    }
 
+   // Adjust this view just after the template has been loaded
+   // REMOVE?
+/*   $scope.$on('$routeChangeSuccess', function () {
+      positionLogo()
+   });*/
+
+   function positionLogo(lwidth){
+      switch($scope.model.state) {
+         case 0:
+            $("#logo").css("margin-left", (window.innerWidth-lwidth)/2)
+            break;
+         case 1:
+            $("#logo").css("margin-left", $("#logoAbout").offset().left)
+            break;
+         case 2:
+            $("#logo").css("margin-left", $("#logoProjects").offset().left)
+            break;
+      }
+   }
+
+   function projectsContainerWidth(){
+      if(window.innerWidth>=992)
+         return 800;
+      if(window.innerWidth>=768)
+         return 750;
+      return window.innerWidth;
+   }
+
+   function projectsContainerInnerWidth(){
+      return projectsContainerWidth()-2*15;
+   }
+
    function changeState(newState, dontAnimate) {
 
       // start appropriate drawing and transitions based on previous state
+      var lwidth;
       if(newState === 0) {
+         lwidth=drawing.largeInnerWidth;
          if($scope.model.state == -1)
-            drawing.firstDrawLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
+            drawing.firstDrawLogo(lwidth, lwidth, drawing.largeStroke);
          else
-            drawing.drawLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke, newState, true && !dontAnimate);
+            drawing.drawLogo(lwidth, lwidth, drawing.largeStroke, newState, true && !dontAnimate);
       }
       else {
-         var width = $(".logo-col").width();
+         lwidth = newState==1? $("#logoAbout").width(): $("#logoProjects").width();
          // don't animate if the current is either 1 or 2
          if($scope.model.state <= 0)
-            drawing.drawLogo(width, width, drawing.smallStroke, newState, true);
+            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, true);
          else
-            drawing.drawLogo(width, width, drawing.smallStroke, newState, false);
+            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, false);
       }
 
       // update state
       $scope.model.state = newState;
+
+      // compute new position of the logo
+      positionLogo(lwidth);
 
       // navigate to corresponding content
       switch($scope.model.state) {
@@ -78,6 +115,7 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
             $scope.model.heading = "rojects";
             break;
       }
+
    }
 
 }]);
@@ -99,7 +137,6 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
 
 app.filter('filterByTag', function() {
    return function(input, tag) {
-      console.log(input, tag)
       if(tag=="All")
          return input;
       return input.filter(function(project){
@@ -110,14 +147,14 @@ app.filter('filterByTag', function() {
 
 app.controller('aboutCtrl', ['$scope', function($scope){
 
-   // Adjust this view just after the template has been loaded
+/*   // Adjust this view just after the template has been loaded
    $scope.$on('$routeChangeSuccess', function () {
       // Resize the round images to have the size of the logo
       var width = $(".logo-col").width();
-/*      $(".round-image").width(width);*/
+      $(".round-image").width(width);
 
       // Resize the (empty) highlighting divs to have the size of the ones containing text
       var height = $(".highlighted.master").height();
       $(".highlighted.master").siblings(".highlighted.slave").height(height);
-   });
+   });*/
 }])

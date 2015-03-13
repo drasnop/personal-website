@@ -70,10 +70,10 @@ var drawing = (function() {
 
       // center the logo
 
-      var cwidth = $("#header .container").width();
+/*      var cwidth = $("#header .container").width();
       d3.select("svg")
          .style("margin-left", (cwidth - width) / 2)
-         .style("margin-right", (cwidth - width) / 2)
+         .style("margin-right", (cwidth - width) / 2)*/
 
       // Now that the page is covered by the header, change the body back to its original color
 
@@ -164,8 +164,8 @@ var drawing = (function() {
       t0 = t0.select("svg")
       t0.attr("width", width).attr("height", height)
 
-      t0.style("margin-left", state > 0 ? 0 : (cwidth - width) / 2)
-         .style("margin-right", state > 0 ? 0 : (cwidth - width) / 2)
+/*      t0.style("margin-left", state > 0 ? 0 : (cwidth - width) / 2)
+         .style("margin-right", state > 0 ? 0 : (cwidth - width) / 2)*/
 
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)

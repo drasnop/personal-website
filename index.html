@@ -16,20 +16,32 @@
 <body ng-app="myApp" ng-controller="logoCtrl" ng-class="{'scrollbar-visible': model.state>0}">
     <div class="wrapper">
         <div id="header">
-            <div class="container small-container">
-                <div class="row vertical-align-center-always">
-                    <div class="col-sm-2 col-xs-4 logo-col">
 
-                        <div id="logo">
-                          <div ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
-                        </div>
+            <div class="container squashed">
+                <div class="row paragraph vertical-align-center">
+                   <div class="col-sm-5 col-md-4 vertical-align-center-always">
+                     <div class="col-sm-7 col-sm-push-0 col-xs-8 col-xs-push-4"></div>
+                     <div id="logoAbout" class="col-sm-5 col-sm-pull-0 col-xs-4 col-xs-pull-8"></div>
+                   </div>
+                   <div class="col-sm-7 col-md-8"></div>
+                </div>
+            </div>
 
-                    </div>
-                    <div class="col-sm-10 col-xs-8">
-                        <span id="heading" ng-show="model.state" ng-bind="model.heading"</span>
+            <div class="container small-container squashed">
+                <div class="project">
+                    <div class="row vertical-align-center">
+                        <div id="logoProjects" class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4"></div>
+                        <div class="col-sm-10 col-xs-12 project-header"></div>
                     </div>
                 </div>
             </div>
+
+            <div id="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
+
+
+<!--             <div class="row vertical-align-center-always">
+    <span id="heading" ng-show="model.state" ng-bind="model.heading"</span>
+</div> -->
         </div>
 
         <div id="content">
