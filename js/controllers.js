@@ -114,7 +114,7 @@ app.controller('aboutCtrl', ['$scope', function($scope){
    $scope.$on('$routeChangeSuccess', function () {
       // Resize the round images to have the size of the logo
       var width = $(".logo-col").width();
-      $(".round-image").width(width);
+/*      $(".round-image").width(width);*/
 
       // Resize the (empty) highlighting divs to have the size of the ones containing text
       var height = $(".highlighted.master").height();

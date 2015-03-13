@@ -147,7 +147,14 @@ p.paragraph{
 
 h2{
 	font-weight: 900;
-	text-align: right;
+	margin: 0;
+}
+
+@media (min-width: 768px) { 
+	h2{
+		/* on large screens, headers appear on the left so: */
+		text-align: right;
+	}
 }
 
 h3{
