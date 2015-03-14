@@ -5,6 +5,7 @@ var drawing = (function() {
       "smallInnerWidth": 80,
       "largeStroke": 4,
       "smallStroke": 2,
+      "longAnimation": 1000
    }
    var tau= 2 * Math.PI; // http://tauday.com/tau-manifesto
 
@@ -67,13 +68,6 @@ var drawing = (function() {
       d3.select("#header").style("height", window.innerHeight)
          .style("padding-top", (window.innerHeight - height) / 2)
          .style("padding-bottom", (window.innerHeight - height) / 2)
-
-      // center the logo
-
-/*      var cwidth = $("#header .container").width();
-      d3.select("svg")
-         .style("margin-left", (cwidth - width) / 2)
-         .style("margin-right", (cwidth - width) / 2)*/
 
       // Now that the page is covered by the header, change the body back to its original color
 
@@ -151,7 +145,7 @@ var drawing = (function() {
 
       var t0 = d3.select("#header")
       if(animate)
-         t0 = t0.transition("quad-in-out").duration(1000)
+         t0 = t0.transition("quad-in-out").duration(animate)
 
       // animate the dark background of the header
       t0.style("height", state > 0 ? width + 2 * 30 : window.innerHeight)
@@ -163,9 +157,6 @@ var drawing = (function() {
       // back to regular svg manipulations
       t0 = t0.select("svg")
       t0.attr("width", width).attr("height", height)
-
-/*      t0.style("margin-left", state > 0 ? 0 : (cwidth - width) / 2)
-         .style("margin-right", state > 0 ? 0 : (cwidth - width) / 2)*/
 
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)
@@ -217,7 +208,7 @@ var drawing = (function() {
          d3.select("#heading").style("opacity", 0)
 
          d3.select("#heading")
-            .transition().duration(400).delay(1000)
+            .transition().duration(400).delay(animate)
             .style("opacity", 1)
       }
    }

@@ -107,14 +107,10 @@ p{
 	margin: 0;
 }
 
-p.paragraph{
-	padding-top:10px;
-	padding-bottom: 10px;
-}
-
 .paragraph{
 	text-align: justify;
 	text-justify: inter-word;
+	margin-top: 60px;
 }
 
 .paragraph [class*="col-"]{
@@ -184,10 +180,6 @@ h3 strong{
 h3 em{
 	font-style: italic;
 	font-size: 19px;
-}
-
-.spacer{
-	height: 60px;
 }
 
 .paddingBottom{

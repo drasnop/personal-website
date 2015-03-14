@@ -47,17 +47,19 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
       // start appropriate drawing and transitions based on previous state
       var lwidth;
       if(newState === 0) {
+         // draw large logo, fullscreen
          lwidth=drawing.largeInnerWidth;
          if($scope.model.state == -1)
             drawing.firstDrawLogo(lwidth, lwidth, drawing.largeStroke);
          else
-            drawing.drawLogo(lwidth, lwidth, drawing.largeStroke, newState, true && !dontAnimate);
+            drawing.drawLogo(lwidth, lwidth, drawing.largeStroke, newState, dontAnimate? false : drawing.longAnimation);
       }
       else {
-         lwidth = newState==1? $("#logoAbout").width(): $("#logoProjects").width();
+         /*lwidth = newState==1? $("#logoAbout").width(): $("#logoProjects").width();*/
+         lwidth = $("#logoProjects").width();
          // don't animate if the current is either 1 or 2
          if($scope.model.state <= 0)
-            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, true);
+            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, drawing.longAnimation);
          else
             drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, false);
       }
@@ -131,14 +133,14 @@ app.filter('filterByTag', function() {
 
 app.controller('aboutCtrl', ['$scope', function($scope){
 
-/*   // Adjust this view just after the template has been loaded
+   // Adjust this view just after the template has been loaded
    $scope.$on('$routeChangeSuccess', function () {
       // Resize the round images to have the size of the logo
-      var width = $(".logo-col").width();
+      var width = $("#logoProjects").width();
       $(".round-image").width(width);
 
-      // Resize the (empty) highlighting divs to have the size of the ones containing text
+/*      // Resize the (empty) highlighting divs to have the size of the ones containing text
       var height = $(".highlighted.master").height();
-      $(".highlighted.master").siblings(".highlighted.slave").height(height);
-   });*/
+      $(".highlighted.master").siblings(".highlighted.slave").height(height);*/
+   });
 }])
