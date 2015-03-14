@@ -91,6 +91,10 @@ body{
 	align-items: center;
 }
 
+.position-absolute{
+	position: absolute;
+}
+
 @media (min-width: 768px) { 
 	.center-block-small {
 		display: block;
@@ -143,7 +147,8 @@ p.paragraph{
 
 #logo{
 	padding: 0 10px;
-	transition: margin-left .4s ease;
+	transition: margin-left .5s ease;
+	display: inline-block;
 }
 
 #header [class*="col-"]{
@@ -153,7 +158,6 @@ p.paragraph{
 #heading{
 	font-weight:300;
 	font-size:40;
-	margin-left: -10px;
 }
 
 h2{
