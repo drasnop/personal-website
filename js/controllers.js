@@ -42,38 +42,6 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
          changeState(2);
    }
 
-   // Adjust this view just after the template has been loaded
-   // REMOVE?
-/*   $scope.$on('$routeChangeSuccess', function () {
-      positionLogo()
-   });*/
-
-   function positionLogo(lwidth){
-      switch($scope.model.state) {
-         case 0:
-            $("#logo").css("margin-left", (window.innerWidth-lwidth)/2)
-            break;
-         case 1:
-            $("#logo").css("margin-left", $("#logoAbout").offset().left)
-            break;
-         case 2:
-            $("#logo").css("margin-left", $("#logoProjects").offset().left)
-            break;
-      }
-   }
-
-   function projectsContainerWidth(){
-      if(window.innerWidth>=992)
-         return 800;
-      if(window.innerWidth>=768)
-         return 750;
-      return window.innerWidth;
-   }
-
-   function projectsContainerInnerWidth(){
-      return projectsContainerWidth()-2*15;
-   }
-
    function changeState(newState, dontAnimate) {
 
       // start appropriate drawing and transitions based on previous state
@@ -116,6 +84,22 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
             break;
       }
 
+   }
+
+
+   // helper function
+   function positionLogo(lwidth){
+      switch($scope.model.state) {
+         case 0:
+            $("#logo").css("margin-left", (window.innerWidth-lwidth)/2)
+            break;
+         case 1:
+            $("#logo").css("margin-left", $("#logoAbout").offset().left)
+            break;
+         case 2:
+            $("#logo").css("margin-left", $("#logoProjects").offset().left)
+            break;
+      }
    }
 
 }]);

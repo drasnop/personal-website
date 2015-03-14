@@ -50,12 +50,12 @@ body{
 /*			bootstrap and spacing 				*/
 
 
-[class*="col-"] {
+/* [class*="col-"] */ {
 	/* background-color: rgba(86, 61, 124, 0.15); */
-	border: 1px solid rgba(86, 61, 124, 0.2);
+	/* border: 1px solid rgba(86, 61, 124, 0.2); */
 }
 .container{
-	border: 1px solid rgba(86, 61, 124, 0.2);
+	/* border: 1px solid rgba(86, 61, 124, 0.2); */
 }
 
 /* .heightZero{
@@ -363,6 +363,13 @@ svg{
 
 
 .squashed{
+	height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.squashed *{
+	height: 0;
 	padding-top: 0;
 	padding-bottom: 0;
 }
