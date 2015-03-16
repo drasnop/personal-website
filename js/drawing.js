@@ -5,7 +5,8 @@ var drawing = (function() {
       "smallInnerWidth": 80,
       "largeStroke": 4,
       "smallStroke": 2,
-      "longAnimation": 1000
+      "longAnimation": 1000,
+      "shortAnimation": 500
    }
    var tau= 2 * Math.PI; // http://tauday.com/tau-manifesto
 
@@ -68,6 +69,9 @@ var drawing = (function() {
       d3.select("#header").style("height", window.innerHeight)
          .style("padding-top", (window.innerHeight - height) / 2)
          .style("padding-bottom", (window.innerHeight - height) / 2)
+
+      // center the logo
+      d3.select("#logo").style("margin-left", logoLeftMargin(0,width))
 
       // Now that the page is covered by the header, change the body back to its original color
 
@@ -141,16 +145,19 @@ var drawing = (function() {
 
 
 
-   drawing.drawLogo = function(width, height, strokeWidth, state, animate) {
+   drawing.drawLogo = function(width, height, strokeWidth, state, animate, cubic) {
 
       var t0 = d3.select("#header")
       if(animate)
-         t0 = t0.transition("quad-in-out").duration(animate)
+         t0 = t0.transition(cubic? "cubic-out" : "quad-in-out").duration(animate)
 
       // animate the dark background of the header
       t0.style("height", state > 0 ? width + 2 * 30 : window.innerHeight)
          .style("padding-top", state > 0 ? 30 : (window.innerHeight - height) / 2)
          .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
+
+      // position the logo horizontally
+      t0.select("#logo").style("margin-left", logoLeftMargin(state,width))
 
       var cwidth = $("#header .container").width();
 
@@ -232,6 +239,16 @@ var drawing = (function() {
       })
    }
 
+   function logoLeftMargin(state, logoWidth){
+      switch(state) {
+         case 0:
+            return (window.innerWidth-logoWidth)/2;
+         case 1:
+            return $("#logoAbout").offset().left;
+         case 2:
+            return $("#logoProjects").offset().left;
+      }
+   }
 
    function arcGenerator(radius, strokeWidth) {
       return d3.svg.arc()

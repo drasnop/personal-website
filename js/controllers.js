@@ -1,15 +1,18 @@
+var model={
+   // -1=empty, 0=logo, 1=about, 2=projects
+   "state": -1,
+   // true when hovering on the logo
+   "mouseover": false,
+   // text shown at the top of the page
+   "heading": "",
+   // filter the projects by this tag
+   "tag": "All"
+}
+
+
 app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
 
-   $scope.model = {
-      // -1=empty, 0=logo, 1=about, 2=projects
-      "state": -1,
-      // true when hovering on the logo
-      "mouseover": false,
-      // text shown at the top of the page
-      "heading": "",
-      // filter the projects by this tag
-      "tag": "All"
-   }
+   $scope.model = window.model;
 
    $scope.getTrustedHtml=function(html){
       return $sce.trustAsHtml(html);
@@ -42,68 +45,6 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
          changeState(2);
    }
 
-   function changeState(newState, dontAnimate) {
-
-      // start appropriate drawing and transitions based on previous state
-      var lwidth;
-      if(newState === 0) {
-         // draw large logo, fullscreen
-         lwidth=drawing.largeInnerWidth;
-         if($scope.model.state == -1)
-            drawing.firstDrawLogo(lwidth, lwidth, drawing.largeStroke);
-         else
-            drawing.drawLogo(lwidth, lwidth, drawing.largeStroke, newState, dontAnimate? false : drawing.longAnimation);
-      }
-      else {
-         /*lwidth = newState==1? $("#logoAbout").width(): $("#logoProjects").width();*/
-         lwidth = $("#logoProjects").width();
-         // don't animate if the current is either 1 or 2
-         if($scope.model.state <= 0)
-            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, drawing.longAnimation);
-         else
-            drawing.drawLogo(lwidth, lwidth, drawing.smallStroke, newState, false);
-      }
-
-      // update state
-      $scope.model.state = newState;
-
-      // compute new position of the logo
-      positionLogo(lwidth);
-
-      // navigate to corresponding content
-      switch($scope.model.state) {
-         case 0:
-            window.location.href = "#!";
-            $scope.model.heading = "";
-            break;
-         case 1:
-            window.location.href = "#!about";
-            $scope.model.heading = "bout me";
-            break;
-         case 2:
-            window.location.href = "#!projects";
-            $scope.model.heading = "rojects";
-            break;
-      }
-
-   }
-
-
-   // helper function
-   function positionLogo(lwidth){
-      switch($scope.model.state) {
-         case 0:
-            $("#logo").css("margin-left", (window.innerWidth-lwidth)/2)
-            break;
-         case 1:
-            $("#logo").css("margin-left", $("#logoAbout").offset().left)
-            break;
-         case 2:
-            $("#logo").css("margin-left", $("#logoProjects").offset().left)
-            break;
-      }
-   }
-
 }]);
 
 
@@ -131,6 +72,7 @@ app.filter('filterByTag', function() {
    }
 })
 
+
 app.controller('aboutCtrl', ['$scope', function($scope){
 
    // Adjust this view just after the template has been loaded
@@ -143,4 +85,54 @@ app.controller('aboutCtrl', ['$scope', function($scope){
       var height = $(".highlighted.master").height();
       $(".highlighted.master").siblings(".highlighted.slave").height(height);*/
    });
+
+   $scope.clickProjectsLink=function(){
+      changeState(2);
+   }
 }])
+
+
+
+
+function changeState(newState, dontAnimate) {
+   console.log(newState, dontAnimate)
+
+   // start appropriate drawing and transitions based on previous state
+   var logoWidth;
+   if(newState === 0) {
+      // draw large logo, fullscreen
+      logoWidth=drawing.largeInnerWidth;
+      if(model.state == -1)
+         drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
+      else
+         drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, newState, dontAnimate? false : drawing.longAnimation, false);
+   }
+   else {
+      logoWidth = $("#logoProjects").width();
+
+      if(model.state <= 0)
+         drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, newState, dontAnimate? false : drawing.longAnimation, false);
+      else
+         drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, newState, dontAnimate? false : drawing.shortAnimation, true);
+   }
+
+   // update state
+   model.state = newState;
+
+   // navigate to corresponding content
+   switch(model.state) {
+      case 0:
+         window.location.href = "#!";
+         model.heading = "";
+         break;
+      case 1:
+         window.location.href = "#!about";
+         model.heading = "bout me";
+         break;
+      case 2:
+         window.location.href = "#!projects";
+         model.heading = "rojects";
+         break;
+   }
+
+}
