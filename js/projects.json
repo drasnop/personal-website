@@ -41,8 +41,7 @@
       "href": "//youtu.be/EhsgFFhHUuA"
    }, {
       "text": "paper",
-      "href": "res/TwistAndPulse.pdf"
-
+      "href": "res/TwistAndPulse-GI2015.pdf"
    }],
    "description": "The concept of ephemeral adaptation was introduced to reduce visual search time in GUI menus, while preserving spatial consistency and minimizing distraction. We extend this concept to the visual search of app icons on smartphones in order to speed up launching apps from a homescreen. We created ephemeral highlighting effects based on preattentive visual properties including size, orientation, color, opacity and blur. A controlled experiment showed that Twist (icon rotates back and forth) and Pulse (icon grows and shrinks) improve search time performance by 8-10% over a control condition with no highlighting.",
    "tools": "Android",
