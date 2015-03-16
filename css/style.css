@@ -118,6 +118,11 @@ p{
 	padding-bottom: 5px;
 }
 
+.paragraph em{
+	background-color: white;
+	padding: 0 10px;
+}
+
 .row .highlighted{
 	background-color: white;
 	padding-top: 20px;
@@ -143,7 +148,7 @@ p{
 
 #logo{
 	padding: 0 10px;
-	transition: margin-left .5s ease;
+/* 	transition: margin-left 1s ease-out; */
 	display: inline-block;
 }
 
