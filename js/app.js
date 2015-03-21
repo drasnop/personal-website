@@ -3,7 +3,6 @@ var app = angular.module('myApp', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider',
    function($routeProvider, $locationProvider) {
 
-      // following Google’s Making AJAX applications crawlable guide
       $locationProvider.hashPrefix('!');
 
       $routeProvider
@@ -16,7 +15,7 @@ app.config(['$routeProvider', '$locationProvider',
             controller: 'projectsCtrl'
          })
          .otherwise({
-            template: ""
-         });
+            redirectTo: '/'
+         })
    }
 ]);

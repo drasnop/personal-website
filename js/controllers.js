@@ -1,18 +1,64 @@
 var model={
    // -1=empty, 0=logo, 1=about, 2=projects
    "state": -1,
+   // previous state
+   "prevState":-1,
    // true when hovering on the logo
    "mouseover": false,
    // text shown at the top of the page
-   "heading": "",
+   "heading": ["","bout me","rojects"],
    // filter the projects by this tag
    "tag": "All"
 }
 
 
-app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
+app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$location) {
 
    $scope.model = window.model;
+
+   $scope.$on('$routeChangeSuccess', function () {
+      console.log($location.path())
+
+      model.prevState=model.state
+
+      // update state
+      switch($location.path()){
+         case "/about":
+            model.state=1;
+         break;
+         case "/projects":
+            model.state=2;
+         break;
+         default:
+            model.state=0;
+         break;
+      }
+
+      $scope.drawAppropriateLogo(true);
+   })
+
+   $scope.drawAppropriateLogo=function(animate){
+
+      // start appropriate drawing and transitions based on previous state
+      var logoWidth;
+      if(model.state === 0) {
+         // draw large logo, fullscreen
+         logoWidth=drawing.largeInnerWidth;
+         if(model.prevState == -1)
+            drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
+         else
+            drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, model.state, animate? drawing.longAnimation : false, false);
+      }
+      else {
+         logoWidth = $("#logoProjects").width();
+
+         if(model.prevState <= 0)
+            drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.longAnimation : false, false);
+         else
+            drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.shortAnimation : false, true);
+      }
+      
+   }
 
    $scope.getTrustedHtml=function(html){
       return $sce.trustAsHtml(html);
@@ -20,29 +66,35 @@ app.controller('logoCtrl', ['$scope','$sce', function($scope,$sce) {
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
-      // redraw without actually changing the current state
       $scope.$apply(function() {
-         changeState($scope.model.state, true);
+         // Resize and reposition the logo
+         $scope.drawAppropriateLogo(false);
+         // Resize the round images to have the size of the logo
+         $(".round-image").width($("#logoProjects").width());
       });
    });
 
+}])
+
+app.controller('logoCtrl', ['$scope', '$location', function($scope, $location) {
+
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-      changeState(0);
+      $location.path("/");
    }
 
    $scope.clickA = function() {
       if($scope.model.state == 1)
-         changeState(0);
+         $location.path("/");
       else
-         changeState(1);
+         $location.path("/about");
    }
 
    $scope.clickP = function() {
       if($scope.model.state == 2)
-         changeState(0);
+         $location.path("/");
       else
-         changeState(2);
+         $location.path("/projects");
    }
 
 }]);
@@ -78,61 +130,7 @@ app.controller('aboutCtrl', ['$scope', function($scope){
    // Adjust this view just after the template has been loaded
    $scope.$on('$routeChangeSuccess', function () {
       // Resize the round images to have the size of the logo
-      var width = $("#logoProjects").width();
-      $(".round-image").width(width);
-
-/*      // Resize the (empty) highlighting divs to have the size of the ones containing text
-      var height = $(".highlighted.master").height();
-      $(".highlighted.master").siblings(".highlighted.slave").height(height);*/
+      $(".round-image").width($("#logoProjects").width());
    });
 
-   $scope.clickProjectsLink=function(){
-      changeState(2);
-   }
 }])
-
-
-
-
-function changeState(newState, dontAnimate) {
-   console.log(newState, dontAnimate)
-
-   // start appropriate drawing and transitions based on previous state
-   var logoWidth;
-   if(newState === 0) {
-      // draw large logo, fullscreen
-      logoWidth=drawing.largeInnerWidth;
-      if(model.state == -1)
-         drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
-      else
-         drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, newState, dontAnimate? false : drawing.longAnimation, false);
-   }
-   else {
-      logoWidth = $("#logoProjects").width();
-
-      if(model.state <= 0)
-         drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, newState, dontAnimate? false : drawing.longAnimation, false);
-      else
-         drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, newState, dontAnimate? false : drawing.shortAnimation, true);
-   }
-
-   // update state
-   model.state = newState;
-
-   // navigate to corresponding content
-   switch(model.state) {
-      case 0:
-         window.location.href = "#!";
-         model.heading = "";
-         break;
-      case 1:
-         window.location.href = "#!about";
-         model.heading = "bout me";
-         break;
-      case 2:
-         window.location.href = "#!projects";
-         model.heading = "rojects";
-         break;
-   }
-
-}
