@@ -84,13 +84,13 @@ var drawing = (function() {
       var t3 = t2.transition().ease("linear").duration(300)
       var t4 = t3.transition().ease("linear").duration(300)
 
-      d3.select("#left-half")
+      d3.select("#left-half rect")
          .attr("x", 0)
          .attr("y", 0)
          .attr("width", width / 2)
          .attr("height", height)
 
-      d3.select("#right-half")
+      d3.select("#right-half rect")
          .attr("x", width / 2)
          .attr("y", 0)
          .attr("width", width / 2)
@@ -168,13 +168,13 @@ var drawing = (function() {
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)
 
-      t0.select("#left-half")
+      t0.select("#left-half rect")
          .attr("x", 0)
          .attr("y", 0)
          .attr("width", width / 2)
          .attr("height", height)
 
-      t0.select("#right-half")
+      t0.select("#right-half rect")
          .attr("x", width / 2)
          .attr("y", 0)
          .attr("width", width / 2)

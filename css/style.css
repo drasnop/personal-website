@@ -302,6 +302,10 @@ ul.filters{
 	cursor: pointer;
 }
 
+.project-header:hover a.toggleProjectDetails{
+	color:#d16349;
+}
+
 @media(max-width: 360px){
 	.project-header{
 		text-align: center;

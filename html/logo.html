@@ -3,8 +3,12 @@
         <circle class="arc"></circle>
     </clipPath>
     <g clip-path="url(#disk-clipper)" id="canvas">
-        <rect id="left-half" ng-click="clickA()"></rect>
-        <rect id="right-half" ng-click="clickP()"></rect>
+        <a id="left-half" ng-attr-xlink:href="{{model.state!=1? '#!/about' : '#!'}}" xlink:href="">
+            <rect></rect>
+        </a>
+        <a id="right-half" ng-attr-xlink:href="{{model.state!=2? '#!/projects' : '#!'}}" xlink:href="">
+            <rect></rect>
+        </a>
         <path id="boucle" class="letterP nonStatic arc" ng-hide="model.state==1 && !model.mouseover"></path>
         <line id="vertical-line" class="letterA letterP"></line>
         <line id="horizontal-line" class="letterA"></line>

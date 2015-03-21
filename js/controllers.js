@@ -77,8 +77,13 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
       
    }
 
-   $scope.getTrustedHtml=function(html){
-      return $sce.trustAsHtml(html);
+
+   // wait until logo is created to play the animation
+   $scope.unfoldLogo = function() {
+      drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
+      console.log("logo ready", model.prevState, model.state)
+      //$scope.handleRouteChange()
+      $scope.drawAppropriateLogo(false);
    }
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
@@ -91,33 +96,11 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
       });
    });
 
+   $scope.getTrustedHtml=function(html){
+      return $sce.trustAsHtml(html);
+   }
+
 }])
-
-app.controller('logoCtrl', ['$scope', '$location', function($scope, $location) {
-
-   // wait until logo is created to play the animation
-   $scope.unfoldLogo = function() {
-      drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-      console.log("logo ready", model.prevState, model.state)
-      //$scope.handleRouteChange()
-      $scope.drawAppropriateLogo(false);
-   }
-
-   $scope.clickA = function() {
-      if($scope.model.state == 1)
-         $location.path("/");
-      else
-         $location.path("/about");
-   }
-
-   $scope.clickP = function() {
-      if($scope.model.state == 2)
-         $location.path("/");
-      else
-         $location.path("/projects");
-   }
-
-}]);
 
 
 
