@@ -74,7 +74,6 @@ var drawing = (function() {
       d3.select("#logo").style("margin-left", logoLeftMargin(0,width))
 
       // Now that the page is covered by the header, change the body back to its original color
-
       $("body").css("background-color", "#E6EBEE");
 
       // unroll the logo
@@ -147,6 +146,9 @@ var drawing = (function() {
 
    drawing.drawLogo = function(width, height, strokeWidth, state, animate, cubic) {
 
+      // change the body back to its original color if needed (=if skipping splash page)
+      $("body").css("background-color", "#E6EBEE");
+
       var t0 = d3.select("#header")
       if(animate)
          t0 = t0.transition(cubic? "cubic-out" : "quad-in-out").duration(animate)
@@ -158,8 +160,6 @@ var drawing = (function() {
 
       // position the logo horizontally
       t0.select("#logo").style("margin-left", logoLeftMargin(state,width))
-
-      var cwidth = $("#header .container").width();
 
       // back to regular svg manipulations
       t0 = t0.select("svg")
@@ -182,7 +182,7 @@ var drawing = (function() {
 
       t0.select("#circle")
          .attr("transform", translate(width / 2, height / 2))
-         .attr("d", arcGenerator(width / 2, strokeWidth))
+         .attr("d", arcGenerator(width / 2, strokeWidth).endAngle(tau))
 
       t0.select("#boucle")
          .attr("transform", translate(width / 2, width / 4 + strokeWidth / 4))

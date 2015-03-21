@@ -17,7 +17,11 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
    $scope.model = window.model;
 
    $scope.$on('$routeChangeSuccess', function () {
-      console.log($location.path())
+      console.log("route change", $location.path())
+      $scope.handleRouteChange();
+   })
+
+   $scope.handleRouteChange=function(){
 
       model.prevState=model.state
 
@@ -33,9 +37,10 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
             model.state=0;
          break;
       }
-
+   
+      console.log("handle change", $location.path(), model.prevState, model.state)
       $scope.drawAppropriateLogo(true);
-   })
+   }
 
    $scope.drawAppropriateLogo=function(animate){
 
@@ -44,18 +49,30 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
       if(model.state === 0) {
          // draw large logo, fullscreen
          logoWidth=drawing.largeInnerWidth;
-         if(model.prevState == -1)
+
+         if(model.prevState == -1){
+            console.log("firstDrawLogo")
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
+         }
          else
             drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, model.state, animate? drawing.longAnimation : false, false);
       }
       else {
          logoWidth = $("#logoProjects").width();
 
-         if(model.prevState <= 0)
-            drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.longAnimation : false, false);
-         else
-            drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.shortAnimation : false, true);
+         // just to adapt the time and smoothness of the animation
+         switch(model.prevState){
+            case -1:
+               drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, false, false);
+            break;
+            case 0:
+               drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.longAnimation : false, false);
+            break;
+            default:
+               // short, cubic animation between state 1 and 2
+               drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate? drawing.shortAnimation : false, true);
+            break;
+         }
       }
       
    }
@@ -78,9 +95,12 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
 
 app.controller('logoCtrl', ['$scope', '$location', function($scope, $location) {
 
+   // wait until logo is created to play the animation
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-      $location.path("/");
+      console.log("logo ready", model.prevState, model.state)
+      //$scope.handleRouteChange()
+      $scope.drawAppropriateLogo(false);
    }
 
    $scope.clickA = function() {
