@@ -50,7 +50,8 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
          // draw large logo, fullscreen
          logoWidth=drawing.largeInnerWidth;
 
-         if(model.prevState == -1){
+         // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
+         if(model.prevState <= 0){
             console.log("firstDrawLogo")
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
          }
