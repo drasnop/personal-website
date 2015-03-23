@@ -75,7 +75,7 @@
       "text": "home",
       "href": "#!/"
    }],
-   "description": "Since I was completely free for this project, I wanted to try to design something very minimalistic. Both the visual style and the information architecture are simple: one page about me, one page for my projects. My paraph on the landing screen is the key to the entire website: it is a distinctive personal element; it provides navigation to the different pages; and its circular shape is used consistently troughout the website. The vertical ligne shared by the A and the P can be found in each picture, to reinforce the visual structure.",
+   "description": "Since I was completely free for this project, I wanted to try to design something very minimalistic. Both the visual style and the information architecture are simple: one page about me, one page for my projects. My paraph on the landing screen is the key to the entire website: it is a distinctive personal element; it provides navigation to the different pages; and its circular shape is used consistently troughout the website. The vertical ligne shared by the A and the P can be found in each picture, to reinforce the visual structure. Using the circle shape consistently creates a lot of visual constraints across the website, which makes each page rather tricky to design—especially since the visual constraints must be satisfied for each screen size.",
    "tools": "Angular.js, D3.js, Bootstrap",
    "tags": ["Interaction Design", "Visual Design", "Web", "Mobile"]
 }, {
@@ -92,6 +92,20 @@
    "description": "I've always been intrigued by that simple question: 'Why is it still so cumbersome to browse and edit videos compared to text files?'. For instance, finding a particular scene in a movie is much more difficult than finding a sentence in a text. During an internship at INRIA, I had access to a wall-sized display made of 32 high resolution monitors. It allowed me to 'lay out time in space', i.e. to project the temporal dimension of the video on the two spatial dimensions of this giant screen. I built three prototypes to try out different interaction techniques, such as temporal zoom based on the distance to the screen. One of my design goals was to preserve as much as possible the continuity of the video while projecting it, which led to the use of a 'snake' projection.",
    "tools": "Node.js, jQuery, ffmpeg, HTML5 video player",
    "tags": ["Interaction Design", "Web"]
+}, {
+   "title": "Event scheduling website for an equal opportunity program",
+   "icon": "img/geppm-icon.png",
+   "picture": "img/geppm.png",
+   "pictureHref": "geppm",
+   "detailsVisible": false,
+   "pictureVisible":false,
+   "links": [{
+      "text": "demo",
+      "href": "//www.cs.ubc.ca/~aponsard/geppm"
+   }],
+   "description": "A friend and I built this website for GEPPM, an equal opportunity program I was participating in at Ecole polytechnique. We had two types of users: regular tutors who needed to know where and when to meet their tutees, depending on the group and grade; and admins who assign tutors to groups and schedule events for all the groups. My friend set up the database and the events management on the back end, while I built the front end in AJAX, designed the appearance of the website and handled the account management features. You can try the website with the login a@a.com and the password 'a'.",
+   "tools": "PHP, MySQL, AJAX",
+   "tags": ["Interaction Design","Visual Design", "Web"]
 }, {
    "title": "Simple task manager in Angular.js",
    "icon": "img/angularTodos-icon.png",
