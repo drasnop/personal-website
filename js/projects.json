@@ -134,4 +134,18 @@
    "description": "A platform game I developed a long time ago, in which you control a ninja who jumps from building to building and throws shurikens. It was my first encounter with concepts like Object-Oriented Programming and the event loop. But the most difficult part was to handle gravity and collisions, and change the sprites appropriately—especially since the images I was using had a little bit of depth (2.5D).",
    "tools": "Game Maker Studio",
    "tags": ["Other"]
+}, {
+   "title": "Converting my RC car into an RC plane",
+   "icon": "img/avion-icon.png",
+   "picture": "img/avion.png",
+   "pictureHref": "//youtu.be/-y7MyrMMm-k",
+   "detailsVisible": false,
+   "pictureVisible":false,
+   "links": [{
+      "text": "video",
+      "href": "//youtu.be/-y7MyrMMm-k"
+   }],
+   "description": "I had a neat RC car as a teenager, but I grew tired of it. So I decided to turn it into a plane. I adapted some plans from an RC magazine to accommodate the size of the car's engine and the weight of the battery pack, and built the structure of the plane in balsa and a special type of polystyrene. The tricky thing was that a plane has at least three degrees of freedom, but my RC controller had only two channels, so I had to use the engine for both speed and altitude. It did fly (multiple times!), but I quickly realized that flying a plane is much, much harder than driving a car!",
+   "tools": "saw, glue, scalpel, soldering iron",
+   "tags": ["Other"]
 }]
