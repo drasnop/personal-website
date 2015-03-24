@@ -58,12 +58,9 @@ body{
 	/* border: 1px solid rgba(86, 61, 124, 0.2); */
 }
 
-/* .heightZero{
-	height: 0;
-} */
-
 @media (min-width: 1200px) {
 	.container.small-container{
+		/* keep the container fairly small on the page */
 		max-width: 800px;
 	}
 }
@@ -239,13 +236,16 @@ ul.inline-list li{
 	display: inline-block;
 }
 
-ul.filters{
+#filters{
 	padding: 0;
 	margin-bottom: 15px;
+	background-color: #E6EBEE;
+	z-index: 10;
+	width: 100%;
 }
 
 @media(max-width: 360px){
-	ul.filters li{
+	#filters li{
 		display: block;
 	}
 }

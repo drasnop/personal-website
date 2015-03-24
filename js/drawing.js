@@ -242,7 +242,8 @@ var drawing = (function() {
    function logoLeftMargin(state, logoWidth){
       switch(state) {
          case 0:
-            return (window.innerWidth-logoWidth)/2;
+            // 10 px padding
+            return (window.innerWidth-(logoWidth+2*10))/2;
          case 1:
             return $("#logoAbout").offset().left;
          case 2:

@@ -19,7 +19,6 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
    $scope.model = window.model;
 
    $scope.$on('$routeChangeSuccess', function () {
-      console.log("route change", $location.path())
       $scope.handleRouteChange();
    })
 
@@ -40,7 +39,6 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
          break;
       }
    
-      console.log("handle change", $location.path(), model.prevState, model.state)
       $scope.drawAppropriateLogo(true);
    }
 
@@ -54,7 +52,6 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          if(model.prevState <= 0){
-            console.log("firstDrawLogo")
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
          }
          else
@@ -84,7 +81,6 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
    // wait until logo is created to play the animation
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-      console.log("logo ready", model.prevState, model.state)
       //$scope.handleRouteChange()
       $scope.drawAppropriateLogo(false);
    }

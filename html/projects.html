@@ -1,13 +1,16 @@
-<div id="pc" class="container small-container">
 
 <div id="projects" class="paddingBottom">
  <div class="spacer"></div>
 
- <ul class="filters inline-list" ng-mouseleave="model.tagHovered=false">
+ <div id="filters-anchor"></div>
+ <ul id="filters" class="inline-list" ng-mouseleave="model.tagHovered=false">
+  <div class="container small-container">
    <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag"
    ng-mouseenter="model.tagHovered=tag">{{tag}}</li>
+  </div>
 </ul>
 
+<div class="container small-container">
 <div class="project" ng-repeat="project in projects | filterByTag:model.tag">
 
  <div class="row vertical-align-center" ng-click="toggleProjectDetails(project)">
