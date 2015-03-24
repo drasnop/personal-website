@@ -3,8 +3,9 @@
 <div id="projects" class="paddingBottom">
  <div class="spacer"></div>
 
- <ul class="filters inline-list">
-   <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag">{{tag}}</li>
+ <ul class="filters inline-list" ng-mouseleave="model.tagHovered=false">
+   <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag"
+   ng-mouseenter="model.tagHovered=tag">{{tag}}</li>
 </ul>
 
 <div class="project" ng-repeat="project in projects | filterByTag:model.tag">
@@ -12,6 +13,7 @@
  <div class="row vertical-align-center" ng-click="toggleProjectDetails(project)">
    <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
     <img class="round-image img-responsive project-icon" ng-src="{{project.icon}}"
+    ng-class="{'highlighted': project.tags.indexOf(model.tagHovered) > -1 }"
     ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
  </div>
  <div class="col-sm-10 col-xs-12 project-header">

@@ -124,12 +124,6 @@ p{
 	padding: 8px 10px;
 }
 
-.row .highlighted{
-	background-color: white;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
 /*			regular content 				*/
 
 .round-image{
@@ -317,9 +311,12 @@ ul.filters{
 }
 
 .project-icon:hover{
-	transform: rotate(10deg);
+	transform: scale(1.1);
 }
 
+.project-icon.highlighted{
+	transform: scale(1.1);
+}
 
 .project-details{
 	font-size: 18px;

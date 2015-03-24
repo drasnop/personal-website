@@ -8,7 +8,9 @@ var model={
    // text shown at the top of the page
    "heading": ["","bout me","rojects"],
    // filter the projects by this tag
-   "tag": "All"
+   "tag": "All",
+   // when user is hovering on a tag
+   "tagHovered": false
 }
 
 
