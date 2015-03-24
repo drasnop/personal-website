@@ -108,7 +108,7 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.projects = data;
    });
 
-   $scope.tags=["All", "Interaction Design","Visual Design", "Web", "Mobile", "User Research", "Other"]
+   $scope.tags=["All", "Interaction Design","Visual Design", "User Research", "Web", "Mobile", "Other"]
 
    $scope.toggleProjectDetails=function(project){
       project.detailsVisible= !project.detailsVisible;

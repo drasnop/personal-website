@@ -8,6 +8,9 @@
 #48BDB5
 #0BB0A4
 
+mobile only
+max-width: 360px
+
 */
 
 body{
@@ -168,6 +171,13 @@ h2{
 h3{
 	font-size: 26px;
 	text-align: inherit;
+	margin-top: 0;
+}
+
+@media (max-width: 360px){
+	h3{
+		font-size: 24px;
+	}
 }
 
 h3 strong{
@@ -179,6 +189,12 @@ h3 em{
 	font-size: 19px;
 }
 
+@media (max-width: 360px){
+	h3 em{
+		font-size: 17px;
+	}
+}
+
 .paddingBottom{
 	padding-bottom: 150px;
 }
@@ -187,6 +203,7 @@ a{
 	color: #0BB0A4;
 	text-decoration: none;
 	cursor: pointer;
+	display: inline-block; /* to allow clean breaks on sm screens */
 }
 
 a:hover, a:focus{
@@ -300,11 +317,6 @@ ul.inline-list li{
 	color:#d16349;
 }
 
-@media(max-width: 360px){
-	.project-header{
-		text-align: center;
-	}
-}
 .project-icon{
 	transition: all .2s ease;
 	transform: none;

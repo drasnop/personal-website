@@ -13,13 +13,13 @@
 <div class="container small-container">
 <div class="project" ng-repeat="project in projects | filterByTag:model.tag">
 
- <div class="row vertical-align-center" ng-click="toggleProjectDetails(project)">
-   <div class="col-sm-2 col-sm-push-0 col-xs-4 col-xs-push-4">
+ <div class="row vertical-align-center-always" ng-click="toggleProjectDetails(project)">
+   <div class="col-sm-2 col-xs-4">
     <img class="round-image img-responsive project-icon" ng-src="{{project.icon}}"
     ng-class="{'highlighted': project.tags.indexOf(model.tagHovered) > -1 }"
     ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
  </div>
- <div class="col-sm-10 col-xs-12 project-header">
+ <div class="col-sm-10 col-xs-8 project-header">
   <h3 class="project-title" ng-bind-html="getTrustedHtml(project.title)"></h3>
   <div>
      <a ng-repeat="link in project.links" ng-disabled="!link.href" ng-click="$event.stopPropagation()"
