@@ -121,6 +121,23 @@
    "tools": "Angular.js",
    "tags": ["Web"]
 }, {
+   "title": "Image processing for drone stabilization",
+   "icon": "img/drone-icon.png",
+   "picture": "img/drone.png",
+   "pictureHref": "//youtu.be/onzO0s7Fn6c",
+   "detailsVisible": false,
+   "pictureVisible":false,
+   "links": [{
+      "text": "video_flight",
+      "href": "//youtu.be/onzO0s7Fn6c"
+   },{
+      "text": "video_algorithm",
+      "href": "//youtu.be/WZTOihh9bhI"
+   }],
+   "description": "In this team project, we worked on a small quadcopter drone, built the year before by another team. It could fly on its own, automatically controlled by an Inertial Measurement Unit; but an IMU is not accurate enough to prevent drifting. To measure the drone's horizontal speed accurately and frequently, our approach was to put a camera under the drone, facing the ground, and use image processing algorithms to estimate the motion relative to the ground. I was in charge of developing the image processing part. With the help of a computer vision expert, I selected the FAST algorithm to detect salient features in each frame of the video stream, then match these features across frames based on a similarity metric. The homographic matrix between two consecutive frames is then computed from these individual motion vectors via a RANSAC voting scheme. Two components of this matrix are the horizontal translation of the camera between two frames.",
+   "tools": "C++, OpenCV",
+   "tags": ["Other"]
+}, {
    "title": "Platform game: Path of a Ninja",
    "icon": "img/sasuke-icon.png",
    "picture": "img/sasuke.png",
