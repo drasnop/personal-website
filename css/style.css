@@ -239,10 +239,6 @@ a[disabled]{
 
 /*			angular 					*/
 
-#projects .spacer{
-	height: 30px;
-}
-
 ul.inline-list{
 	padding: 0;
 	margin: 0;
@@ -254,8 +250,9 @@ ul.inline-list li{
 }
 
 #filters{
-	padding: 0;
-	margin-bottom: 15px;
+	padding: 13px 0px; 
+	margin-top: 17px; /* 40px between projects, but only 30px padding below logo...*/
+	margin-bottom: 7px; /* 20px padding project */
 	background-color: #E6EBEE;
 	z-index: 10;
 	width: 100%;
@@ -301,8 +298,8 @@ ul.inline-list li{
 }
 
 .project{
-	padding: 15px;
-	margin: 0 -15px;
+	padding: 20px;
+	margin: 0 -20px;
 }
 
 .project:hover{

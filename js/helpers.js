@@ -10,8 +10,7 @@
                 "top": "0px",
                 "box-shadow": "0px -1px 6px 0px #556e7b",
                 "background-color": "#D3DDE2",
-                "padding-top": "15px",
-                "padding-bottom": "15px"
+                "margin": "0",
             });
         } else {
             if(st <= ot) {
@@ -20,8 +19,7 @@
                     "top": "",
                     "box-shadow": "",
                     "background-color": "#E6EBEE",
-                    "padding-top": "",
-                    "padding-bottom": ""
+                    "margin": ""
                 });
             }
         }
