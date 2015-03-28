@@ -1,5 +1,8 @@
 # Private files
 res/
+img/incoming
+img/unused
+.design
 
 # Windows image file caches
 Thumbs.db
