@@ -39,18 +39,18 @@
             <div class="center-wrapper">
                 <div class="centered">
                     <div class="vertical-align-center">
-                        <div id="logoSplash"></div>
-                        <div id="logoTextSplash"></div>
+                        <div class="logo" id="logoSplash"></div>
+                        <div class="logoText"></div>
                     </div>
                 </div>
             </div>
 
-            <div id="logo-container">
+            <div id="logo-container" class="center-wrapper">
                 <div class="centered">
                     <div class="vertical-align-center">
-                        <div id="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
+                        <div class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
                         <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-                        <img id="logoText" class="logoText" ng-show="model.state===0" ng-src="img/logoText.png"></img>
+                        <img class="logoText" ng-show="model.state===0" ng-src="img/logoText.png"></img>
                     </div>
                 </div>
             </div>

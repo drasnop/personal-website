@@ -151,11 +151,6 @@ p{
 	display: inline-block;
 }
 
-/* #logoTextSplash{
-	margin: 0 20px;
-	display: inline-block;
-} */
-
 #header [class*="col-"]{
 	pointer-events: none;
 }
@@ -171,6 +166,7 @@ p{
 	margin: 0 20px;
 
 	display: inline-block;
+	text-align: left;
 }
 
 @media (max-width: 360px){

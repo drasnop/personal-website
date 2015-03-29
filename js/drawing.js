@@ -70,8 +70,8 @@ var drawing = (function() {
          .style("padding-top", (window.innerHeight - height) / 2)
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
-      // position the logo horizontally
-      d3.selectAll("#logo").style("margin-left", logoLeftMargin(-1, width))
+      // center the logo
+      //d3.selectAll("#logo").style("margin-left", logoLeftMargin(-1, width))
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
@@ -143,12 +143,10 @@ var drawing = (function() {
          .attr("x2", width)
 
       /* show name and job */
+      $(".logoText").width(0).css("visibility","visible")
 
-      $("#logoText").width(0).css("visibility","visible")
-      t5.selectAll("#logoText").style("width", drawing.logoTextWidth())
-
-      $("#logoTextSplash").width(drawing.logoTextWidth())
-      t5.select("#logo").style("margin-left", logoLeftMargin(0, width))
+      console.log(drawing.logoTextWidth())
+      t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
 
@@ -169,8 +167,9 @@ var drawing = (function() {
 
       // position the logo horizontally, using animatable margins
       if(model.prevState<=0){
-         // probably deprecated
          $("#logo").css("margin-left", $("#logo").offset().left)   
+         console.log("logo offset left",$("#logo").offset().left)   
+         $("#logo-container").removeClass("center-wrapper")
       }
       else{
          // add class, remove margin
@@ -181,7 +180,7 @@ var drawing = (function() {
       console.log(logoLeftMargin(state, width))
 
       // Not sure why I'm doing this
-      $("#logoText").css("width", drawing.logoTextWidth())
+      $(".logoText").css("width", drawing.logoTextWidth())
 
       // back to regular svg manipulations
       t0 = t0.select("svg")
