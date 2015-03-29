@@ -83,7 +83,7 @@ var drawing = (function() {
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)
       var t4 = t3.transition().ease("linear").duration(300)
-      var t5 = t4.transition().ease("quad-in-out").delay(1100+1200+200).duration(800)
+      var t5 = t4.transition().ease("quad-in-out").delay(1100+1200+0).duration(800)
 
       d3.select("#left-half rect")
          .attr("x", 0)
@@ -145,7 +145,7 @@ var drawing = (function() {
       /* show name and job */
       $("#logoText").width(0).css("visibility","visible")
 
-      t5.select("#logo").style("margin-left", logoLeftMargin(0, width))
+/*      t5.select("#logo").style("margin-left", logoLeftMargin(0, width)) */
       t5.select("#logoText").style("width", logoTextWidth())
    }
 
@@ -248,11 +248,14 @@ var drawing = (function() {
 
    function logoLeftMargin(state, logoWidth){
       switch(state) {
-         case -1:
+/*         case -1:
             // 10px horizontal padding 
             return (window.innerWidth-logoWidth+2*10)/2;
          case 0:
-            return logoLeftMargin(-1, logoWidth + logoTextWidth())
+            return logoLeftMargin(-1, logoWidth + logoTextWidth())*/
+         case -1:
+         case 0:
+            return 0;
          case 1:
             return $("#logoAbout").offset().left;
          case 2:

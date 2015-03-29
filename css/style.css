@@ -160,6 +160,15 @@ p{
 	overflow: hidden;
 	white-space: nowrap;
 	margin: 0 10px;
+
+	display: inline-block;
+	text-align: left;
+}
+
+@media (max-width: 768px){
+	#logoText{
+		display: block;	
+	}
 }
 
 #name{
@@ -399,4 +408,12 @@ svg{
 	height: 0;
 	padding-top: 0;
 	padding-bottom: 0;
+}
+
+.center-wrapper{
+	text-align: center;
+}
+
+.centered{
+	display: inline-block;
 }
