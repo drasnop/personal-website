@@ -167,6 +167,8 @@ var drawing = (function() {
 
       // position the logo horizontally
       t0.select("#logo").style("margin-left", logoLeftMargin(state, width))
+      if(state===0)
+         $("#logoText").css("width", logoTextWidth())
 
       // back to regular svg manipulations
       t0 = t0.select("svg")
@@ -263,10 +265,30 @@ var drawing = (function() {
       }
    }
 
-   // measure the size of the text accompanying the logo + margins
    function logoTextWidth(){
+      if(window.innerWidth>360)
+         return Math.min(drawing.largeInnerWidth*2, 4/10*window.innerWidth)
+      else
+         return 8/10*window.innerWidth;
+   }
+
+   drawing.logoWidth = function(){
+      if(window.innerWidth>360)
+         return Math.min(drawing.largeInnerWidth, 2/10*window.innerWidth)
+      else
+         return 5/10*window.innerWidth;
+   }
+
+   drawing.strokeWidth = function(){
+      if(window.innerWidth>360)
+         return drawing.largeStroke;
+      else
+         return drawing.smallStroke;
+   }
+
+   // measure the size of the text accompanying the logo + margins
+/*   function logoTextWidth(){
       var visibility=$("#logoText").css("visibility")
-      /*var display=$("#logoText").css("display")*/
       var width=$("#logoText").css("width")
 
       $("#logoText").attr("style","")
@@ -274,12 +296,13 @@ var drawing = (function() {
 
       $("#logoText").css({
          "visibility": visibility,
-         /*"display": display,*/
          "width": width
       })
       console.log(visibility, width, fullWidth)
       return fullWidth+2*10; 
-   }
+   }*/
+
+
 
    function arcGenerator(radius, strokeWidth) {
       return d3.svg.arc()

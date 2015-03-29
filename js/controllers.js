@@ -48,7 +48,8 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
       var logoWidth;
       if(model.state === 0) {
          // draw large logo, fullscreen
-         logoWidth=drawing.largeInnerWidth;
+         logoWidth=drawing.logoWidth();
+         strokeWidth=drawing.strokeWidth();
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate
@@ -89,7 +90,9 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
-      $scope.$apply(function() {
+      console.log("resize!")
+      $scope.$evalAsync(function() {
+         console.log("resize applied")
          // Resize and reposition the logo
          $scope.drawAppropriateLogo(false);
          // Resize the round images to have the size of the logo

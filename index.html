@@ -41,10 +41,7 @@
                     <div class="vertical-align-center">
                         <div id="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
                         <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-                        <div id="logoText" ng-show="model.state===0" style="visibility:hidden">
-                            <div id="name">Antoine Ponsard</div>
-                            <div id="job">Interaction Designer</div>
-                        </div>
+                        <img id="logoText" ng-show="model.state===0" ng-src="img/logoText.png"></img>
                     </div>
                 </div>
             </div>

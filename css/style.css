@@ -159,15 +159,17 @@ p{
 #logoText{
 	overflow: hidden;
 	white-space: nowrap;
-	margin: 0 10px;
+	margin: 0 20px;
 
 	display: inline-block;
 	text-align: left;
 }
 
-@media (max-width: 768px){
+@media (max-width: 360px){
+	/* display the text of the logo below the logo on small devices */
 	#logoText{
-		display: block;	
+		display: block;
+		margin-top: 20px;	
 	}
 }
 
