@@ -70,9 +70,6 @@ var drawing = (function() {
          .style("padding-top", (window.innerHeight - height) / 2)
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
-      // center the logo
-      //d3.selectAll("#logo").style("margin-left", logoLeftMargin(-1, width))
-
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
 
@@ -145,7 +142,6 @@ var drawing = (function() {
       /* show name and job */
       $(".logoText").width(0).css("visibility","visible")
 
-      console.log(drawing.logoTextWidth())
       t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
@@ -165,26 +161,36 @@ var drawing = (function() {
          .style("padding-top", state > 0 ? 30 : (window.innerHeight - height) / 2)
          .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
 
+
       // position the logo horizontally, using animatable margins
-      if(model.prevState<=0){
+      if(state>0){
          $("#logo").css("margin-left", $("#logo").offset().left)   
-         console.log("logo offset left",$("#logo").offset().left)   
          $("#logo-container").removeClass("center-wrapper")
       }
       else{
-         // add class, remove margin
+         // prepare entrance animation of the text
+         $(".logoText").width(0)
       }
 
       // animate the logo to its new horizontal position
-      t0.selectAll("#logo").style("margin-left", logoLeftMargin(state, width))
-      console.log(logoLeftMargin(state, width))
+      t0.selectAll("#logo").style("margin-left", logoLeftMargin(state, width)).each("end",function(){
+         if(state===0){
+            
+            $("#logo").css("margin-left", 0)   
+            $("#logo-container").addClass("center-wrapper")
+         }
+         })
 
-      // Not sure why I'm doing this
-      $(".logoText").css("width", drawing.logoTextWidth())
+/*      if(state<=0) {
+         // at the end of the animation, remove margin-left and put center class back
+         t0.each("end",function(){
+            $("#logo").css("margin-left", 0)   
+            $("#logo-container").addClass("center-wrapper")
+         })
+      }*/
 
       // back to regular svg manipulations
-      t0 = t0.select("svg")
-      t0.attr("width", width).attr("height", height)
+      t0.select("svg").attr("width", width).attr("height", height)
 
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)
@@ -239,6 +245,9 @@ var drawing = (function() {
             .transition().duration(400).delay(animate)
             .style("opacity", 1)
       }
+
+      var t1=t0.transition().ease("quad-in-out").duration(800);
+      t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
 

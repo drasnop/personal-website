@@ -48,7 +48,7 @@
             <div id="logo-container" class="center-wrapper">
                 <div class="centered">
                     <div class="vertical-align-center">
-                        <div class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
+                        <div id="logo" class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
                         <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
                         <img class="logoText" ng-show="model.state===0" ng-src="img/logoText.png"></img>
                     </div>
