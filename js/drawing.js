@@ -80,7 +80,8 @@ var drawing = (function() {
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)
       var t4 = t3.transition().ease("linear").duration(300)
-      var t5 = t4.transition().ease("quad-in-out").delay(1100+1200+0).duration(800)
+      var t5 = t4.transition().ease("linear").duration(150)
+      var t6 = t5.transition().ease("quad-in-out").duration(800)
 
       d3.select("#left-half rect")
          .attr("x", 0)
@@ -136,13 +137,15 @@ var drawing = (function() {
          .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
          .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
 
-      t4.select("#horizontal-line")
+
+
+      t5.select("#horizontal-line")
          .attr("x2", width)
 
       /* show name and job */
       $(".logoText").width(0).css("visibility","visible")
 
-      t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
 
@@ -174,20 +177,12 @@ var drawing = (function() {
 
       // animate the logo to its new horizontal position
       t0.selectAll("#logo").style("margin-left", logoLeftMargin(state, width)).each("end",function(){
-         if(state===0){
-            
+         // at the end of the animation, remove margin-left and put center class back
+         if(state===0){            
             $("#logo").css("margin-left", 0)   
             $("#logo-container").addClass("center-wrapper")
          }
-         })
-
-/*      if(state<=0) {
-         // at the end of the animation, remove margin-left and put center class back
-         t0.each("end",function(){
-            $("#logo").css("margin-left", 0)   
-            $("#logo-container").addClass("center-wrapper")
-         })
-      }*/
+      })
 
       // back to regular svg manipulations
       t0.select("svg").attr("width", width).attr("height", height)

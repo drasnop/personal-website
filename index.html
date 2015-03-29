@@ -50,7 +50,7 @@
                     <div class="vertical-align-center">
                         <div id="logo" class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
                         <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-                        <img class="logoText" ng-show="model.state===0" ng-src="img/logoText.png"></img>
+                        <div id="logoText" class="logoText" ng-show="model.state===0"></div>
                     </div>
                 </div>
             </div>
