@@ -47,10 +47,12 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       // start appropriate drawing and transitions based on previous state
       var logoWidth;
 
+      // need to fake it because doesn't contain any svg
+      $("#logoSplash").width(drawing.logoWidth())
+
       if(model.state === 0) {
          // draw large logo, fullscreen
          logoWidth = drawing.largeInnerWidth;
-         $("#logoSplash").width(drawing.logoWidth())
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate
@@ -66,8 +68,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       }
       else {
          logoWidth = $("#logoProjects").width();
-         // need to fake it because doesn't contain any svg
-         $("#logoSplash").width(drawing.logoWidth())
 
          d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1, logoWidth/2))
 
