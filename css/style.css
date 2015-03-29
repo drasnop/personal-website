@@ -78,8 +78,8 @@ body{
 	margin-right: -10px;
 }
 
-/* everything except small devices */
-@media (min-width: 361px) { 
+/* small devices and up*/
+@media (min-width: 768px) { 
 	.vertical-align-center {
 		display: flex;
 		align-items: center;
@@ -168,17 +168,22 @@ p{
 .logoText{
 	overflow: hidden;
 	white-space: nowrap;
-	margin: 0 20px;
-
-	display: inline-block;
-	text-align: left;
+	
+	/* display the text of the logo below the logo on small devices */
+	display: block;
 }
 
-@media (max-width: 360px){
-	/* display the text of the logo below the logo on small devices */
+#logoText{
+	margin: 30px auto 0 auto;	
+}
+
+@media (min-width: 768px){
 	.logoText{
-		display: block;
-		margin: 30px auto 0 auto;	
+		display: inline-block;
+		margin: 0 20px;
+	}
+	#logoText{
+		margin: 0 20px;
 	}
 }
 

@@ -305,7 +305,10 @@ var drawing = (function() {
                      return logoLeftMargin(-1, logoWidth + logoTextWidth())*/
          case -1:
          case 0:
-            return $("#logoSplash").offset().left;
+            if(window.innerWidth<768)
+               return (window.innerWidth-drawing.logoWidth())/2;
+            else
+               return $("#logoSplash").offset().left;
          case 1:
             return $("#logoAbout").offset().left;
          case 2:
@@ -325,7 +328,7 @@ var drawing = (function() {
          if(window.innerWidth > 360)
             return Math.min(drawing.largeInnerWidth, 2 / 10 * window.innerWidth)
          else
-            return 5 / 10 * window.innerWidth;
+            return 4 / 10 * window.innerWidth;
       }
       else {
          return $("#logoProjects").width();
