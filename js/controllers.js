@@ -51,7 +51,9 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
          logoWidth=drawing.largeInnerWidth;
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
-         if(model.prevState <= 0){
+         // however, when resizing the window on the splashscreen, we don't want it to animate
+         console.log(model.prevState, model.state, animate)
+         if(model.prevState <= 0 && animate){
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
          }
          else
@@ -82,7 +84,7 @@ app.controller('mainCtrl', ['$scope','$sce','$location', function($scope,$sce,$l
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
       //$scope.handleRouteChange()
-      $scope.drawAppropriateLogo(false);
+      $scope.drawAppropriateLogo(true);
    }
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.

@@ -71,18 +71,19 @@ var drawing = (function() {
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
       // center the logo
-      d3.select("#logo").style("margin-left", logoLeftMargin(0,width))
+      d3.select("#logo").style("margin-left", logoLeftMargin(-1, width))
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
 
       // unroll the logo
 
-      var t0 = d3.select("svg").transition().ease("linear").delay(500).duration(600)
+      var t0 = d3.select("#header").transition().ease("linear").delay(500).duration(600)
       var t1 = t0.transition().ease("linear").duration(300)
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)
       var t4 = t3.transition().ease("linear").duration(300)
+      var t5 = t4.transition().ease("quad-in-out").delay(1100+1200+200).duration(800)
 
       d3.select("#left-half rect")
          .attr("x", 0)
@@ -140,6 +141,12 @@ var drawing = (function() {
 
       t4.select("#horizontal-line")
          .attr("x2", width)
+
+      /* show name and job */
+      $("#logoText").width(0).css("visibility","visible")
+
+      t5.select("#logo").style("margin-left", logoLeftMargin(0, width))
+      t5.select("#logoText").style("width", logoTextWidth())
    }
 
 
@@ -159,7 +166,7 @@ var drawing = (function() {
          .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
 
       // position the logo horizontally
-      t0.select("#logo").style("margin-left", logoLeftMargin(state,width))
+      t0.select("#logo").style("margin-left", logoLeftMargin(state, width))
 
       // back to regular svg manipulations
       t0 = t0.select("svg")
@@ -241,14 +248,34 @@ var drawing = (function() {
 
    function logoLeftMargin(state, logoWidth){
       switch(state) {
+         case -1:
+            // 10px horizontal padding 
+            return (window.innerWidth-logoWidth+2*10)/2;
          case 0:
-            // 10 px padding
-            return (window.innerWidth-(logoWidth+2*10))/2;
+            return logoLeftMargin(-1, logoWidth + logoTextWidth())
          case 1:
             return $("#logoAbout").offset().left;
          case 2:
             return $("#logoProjects").offset().left;
       }
+   }
+
+   // measure the size of the text accompanying the logo + margins
+   function logoTextWidth(){
+      var visibility=$("#logoText").css("visibility")
+      /*var display=$("#logoText").css("display")*/
+      var width=$("#logoText").css("width")
+
+      $("#logoText").attr("style","")
+      var fullWidth=$("#logoText").width();
+
+      $("#logoText").css({
+         "visibility": visibility,
+         /*"display": display,*/
+         "width": width
+      })
+      console.log(visibility, width, fullWidth)
+      return fullWidth+2*10; 
    }
 
    function arcGenerator(radius, strokeWidth) {

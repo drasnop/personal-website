@@ -52,14 +52,14 @@ body{
 
 /*			bootstrap and spacing 				*/
 
-
-/* [class*="col-"] */ {
-	/* background-color: rgba(86, 61, 124, 0.15); */
-	/* border: 1px solid rgba(86, 61, 124, 0.2); */
+/*
+[class*="col-"] {
+	border: 1px solid rgba(86, 61, 124, 0.2);
 }
 .container{
-	/* border: 1px solid rgba(86, 61, 124, 0.2); */
+	border: 1px solid rgba(86, 61, 124, 0.2);
 }
+*/
 
 @media (min-width: 1200px) {
 	.container.small-container{
@@ -154,6 +154,21 @@ p{
 #heading{
 	font-weight:300;
 	font-size:40;
+}
+
+#logoText{
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 10px;
+}
+
+#name{
+	font-size: 68px;
+}
+
+#job{
+	font-size: 52px;
+	font-style: italic;
 }
 
 h2{
