@@ -279,12 +279,12 @@ var drawing = (function() {
          return 5/10*window.innerWidth;
    }
 
-   drawing.strokeWidth = function(){
+/*   drawing.strokeWidth = function(){
       if(window.innerWidth>360)
          return drawing.largeStroke;
       else
          return drawing.smallStroke;
-   }
+   }*/
 
    // measure the size of the text accompanying the logo + margins
 /*   function logoTextWidth(){
