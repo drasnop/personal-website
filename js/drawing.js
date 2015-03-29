@@ -71,7 +71,7 @@ var drawing = (function() {
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
       // center the logo
-      d3.select(".logo").style("margin-left", logoLeftMargin(-1, width))
+      //d3.selectAll("#logo").style("margin-left", logoLeftMargin(-1, width))
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
@@ -146,7 +146,7 @@ var drawing = (function() {
       $(".logoText").width(0).css("visibility","visible")
 
       console.log(drawing.logoTextWidth())
-      t5.select(".logoText").style("width", drawing.logoTextWidth())
+      t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
 
@@ -167,8 +167,8 @@ var drawing = (function() {
 
       // position the logo horizontally, using animatable margins
       if(model.prevState<=0){
-         $(".logo").css("margin-left", $(".logo").offset().left)   
-         console.log($(".logo").offset().left)   
+         $("#logo").css("margin-left", $("#logo").offset().left)   
+         console.log("logo offset left",$("#logo").offset().left)   
          $("#logo-container").removeClass("center-wrapper")
       }
       else{
@@ -176,7 +176,7 @@ var drawing = (function() {
       }
 
       // animate the logo to its new horizontal position
-      t0.select(".logo").style("margin-left", logoLeftMargin(state, width))
+      t0.selectAll("#logo").style("margin-left", logoLeftMargin(state, width))
       console.log(logoLeftMargin(state, width))
 
       // Not sure why I'm doing this
@@ -290,31 +290,6 @@ var drawing = (function() {
       else
          return 5/10*window.innerWidth;
    }
-
-/*   drawing.strokeWidth = function(){
-      if(window.innerWidth>360)
-         return drawing.largeStroke;
-      else
-         return drawing.smallStroke;
-   }*/
-
-   // measure the size of the text accompanying the logo + margins
-/*   function logoTextWidth(){
-      var visibility=$(".logoText").css("visibility")
-      var width=$(".logoText").css("width")
-
-      $(".logoText").attr("style","")
-      var fullWidth=$(".logoText").width();
-
-      $(".logoText").css({
-         "visibility": visibility,
-         "width": width
-      })
-      console.log(visibility, width, fullWidth)
-      return fullWidth+2*10; 
-   }*/
-
-
 
    function arcGenerator(radius, strokeWidth) {
       return d3.svg.arc()

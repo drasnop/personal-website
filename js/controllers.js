@@ -50,6 +50,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       if(model.state === 0) {
          // draw large logo, fullscreen
          logoWidth = drawing.largeInnerWidth;
+         $("#logoSplash").width(drawing.logoWidth())
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate

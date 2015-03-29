@@ -141,9 +141,13 @@ p{
 	/* transition: height 1s ease; */
 }
 
-.logo{
+#logo{
 	padding: 0 10px;
-/* 	transition: margin-left 1s ease-out; */
+	display: inline-block;
+}
+
+#logoSplash{
+	padding: 0 10px;
 	display: inline-block;
 }
 
