@@ -79,7 +79,7 @@ body{
 }
 
 /* Small devices and up */
-@media (min-width: 768px) { 
+@media (min-width: 361px) { 
 	.vertical-align-center {
 		display: flex;
 		align-items: center;
@@ -146,6 +146,11 @@ p{
 	display: inline-block;
 }
 
+/* #logo svg{
+	width: 20vw;
+	height: 20vw;
+} */
+
 #logoSplash{
 	padding: 0 10px;
 	display: inline-block;
@@ -169,12 +174,12 @@ p{
 	text-align: left;
 }
 
-#logoText{
+/* #logoText{
 	background-image: url("../img/logoText.png");
 	background-repeat: no-repeat;
 	height: 120px;
 	background-size: auto 120px;
-}
+} */
 
 @media (max-width: 360px){
 	/* display the text of the logo below the logo on small devices */

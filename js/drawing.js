@@ -8,11 +8,14 @@ var drawing = (function() {
       "longAnimation": 1000,
       "shortAnimation": 500
    }
-   var tau= 2 * Math.PI; // http://tauday.com/tau-manifesto
+   var tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
    drawing.initializeLogo = function(width, height, strokeWidth) {
 
-      d3.select("svg").attr("width", width).attr("height", height)
+      d3.select("svg")
+      .attr("width", drawing.logoWidth())
+      .attr("height", drawing.logoWidth())
+      .attr("viewBox","0 0 "+width+" "+height)
 
       d3.select("#disk-clipper circle")
          .attr("transform", translate(width / 2, height / 2))
@@ -72,6 +75,8 @@ var drawing = (function() {
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
+
+      //
 
       // unroll the logo
 
@@ -143,7 +148,8 @@ var drawing = (function() {
          .attr("x2", width)
 
       /* show name and job */
-      $(".logoText").width(0).css("visibility","visible")
+      $(".logoText").width(0).css("visibility", "visible")
+      $("#logoTextImg").width(drawing.logoTextWidth())
 
       t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
@@ -157,7 +163,7 @@ var drawing = (function() {
 
       var t0 = d3.select("#header")
       if(animate)
-         t0 = t0.transition(cubic? "cubic-out" : "quad-in-out").duration(animate)
+         t0 = t0.transition(cubic ? "cubic-out" : "quad-in-out").duration(animate)
 
       // animate the dark background of the header
       t0.style("height", state > 0 ? width + 2 * 30 : window.innerHeight)
@@ -166,26 +172,42 @@ var drawing = (function() {
 
 
       // position the logo horizontally, using animatable margins
-      if(state>0){
-         $("#logo").css("margin-left", $("#logo").offset().left)   
+      if(state > 0) {
+         $("#logo").css("margin-left", $("#logo").offset().left)
          $("#logo-container").removeClass("center-wrapper")
       }
-      else{
-         // prepare entrance animation of the text
-         $(".logoText").width(0)
+      else {
+         // always resize the image
+         $("#logoTextImg").width(drawing.logoTextWidth())
+
+         if(model.prevState !== 0) {
+            // prepare entrance animation of the text
+            $(".logoText").width(0)
+         }
       }
 
       // animate the logo to its new horizontal position
-      t0.selectAll("#logo").style("margin-left", logoLeftMargin(state, width)).each("end",function(){
-         // at the end of the animation, remove margin-left and put center class back
-         if(state===0){            
-            $("#logo").css("margin-left", 0)   
+      t0.select("#logo").style("margin-left", logoLeftMargin(state, width))
+
+      // at the end of the animation, remove margin-left and put center class back
+      if(state === 0) {
+         if(animate) {
+            t0.select("#logo").each("end", function() {
+               $("#logo").css("margin-left", 0)
+               $("#logo-container").addClass("center-wrapper")
+            })
+         }
+         else {
+            $("#logo").css("margin-left", 0)
             $("#logo-container").addClass("center-wrapper")
          }
-      })
+      }
 
       // back to regular svg manipulations
-      t0.select("svg").attr("width", width).attr("height", height)
+      t0.select("svg")
+      .attr("width", drawing.logoWidth())
+      .attr("height", drawing.logoWidth())
+      .attr("viewBox","0 0 "+width+" "+height)
 
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)
@@ -241,7 +263,7 @@ var drawing = (function() {
             .style("opacity", 1)
       }
 
-      var t1=t0.transition().ease("quad-in-out").duration(800);
+      var t1 = t0.transition().ease("quad-in-out").duration(800);
       t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
@@ -264,13 +286,13 @@ var drawing = (function() {
       })
    }
 
-   function logoLeftMargin(state, logoWidth){
+   function logoLeftMargin(state, logoWidth) {
       switch(state) {
-/*         case -1:
-            // 10px horizontal padding 
-            return (window.innerWidth-logoWidth+2*10)/2;
-         case 0:
-            return logoLeftMargin(-1, logoWidth + logoTextWidth())*/
+         /*         case -1:
+                     // 10px horizontal padding 
+                     return (window.innerWidth-logoWidth+2*10)/2;
+                  case 0:
+                     return logoLeftMargin(-1, logoWidth + logoTextWidth())*/
          case -1:
          case 0:
             return $("#logoSplash").offset().left;
@@ -281,18 +303,23 @@ var drawing = (function() {
       }
    }
 
-   drawing.logoTextWidth = function(){
-      if(window.innerWidth>360)
-         return Math.min(drawing.largeInnerWidth*2, 4/10*window.innerWidth)
+   drawing.logoTextWidth = function() {
+      if(window.innerWidth > 360)
+         return Math.min(drawing.largeInnerWidth * 2, 4 / 10 * window.innerWidth)
       else
-         return 8/10*window.innerWidth;
+         return 8 / 10 * window.innerWidth;
    }
 
-   drawing.logoWidth = function(){
-      if(window.innerWidth>360)
-         return Math.min(drawing.largeInnerWidth, 2/10*window.innerWidth)
-      else
-         return 5/10*window.innerWidth;
+   drawing.logoWidth = function() {
+      if(model.state<=0){
+         if(window.innerWidth > 360)
+            return Math.min(drawing.largeInnerWidth, 2 / 10 * window.innerWidth)
+         else
+            return 5 / 10 * window.innerWidth;
+      }
+      else{
+         return $("#logoProjects").width();
+      }
    }
 
    function arcGenerator(radius, strokeWidth) {

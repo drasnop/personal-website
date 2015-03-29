@@ -55,8 +55,9 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate
          console.log(model.prevState, model.state, animate)
-         d3.select("svg").attr("transform", scaleSquareSVG(drawing.logoWidth() / logoWidth, drawing.logoWidth()/2))
-         
+         //d3.select("svg").attr("transform", scaleSquareSVG(drawing.logoWidth() / logoWidth, drawing.logoWidth()/2))
+         //$("svg").width(drawing.logoWidth()).height(drawing.logoWidth())
+
          if(model.prevState <= 0 && animate) {
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
          }
@@ -69,7 +70,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          // need to fake it because doesn't contain any svg
          $("#logoSplash").width(drawing.logoWidth())
 
-         d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1, logoWidth/2))
+         //d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1, logoWidth/2))
 
          // just to adapt the time and smoothness of the animation
          switch(model.prevState) {
