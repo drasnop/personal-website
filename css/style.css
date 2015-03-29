@@ -78,7 +78,7 @@ body{
 	margin-right: -10px;
 }
 
-/* Small devices and up */
+/* everything except small devices */
 @media (min-width: 361px) { 
 	.vertical-align-center {
 		display: flex;
@@ -174,18 +174,11 @@ p{
 	text-align: left;
 }
 
-/* #logoText{
-	background-image: url("../img/logoText.png");
-	background-repeat: no-repeat;
-	height: 120px;
-	background-size: auto 120px;
-} */
-
 @media (max-width: 360px){
 	/* display the text of the logo below the logo on small devices */
 	.logoText{
 		display: block;
-		margin-top: 20px;	
+		margin: 30px auto 0 auto;	
 	}
 }
 

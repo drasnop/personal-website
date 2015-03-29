@@ -55,8 +55,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate
          console.log(model.prevState, model.state, animate)
-         //d3.select("svg").attr("transform", scaleSquareSVG(drawing.logoWidth() / logoWidth, drawing.logoWidth()/2))
-         //$("svg").width(drawing.logoWidth()).height(drawing.logoWidth())
 
          if(model.prevState <= 0 && animate) {
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
@@ -69,8 +67,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          logoWidth = $("#logoProjects").width();
          // need to fake it because doesn't contain any svg
          $("#logoSplash").width(drawing.logoWidth())
-
-         //d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1, logoWidth/2))
 
          // just to adapt the time and smoothness of the animation
          switch(model.prevState) {
@@ -90,11 +86,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
    }
 
 
-   function scaleSquareSVG(s, c) {
-      return "matrix(" + s + ", 0, 0," + s + "," + (c - s * c) + "," + (c-s*c) + ")";
-   }
-
-
    // wait until logo is created to play the animation
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
@@ -105,7 +96,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
       $scope.$evalAsync(function() {
-            // Resize and reposition the logo
+         // Resize and reposition the logo
          $scope.drawAppropriateLogo(false);
          // Resize the round images to have the size of the logo
          $(".round-image").width($("#logoProjects").width());

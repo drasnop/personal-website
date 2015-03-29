@@ -13,9 +13,9 @@ var drawing = (function() {
    drawing.initializeLogo = function(width, height, strokeWidth) {
 
       d3.select("svg")
-      .attr("width", drawing.logoWidth())
-      .attr("height", drawing.logoWidth())
-      .attr("viewBox","0 0 "+width+" "+height)
+         .attr("width", drawing.logoWidth())
+         .attr("height", drawing.logoWidth())
+         .attr("viewBox", "0 0 " + width + " " + height)
 
       d3.select("#disk-clipper circle")
          .attr("transform", translate(width / 2, height / 2))
@@ -76,8 +76,6 @@ var drawing = (function() {
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
 
-      //
-
       // unroll the logo
 
       var t0 = d3.select("#header").transition().ease("linear").delay(500).duration(600)
@@ -85,8 +83,6 @@ var drawing = (function() {
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)
       var t4 = t3.transition().ease("linear").duration(300)
-      var t5 = t4.transition().ease("linear").duration(150)
-      var t6 = t5.transition().ease("quad-in-out").duration(800)
 
       d3.select("#left-half rect")
          .attr("x", 0)
@@ -142,16 +138,26 @@ var drawing = (function() {
          .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
          .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
 
+      /* depending on screen size, the last two animations are synchronous are sequenced */
 
-
-      t5.select("#horizontal-line")
-         .attr("x2", width)
-
-      /* show name and job */
       $(".logoText").width(0).css("visibility", "visible")
       $("#logoTextImg").width(drawing.logoTextWidth())
 
-      t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      var t5;
+      if(window.innerWidth <= 360) {
+         t5 = t4.transition().ease("quad-in-out").duration(800)
+
+         t5.select("#horizontal-line").attr("x2", width)
+         t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      }
+      else {
+         t5 = t4.transition().ease("linear").duration(150)
+         t6 = t5.transition().ease("quad-in-out").duration(800)
+
+         t5.select("#horizontal-line").attr("x2", width)
+         t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      }
+
    }
 
 
@@ -180,7 +186,7 @@ var drawing = (function() {
          // always resize the image
          $("#logoTextImg").width(drawing.logoTextWidth())
 
-         if(model.prevState !== 0) {
+         if(model.prevState !== 0 && animate) {
             // prepare entrance animation of the text
             $(".logoText").width(0)
          }
@@ -205,9 +211,9 @@ var drawing = (function() {
 
       // back to regular svg manipulations
       t0.select("svg")
-      .attr("width", drawing.logoWidth())
-      .attr("height", drawing.logoWidth())
-      .attr("viewBox","0 0 "+width+" "+height)
+         .attr("width", drawing.logoWidth())
+         .attr("height", drawing.logoWidth())
+         .attr("viewBox", "0 0 " + width + " " + height)
 
       // We need to increase the strokeWidth, to keep the lines visible
       t0.select("#canvas").style("stroke-width", strokeWidth)
@@ -263,8 +269,12 @@ var drawing = (function() {
             .style("opacity", 1)
       }
 
-      var t1 = t0.transition().ease("quad-in-out").duration(800);
-      t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      if(animate) {
+         var t1 = t0.transition().ease("quad-in-out").duration(800);
+         t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
+      }
+      else
+         d3.selectAll(".logoText").style("width", drawing.logoTextWidth())
    }
 
 
@@ -311,13 +321,13 @@ var drawing = (function() {
    }
 
    drawing.logoWidth = function() {
-      if(model.state<=0){
+      if(model.state <= 0) {
          if(window.innerWidth > 360)
             return Math.min(drawing.largeInnerWidth, 2 / 10 * window.innerWidth)
          else
             return 5 / 10 * window.innerWidth;
       }
-      else{
+      else {
          return $("#logoProjects").width();
       }
    }
