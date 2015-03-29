@@ -71,7 +71,7 @@ var drawing = (function() {
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
       // center the logo
-      d3.select("#logo").style("margin-left", logoLeftMargin(-1, width))
+      d3.select(".logo").style("margin-left", logoLeftMargin(-1, width))
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
@@ -143,10 +143,10 @@ var drawing = (function() {
          .attr("x2", width)
 
       /* show name and job */
-      $("#logoText").width(0).css("visibility","visible")
+      $(".logoText").width(0).css("visibility","visible")
 
-/*      t5.select("#logo").style("margin-left", logoLeftMargin(0, width)) */
-      t5.select("#logoText").style("width", logoTextWidth())
+      console.log(drawing.logoTextWidth())
+      t5.select(".logoText").style("width", drawing.logoTextWidth())
    }
 
 
@@ -165,10 +165,22 @@ var drawing = (function() {
          .style("padding-top", state > 0 ? 30 : (window.innerHeight - height) / 2)
          .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
 
-      // position the logo horizontally
-      t0.select("#logo").style("margin-left", logoLeftMargin(state, width))
-      if(state===0)
-         $("#logoText").css("width", logoTextWidth())
+      // position the logo horizontally, using animatable margins
+      if(model.prevState<=0){
+         $(".logo").css("margin-left", $(".logo").offset().left)   
+         console.log($(".logo").offset().left)   
+         $("#logo-container").removeClass("center-wrapper")
+      }
+      else{
+         // add class, remove margin
+      }
+
+      // animate the logo to its new horizontal position
+      t0.select(".logo").style("margin-left", logoLeftMargin(state, width))
+      console.log(logoLeftMargin(state, width))
+
+      // Not sure why I'm doing this
+      $(".logoText").css("width", drawing.logoTextWidth())
 
       // back to regular svg manipulations
       t0 = t0.select("svg")
@@ -257,7 +269,7 @@ var drawing = (function() {
             return logoLeftMargin(-1, logoWidth + logoTextWidth())*/
          case -1:
          case 0:
-            return 0;
+            return $("#logoSplash").offset().left;
          case 1:
             return $("#logoAbout").offset().left;
          case 2:
@@ -265,7 +277,7 @@ var drawing = (function() {
       }
    }
 
-   function logoTextWidth(){
+   drawing.logoTextWidth = function(){
       if(window.innerWidth>360)
          return Math.min(drawing.largeInnerWidth*2, 4/10*window.innerWidth)
       else
@@ -288,13 +300,13 @@ var drawing = (function() {
 
    // measure the size of the text accompanying the logo + margins
 /*   function logoTextWidth(){
-      var visibility=$("#logoText").css("visibility")
-      var width=$("#logoText").css("width")
+      var visibility=$(".logoText").css("visibility")
+      var width=$(".logoText").css("width")
 
-      $("#logoText").attr("style","")
-      var fullWidth=$("#logoText").width();
+      $(".logoText").attr("style","")
+      var fullWidth=$(".logoText").width();
 
-      $("#logoText").css({
+      $(".logoText").css({
          "visibility": visibility,
          "width": width
       })

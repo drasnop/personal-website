@@ -46,6 +46,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
       // start appropriate drawing and transitions based on previous state
       var logoWidth;
+
       if(model.state === 0) {
          // draw large logo, fullscreen
          logoWidth = drawing.largeInnerWidth;
@@ -64,8 +65,10 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       }
       else {
          logoWidth = $("#logoProjects").width();
+         // need to fake it because doesn't contain any svg
+         $("#logoSplash").width(drawing.logoWidth())
 
-         d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1,logoWidth/2))
+         d3.select("svg").transition("quad-in-out").duration(drawing.longAnimation).attr("transform",scaleSquareSVG(1, logoWidth/2))
 
          // just to adapt the time and smoothness of the animation
          switch(model.prevState) {
@@ -99,9 +102,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
-      console.log("resize!")
       $scope.$evalAsync(function() {
-         console.log("resize applied")
             // Resize and reposition the logo
          $scope.drawAppropriateLogo(false);
          // Resize the round images to have the size of the logo

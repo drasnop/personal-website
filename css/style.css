@@ -141,7 +141,7 @@ p{
 	/* transition: height 1s ease; */
 }
 
-#logo{
+.logo{
 	padding: 0 10px;
 /* 	transition: margin-left 1s ease-out; */
 	display: inline-block;
@@ -156,7 +156,7 @@ p{
 	font-size:40;
 }
 
-#logoText{
+.logoText{
 	overflow: hidden;
 	white-space: nowrap;
 	margin: 0 20px;
@@ -167,7 +167,7 @@ p{
 
 @media (max-width: 360px){
 	/* display the text of the logo below the logo on small devices */
-	#logoText{
+	.logoText{
 		display: block;
 		margin-top: 20px;	
 	}
