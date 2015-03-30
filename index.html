@@ -14,56 +14,52 @@
 </head>
 
 <body ng-app="myApp" ng-controller="mainCtrl" ng-class="{'scrollbar-visible': model.state>0}">
-    <div class="wrapper">
-        <div id="header">
+    <div id="header">
 
-            <div class="container small-container">
-                <div class="row">
-                    <div class="col-sm-5" id="logoAbout"></div>
-                    <div class="col-sm-6 col-sm-push-1"></div>
-                </div>
+        <div class="container small-container">
+            <div class="row">
+                <div class="col-sm-5" id="logoAbout"></div>
+                <div class="col-sm-6 col-sm-push-1"></div>
             </div>
+        </div>
 
-            <div class="container small-container squashed">
-                <div class="project">
-                    <div class="row vertical-align-center">
-                        <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
-                        <div class="col-sm-10 col-xs-12 project-header"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="center-wrapper">
-                <div class="centered">
-                    <div class="vertical-align-center">
-                        <div class="logo" id="logoSplash"></div>
-                        <div class="logoText"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="logo-container" class="center-wrapper">
-                <div class="centered">
-                    <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
-                        <div id="logo" class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
-                        <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-                        <div id="logoText" class="logoText" ng-show="model.state===0">
-                           <img id="logoTextImg" ng-src="img/logoText.png"></img>
-                        </div>
-                    </div>
+        <div class="container small-container squashed">
+            <div class="project">
+                <div class="row vertical-align-center">
+                    <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
+                    <div class="col-sm-10 col-xs-12 project-header"></div>
                 </div>
             </div>
         </div>
 
-        <div id="content">
-            <div ng-view></div>
+        <div class="center-wrapper">
+            <div class="centered">
+                <div class="vertical-align-center">
+                    <div class="logo" id="logoSplash"></div>
+                    <div class="logoText"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="push" ng-hide="model.state<=0"></div>
+        <div id="logo-container" class="center-wrapper">
+            <div class="centered">
+                <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
+                    <div id="logo" class="logo" ng-include="'html/logo.html'" onload="unfoldLogo()"></div>
+                    <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
+                    <div id="logoText" class="logoText" ng-show="model.state===0">
+                       <img id="logoTextImg" ng-src="img/logoText.png"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="footer" ng-hide="model.state<=0">
-        <p>If you want to know all the nitty-gritty details, here is <a href="res/Resume_Antoine_Ponsard.pdf" target="_blank">my resume</a>. But it would be more fun to look at <a href="#!/projects">my projects</a> &#x263a </p>
+    <div id="content">
+        <div ng-view></div>
+    </div>
+
+    <div id="footer" class="section" ng-hide="model.state<=0">
+        <p class="paragraph">If you want to know all the nitty-gritty details, here is <a href="res/Resume_Antoine_Ponsard.pdf" target="_blank">my resume</a>. But it would be more fun to look at <a href="#!/projects">my projects</a> &#x263a </p>
         <span id="copyright">© Antoine Ponsard 2015</span>
     </div>
 

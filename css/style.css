@@ -433,22 +433,10 @@ ul.inline-list li{
 
 
 
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -22px; /* the bottom margin is the negative value of the footer's height */
-}
-
-#footer, .push {
-    height: 22px; /* .push must be the same height as .footer (well...) */
-}
-
 #footer{
 	text-align: center;
-	background-color: rgb(85, 110, 123);
-	color: rgb(230, 235, 238);
-	height: 100px;
+	background-color: #40535d;
+	color: #b8c7cf;
 }
 
 #copyright{
