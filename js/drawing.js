@@ -142,20 +142,25 @@ var drawing = (function() {
 
       $(".logoText").width(0).css("visibility", "visible")
       $("#logoTextImg").width(drawing.logoTextWidth())
+      $(".hint").css("opacity",0)
 
-      var t5;
+      var t5,t6;
       if(window.innerWidth <= 360) {
          t5 = t4.transition().ease("quad-in-out").duration(800)
+         t6 = t5.transition().ease("quad-in-out").delay(1100+1200+800+400).duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
+         t6.selectAll(".hint").style("opacity",1)
       }
       else {
          t5 = t4.transition().ease("linear").duration(150)
          t6 = t5.transition().ease("quad-in-out").duration(800)
+         var t7 = t6.transition().ease("quad-in-out").delay(1100+1200+150+800+400).duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
+         t7.selectAll(".hint").style("opacity",1)
       }
 
    }
@@ -272,6 +277,11 @@ var drawing = (function() {
       if(animate) {
          var t1 = t0.transition().ease("quad-in-out").duration(800);
          t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
+
+         $(".hint").css("opacity",0)
+
+         var t2=t1.transition().ease("quad-in-out").duration(300);
+         t2.selectAll(".hint").style("opacity",1)
       }
       else
          d3.selectAll(".logoText").style("width", drawing.logoTextWidth())

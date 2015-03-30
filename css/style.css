@@ -153,9 +153,14 @@ p{
 	padding: 30px 0;
 }
 
+#header [class*="col-"]{
+	pointer-events: none;
+}
+
 #logo{
 	padding: 0 10px;
 	display: inline-block;
+	position: relative;
 }
 
 #logoSplash{
@@ -163,8 +168,29 @@ p{
 	display: inline-block;
 }
 
-#header [class*="col-"]{
-	pointer-events: none;
+.hint{
+	position: absolute;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 18px;
+	top: -50px;
+	bottom: auto;
+}
+
+/* small devices and up*/
+@media (min-width: 768px) {
+	.hint{
+		font-size: 24px;
+		top: auto;
+		bottom:-50px;
+	}
+}
+
+.left-hint{
+	left: 10px;
+}
+
+.right-hint{
+	right: -5px;
 }
 
 #heading{
