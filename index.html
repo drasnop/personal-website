@@ -59,16 +59,30 @@
     </div>
 
     <div id="footer" class="section" ng-hide="model.state<=0">
-        <p class="paragraph">If you want to know all the nitty-gritty details, here is <a href="res/Resume_Antoine_Ponsard.pdf" target="_blank">my resume</a>. But it would be more fun to look at <a href="#!/projects">my projects</a> &#x263a </p>
-        <span id="copyright">© Antoine Ponsard 2015</span>
+        <div class="container small-container">
+          <div class="row bottom-row vertical-align-center">
+            <div class="col-sm-5">
+                <p class="paragraph">If you want to know all the nitty-gritty details, here is <a class="greenLinkLight" href="res/Resume_Antoine_Ponsard.pdf" target="_blank">my resume</a>. But it would be more fun to look at <a class="greenLinkLight" href="#!/projects">my projects</a> &#x263a </p>
+            </div>
+            <div class="col-sm-6 col-sm-push-1">
+                <div class="center-block">
+                    <a class="social-icon fa fa-2x fa-linkedin-square whiteLink" href="//ca.linkedin.com/in/antoineponsard" target="_blank"></a>
+                    <a class="social-icon fa fa-2x fa-github-square whiteLink" href="/github.com/drasnop" target="_blank"></a>
+                    <a class="social-icon fa fa-2x fa-envelope-o whiteLink" href="mailto:aponsard@cs.ubc.ca" target="_blank"></a>
+                    <a class="social-icon fa fa-2x fa-file-o whiteLink" href="res/Resume_Antoine_Ponsard.pdf" target="_blank"></a>
+                </div>
+            </div>
     </div>
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/drawing.js"></script>

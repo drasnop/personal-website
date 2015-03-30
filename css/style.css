@@ -244,19 +244,43 @@ h3 em{
 }
 
 a{
-	color: #0BB0A4;
 	text-decoration: none;
 	cursor: pointer;
 	display: inline-block; /* to allow clean breaks on sm screens */
 }
 
 a:hover, a:focus{
-	color:#d16349;
 	text-decoration: none;
 }
 
 a[disabled]{
 	pointer-events: none;
+}
+
+.greenLink{
+	color: #0BB0A4;
+}
+
+.greenLink:hover, .greenLink:focus{
+	color: #d16349;
+}
+
+.greenLinkLight{
+	color: #48BDB5;
+}
+
+.greenLinkLight:hover, .greenLinkLight:focus{
+	color: #D87A63;
+}
+
+.whiteLink{
+	color: white;
+	opacity: .5;
+}
+
+.whiteLink:hover, .whiteLink:focus{
+	color: white;
+	opacity: 1;
 }
 
 .marginRight{
@@ -434,9 +458,12 @@ ul.inline-list li{
 
 
 #footer{
-	text-align: center;
 	background-color: #40535d;
-	color: #b8c7cf;
+	color: #c8d3d9;
+}
+
+.social-icon{
+	margin: 0 10px;
 }
 
 #copyright{

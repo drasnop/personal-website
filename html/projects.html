@@ -21,8 +21,8 @@
   <h3 class="project-title" ng-bind-html="getTrustedHtml(project.title)"></h3>
   <div>
      <a ng-repeat="link in project.links" ng-disabled="!link.href" ng-click="$event.stopPropagation()"
-     class="marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
-     <a class="toggleProjectDetails" ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
+     class="greenLink marginRight" target="_blank" href="{{link.href}}">{{link.text}}</a>
+     <a class="greenLink toggleProjectDetails" ng-click="toggleProjectDetails(project); $event.stopPropagation()">{{project.detailsVisible? "-" : "+"}}</a>
   </div>
 </div>
 </div>
