@@ -71,7 +71,7 @@ body{
 @media (min-width: 1200px) {
 	.container.small-container{
 		/* keep the container fairly small on the page */
-		max-width: 800px;
+		max-width: 850px;
 	}
 }
 
@@ -117,13 +117,17 @@ p{
 .section{
 	text-align: justify;
 	text-justify: inter-word;
-	padding-top: 60px;
+	padding-top: 80px;
 	padding-bottom: 60px;
 }
 
-.section [class*="col-"]{
-	padding-top: 5px;
-	padding-bottom: 5px;
+.section.first-section{
+	padding-top: 40px;
+}
+
+.section .bottom-row [class*="col-"]{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .paragraph{
@@ -192,10 +196,16 @@ p{
 
 
 
-h1{
+h1, h2{
 	font-weight: 700;
 	margin-top: 0;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
+}
+
+@media (max-width: 768px){
+	h2.shrinkableFont{
+		font-size: 24px;
+	}
 }
 
 h3{
@@ -280,7 +290,7 @@ a[disabled]{
 	transition: padding .4s ease;
 }
 
-.greenButton:hover{
+.greenButton:hover, .greenButton:focus{
 	padding: 6px 25px;
 	color: white;
 }
@@ -293,8 +303,10 @@ a[disabled]{
 .quote{
 	background-color: white;
 	color: #556e7b;
-	display: inline-block;
+	display: block;
 	padding: 8px 10px;
+
+	font-family: 'Architects Daughter', cursive;
 }
 
 /*			projects 					*/
