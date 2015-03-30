@@ -118,7 +118,7 @@ p{
 	text-align: justify;
 	text-justify: inter-word;
 	padding-top: 80px;
-	padding-bottom: 60px;
+	padding-bottom: 80px;
 }
 
 .section.first-section{
@@ -132,6 +132,10 @@ p{
 
 .paragraph{
 	margin-bottom: 20px;
+}
+
+.margin-bottom-30{
+	margin-bottom: 30px;
 }
 
 
