@@ -10,7 +10,7 @@ var model = {
    // filter the projects by this tag
    "tag": "All",
    // when user is hovering on a tag
-   "tagHovered": false
+   "tagHovered": false,
 }
 
 
@@ -105,6 +105,10 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
    $scope.getTrustedHtml = function(html) {
       return $sce.trustAsHtml(html);
+   }
+
+   $scope.smallScreen=function(){
+      return window.innerWidth>=768;
    }
 
 }])

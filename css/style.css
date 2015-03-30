@@ -172,7 +172,7 @@ p{
 	position: absolute;
 	font-family: 'Architects Daughter', cursive;
 	font-size: 18px;
-	top: -50px;
+	top: -60px;
 	bottom: auto;
 }
 
@@ -181,7 +181,7 @@ p{
 	.hint{
 		font-size: 24px;
 		top: auto;
-		bottom:-50px;
+		bottom:-70px;
 	}
 }
 

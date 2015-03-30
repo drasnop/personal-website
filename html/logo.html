@@ -16,5 +16,5 @@
         <path id="circle" class="arc"></path>
     </g>
 </svg>
-<div class="hint left-hint" ng-show="model.state<=0">about</div>
-<div class="hint right-hint" ng-show="model.state<=0">projects</div>
+<div class="hint left-hint" ng-show="model.state<=0" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>about') : getTrustedHtml('about<br>↓')"></div>
+<div class="hint right-hint" ng-show="model.state<=0" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>projects') : getTrustedHtml('projects<br>↓')"></div>
