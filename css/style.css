@@ -1,12 +1,19 @@
 /*
+light gray, dark gray
 #E6EBEE
 #556e7b
 
+rust (light and normal)
 #D87A63
 #d16349
 
+turquoise (light and normal)
 #48BDB5
 #0BB0A4
+
+alternative lighter shades to try:
+#d6745d
+#0dc8ba
 
 mobile only
 max-width: 360px
@@ -19,7 +26,7 @@ body{
 	height: 100%;
 
 	font-family: 'Open Sans',sans-serif;
-	font-size:19;
+	font-size:18;
 	text-rendering: optimizeLegibility;
 
 	color: #556e7b;
@@ -107,28 +114,27 @@ p{
 	margin: 0;
 }
 
-.paragraph{
+.section{
 	text-align: justify;
 	text-justify: inter-word;
-	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
-.paragraph [class*="col-"]{
+.section [class*="col-"]{
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-.quote{
-	background-color: white;
-	display: inline-block;
-	padding: 8px 10px;
+.paragraph{
+	margin-bottom: 20px;
 }
 
-/*			regular content 				*/
 
-.round-image{
-	border-radius:50%;
-}
+
+/*			header 				*/
+
+
 
 #header{
 	background-color: #556e7b;
@@ -137,19 +143,12 @@ p{
 	stroke: #E6EBEE;
 	
 	padding: 30px 0;
-
-	/* transition: height 1s ease; */
 }
 
 #logo{
 	padding: 0 10px;
 	display: inline-block;
 }
-
-/* #logo svg{
-	width: 20vw;
-	height: 20vw;
-} */
 
 #logoSplash{
 	padding: 0 10px;
@@ -187,25 +186,16 @@ p{
 	}
 }
 
-#name{
-	font-size: 68px;
-}
 
-#job{
-	font-size: 52px;
-	font-style: italic;
-}
 
-h2{
-	font-weight: 900;
-	margin: 0;
-}
+/*			typography			*/
 
-@media (min-width: 768px) { 
-	h2{
-		/* on large screens, headers appear on the left so: */
-		text-align: right;
-	}
+
+
+h1{
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 15px;
 }
 
 h3{
@@ -221,7 +211,7 @@ h3{
 }
 
 h3 strong{
-	font-weight: 900;
+	font-weight: 700;
 }
 
 h3 em{
@@ -260,24 +250,60 @@ a[disabled]{
 }
 
 
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -22px; /* the bottom margin is the negative value of the footer's height */
+
+/*			about me 			*/
+
+
+
+.pictureFrame{
+	background-color: white;
+	padding: 10px;
 }
 
-#footer, .push {
-    height: 22px; /* .push must be the same height as .footer */
-    text-align: center;
+.pictureFrame img{
+	margin-bottom: 10px;
 }
 
-#copyright{
-	font-size: 15;
-} 
+.pictureFrame p{
+	text-align: center;
+	color: #556e7b;
+	font-family: 'Architects Daughter', cursive;
+}
+
+.greenButton{
+	background-color: #0BB0A4;
+	color: white;
+	padding: 6px 15px;
+
+	-webkit-transition: padding .4s ease;
+	-o-transition: padding .4s ease;
+	transition: padding .4s ease;
+}
+
+.greenButton:hover{
+	padding: 6px 25px;
+	color: white;
+}
+
+.section-red{
+	background-color: #d16349;
+	color: white;
+}
+
+.quote{
+	background-color: white;
+	color: #556e7b;
+	display: inline-block;
+	padding: 8px 10px;
+}
+
+/*			projects 					*/
 
 
-/*			angular 					*/
+
+.round-image{
+	border-radius:50%;
+}
 
 ul.inline-list{
 	padding: 0;
@@ -384,6 +410,36 @@ ul.inline-list li{
 	width: 100%;
 	padding: 20px 0;
 }
+
+
+
+/*			footer 			*/
+
+
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -22px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#footer, .push {
+    height: 22px; /* .push must be the same height as .footer (well...) */
+}
+
+#footer{
+	text-align: center;
+	background-color: rgb(85, 110, 123);
+	color: rgb(230, 235, 238);
+	height: 100px;
+}
+
+#copyright{
+	font-size: 15;
+} 
+
+
 
 /*			svg / logo 				*/
 
