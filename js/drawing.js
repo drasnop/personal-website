@@ -144,23 +144,31 @@ var drawing = (function() {
       $("#logoTextImg").width(drawing.logoTextWidth())
       $(".hint").css("opacity",0)
 
-      var t5,t6;
-      if(window.innerWidth <= 360) {
+      var t5,t6,t7;
+      if(window.innerWidth < 768) {
          t5 = t4.transition().ease("quad-in-out").duration(800)
          t6 = t5.transition().ease("quad-in-out").delay(1100+1200+800+400).duration(300)
+         t7 = t6.transition().ease("quad-in-out").duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
-         t6.selectAll(".hint").style("opacity",1)
+
+         $(".hint").css("top","-80px")
+         t6.select(".left-hint").style("top","-60px").style("opacity",1)
+         t7.select(".right-hint").style("top","-60px").style("opacity",1)
       }
       else {
          t5 = t4.transition().ease("linear").duration(150)
          t6 = t5.transition().ease("quad-in-out").duration(800)
-         var t7 = t6.transition().ease("quad-in-out").delay(1100+1200+150+800+400).duration(300)
+         t7 = t6.transition().ease("quad-in-out").delay(1100+1200+150+800+400).duration(300)
+         var t8 = t7.transition().ease("quad-in-out").duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
-         t7.selectAll(".hint").style("opacity",1)
+
+         $(".hint").css("bottom","-90px")
+         t7.selectAll(".left-hint").style("bottom","-70px").style("opacity",1)
+         t8.selectAll(".right-hint").style("bottom","-70px").style("opacity",1)
       }
 
    }
@@ -281,7 +289,20 @@ var drawing = (function() {
          $(".hint").css("opacity",0)
 
          var t2=t1.transition().ease("quad-in-out").duration(300);
-         t2.selectAll(".hint").style("opacity",1)
+         var t3=t2.transition().ease("quad-in-out").duration(300);
+
+         if(window.innerWidth<768){
+            $(".hint").css("top","-80px")
+
+            t2.select(".left-hint").style("top","-60px").style("opacity",1)
+            t3.select(".right-hint").style("top","-60px").style("opacity",1)
+         }
+         else{
+            $(".hint").css("bottom","-90px")
+
+            t2.selectAll(".left-hint").style("bottom","-70px").style("opacity",1)
+            t3.selectAll(".right-hint").style("bottom","-70px").style("opacity",1)
+         }
       }
       else
          d3.selectAll(".logoText").style("width", drawing.logoTextWidth())
