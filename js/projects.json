@@ -1,7 +1,8 @@
 [{
+   "id": "customization",
    "title": "<strong>Direct Customization:</strong><br> Affordances and Preview for Personalization",
-   "icon": "img/directCustomization-icon3.png",
-   "picture": "img/directCustomization.png",
+   "picture": "img/customization/customization.png",
+   "icon": "img/customization/customization-icon.png",
    "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -13,9 +14,10 @@
    "tools": "jQuery, Angular.js",
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
+   "id": "paperquest",
    "title": "<strong>PaperQuest:</strong><br> A Visualization Tool to Support Literature Review",
-   "icon": "img/paperquest-icon.png",
-   "picture": "img/paperquest.png",
+   "picture": "img/paperquest/paperquest.png",
+   "icon": "img/paperquest/paperquest-icon.png",
    "pictureHref": "paperquest",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -30,9 +32,10 @@
    "tools": "D3.js",
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
+   "id": "twistAndPulse",
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
-   "icon": "img/twistGray.png",
-   "picture": "img/ephemeralEffects.png",
+   "picture": "img/twistAndPulse/twistAndPulse.png",
+   "icon": "img/twistAndPulse/twistAndPulse-icon.png",
    "pictureHref": "//youtu.be/EhsgFFhHUuA",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -47,9 +50,10 @@
    "tools": "Android",
    "tags": ["Interaction Design", "Visual Design", "Mobile", "User Research"]
 }, {
+   "id": "calendarTodolists",
    "title": "Integrating calendar and to-do lists",
-   "icon": "img/todolists-icon.png",
-   "picture": "img/todolists.png",
+   "picture": "img/calendarTodolists/calendarTodolists.png",
+   "icon": "img/calendarTodolists/calendarTodolists-icon.png",
    "pictureHref": "hci-med-fi-prototype",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -65,9 +69,10 @@
    "tools": "Balsamiq, jQuery, Ember.js",
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
-   "title": "This website",
-   "icon": "img/logoLight.png",
+   "id": "portfolio",
+   "title": "Online portfolio",
    "picture": "",
+   "icon": "img/portfolio/portfolio-icon.png",
    "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -79,9 +84,10 @@
    "tools": "Angular.js, D3.js, Bootstrap",
    "tags": ["Interaction Design", "Visual Design", "Web", "Mobile"]
 }, {
+   "id": "boa",
    "title": "Multi-scale video exploration techniques",
-   "icon": "img/boa-icon.png",
-   "picture": "img/boa.png",
+   "picture": "img/boa/boa.png",
+   "icon": "img/boa/boa-icon.png",
    "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -93,9 +99,10 @@
    "tools": "Node.js, jQuery, ffmpeg, HTML5 video player",
    "tags": ["Interaction Design", "Web"]
 }, {
+   "id": "geppm",
    "title": "Event scheduling website for an equal opportunity program",
-   "icon": "img/geppm-icon.png",
-   "picture": "img/geppm.png",
+   "picture": "img/geppm/geppm.png",
+   "icon": "img/geppm/geppm-icon.png",
    "pictureHref": "geppm",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -107,9 +114,10 @@
    "tools": "PHP, MySQL, AJAX",
    "tags": ["Interaction Design","Visual Design", "Web"]
 }, {
+   "id": "angularTodos",
    "title": "Simple task manager in Angular.js",
-   "icon": "img/angularTodos-icon.png",
-   "picture": "img/angularTodos.png",
+   "picture": "img/angularTodos/angularTodos.png",
+   "icon": "img/angularTodos/angularTodos-icon.png",
    "pictureHref": "personal-task-manager",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -121,9 +129,10 @@
    "tools": "Angular.js",
    "tags": ["Web"]
 }, {
+   "id": "drone",
    "title": "Image processing for drone stabilization",
-   "icon": "img/drone-icon.png",
-   "picture": "img/drone.png",
+   "picture": "img/drone/drone.png",
+   "icon": "img/drone/drone-icon.png",
    "pictureHref": "//youtu.be/onzO0s7Fn6c",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -138,9 +147,10 @@
    "tools": "C++, OpenCV",
    "tags": ["Other"]
 }, {
+   "id": "sasuke",
    "title": "Platform game: Path of a Ninja",
-   "icon": "img/sasuke-icon.png",
-   "picture": "img/sasuke.png",
+   "picture": "img/sasuke/sasuke.png",
+   "icon": "img/sasuke/sasuke-icon.png",
    "pictureHref": "res/sasuke.exe",
    "detailsVisible": false,
    "pictureVisible":false,
@@ -152,9 +162,10 @@
    "tools": "Game Maker Studio",
    "tags": ["Other"]
 }, {
+   "id": "avion",
    "title": "Converting my RC car into an RC plane",
-   "icon": "img/avion-icon.png",
-   "picture": "img/avion.png",
+   "picture": "img/avion/avion.png",
+   "icon": "img/avion/avion-icon.png",
    "pictureHref": "//youtu.be/-y7MyrMMm-k",
    "detailsVisible": false,
    "pictureVisible":false,

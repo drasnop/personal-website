@@ -9,7 +9,7 @@
 </ul>
 
 <div class="container small-container">
-<div class="project" ng-repeat="project in projects | filterByTag:model.tag">
+<div class="project" id="project.id" ng-repeat="project in projects | filterByTag:model.tag">
 
  <div class="row vertical-align-center-always" ng-click="toggleProjectDetails(project)">
    <div class="col-sm-2 col-xs-4">
