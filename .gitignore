@@ -1,8 +1,8 @@
 # Private files
+.design
 res/
 img/0-unused
-img/1-incoming
-.design
+img/1-highres
 
 # Windows image file caches
 Thumbs.db
