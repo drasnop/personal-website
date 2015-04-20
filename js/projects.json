@@ -1,9 +1,8 @@
 [{
    "id": "customization",
    "title": "<strong>Direct Customization:</strong><br> Affordances and Preview for Personalization",
-   "picture": "img/customization/customization_0.png",
+   "pictures": ["img/customization/customization_0.png", "img/customization/customization_1.png", "img/customization/customization_2.png", "img/customization/customization_3.png", "img/customization/customization_4.png", "img/customization/customization_5.png"],
    "icon": "img/customization/customization-icon.png",
-   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -16,9 +15,8 @@
 }, {
    "id": "paperquest",
    "title": "<strong>PaperQuest:</strong><br> A Visualization Tool to Support Literature Review",
-   "picture": "img/paperquest/paperquest_0.png",
+   "pictures": ["img/paperquest/paperquest_0.png","img/paperquest/paperquest_1.png","img/paperquest/paperquest_2.png"],
    "icon": "img/paperquest/paperquest-icon.png",
-   "pictureHref": "paperquest",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -34,9 +32,8 @@
 }, {
    "id": "twistAndPulse",
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
-   "picture": "img/twistAndPulse/twistAndPulse_0.png",
+   "pictures": ["img/twistAndPulse/twistAndPulse_0.png","img/twistAndPulse/twistAndPulse_1.png", "img/twistAndPulse/twistAndPulse_2.png"],
    "icon": "img/twistAndPulse/twistAndPulse-icon.png",
-   "pictureHref": "//youtu.be/EhsgFFhHUuA",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -52,9 +49,8 @@
 }, {
    "id": "calendarTodolists",
    "title": "Integrating calendar and to-do lists",
-   "picture": "img/calendarTodolists/calendarTodolists_0.png",
+   "pictures": ["img/calendarTodolists/calendarTodolists_0.png", "img/calendarTodolists/calendarTodolists_1.png", "img/calendarTodolists/calendarTodolists_2.png", "img/calendarTodolists/calendarTodolists_3.png", "img/calendarTodolists/calendarTodolists_4.png", "img/calendarTodolists/calendarTodolists_5.png"],
    "icon": "img/calendarTodolists/calendarTodolists-icon.png",
-   "pictureHref": "hci-med-fi-prototype",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -71,9 +67,8 @@
 }, {
    "id": "portfolio",
    "title": "Online portfolio",
-   "picture": "",
+   "pictures": ["img/portfolio/portfolio_0.png", "img/portfolio/portfolio_1.png"],
    "icon": "img/portfolio/portfolio-icon.png",
-   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -86,9 +81,8 @@
 }, {
    "id": "boa",
    "title": "Multi-scale video exploration techniques",
-   "picture": "img/boa/boa_0.png",
+   "pictures": ["img/boa/boa_0.png"],
    "icon": "img/boa/boa-icon.png",
-   "pictureHref": "",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -101,9 +95,8 @@
 }, {
    "id": "geppm",
    "title": "Event scheduling website for an equal opportunity program",
-   "picture": "img/geppm/geppm_0.png",
+   "pictures": ["img/geppm/geppm_0.png"],
    "icon": "img/geppm/geppm-icon.png",
-   "pictureHref": "geppm",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -116,9 +109,8 @@
 }, {
    "id": "angularTodos",
    "title": "Simple task manager in Angular.js",
-   "picture": "img/angularTodos/angularTodos_0.png",
+   "pictures": ["img/angularTodos/angularTodos_0.png"],
    "icon": "img/angularTodos/angularTodos-icon.png",
-   "pictureHref": "personal-task-manager",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -131,9 +123,8 @@
 }, {
    "id": "drone",
    "title": "Image processing for drone stabilization",
-   "picture": "img/drone/drone_0.png",
+   "pictures": ["img/drone/drone_0.png"],
    "icon": "img/drone/drone-icon.png",
-   "pictureHref": "//youtu.be/onzO0s7Fn6c",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -149,9 +140,8 @@
 }, {
    "id": "sasuke",
    "title": "Platform game: Path of a Ninja",
-   "picture": "img/sasuke/sasuke_0.png",
+   "pictures": ["img/sasuke/sasuke_0.png"],
    "icon": "img/sasuke/sasuke-icon.png",
-   "pictureHref": "res/sasuke.exe",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
@@ -164,9 +154,8 @@
 }, {
    "id": "avion",
    "title": "Converting my RC car into an RC plane",
-   "picture": "img/avion/avion_0.png",
+   "pictures": ["img/avion/avion_0.png"],
    "icon": "img/avion/avion-icon.png",
-   "pictureHref": "//youtu.be/-y7MyrMMm-k",
    "detailsVisible": false,
    "pictureVisible":false,
    "links": [{
