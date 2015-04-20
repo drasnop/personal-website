@@ -483,6 +483,18 @@ ul.inline-list li{
 	opacity: 0.5;
 }
 
+.carousel-indicators {
+   bottom: -40px;
+}
+
+.carousel-indicators li{
+   border-color: #556e7b;
+}
+
+.carousel-indicators li.active{
+   background-color: #556e7b;
+}
+
 
 /*			footer 			*/
 
