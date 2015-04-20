@@ -173,7 +173,7 @@ p{
 	bottom: auto;
 }
 
-.hint:hover{
+.hint.animated{
 	animation-name: swing-down;
 	animation-duration: .7s;
 	animation-timing-function: ease-in-out;
@@ -194,7 +194,7 @@ p{
 		bottom:-70px;
 	}
 
-	.hint:hover{
+	.hint.animated{
 		animation-name: swing-up;
 		animation-duration: .7s;
 		animation-timing-function: ease-in-out;

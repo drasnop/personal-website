@@ -95,6 +95,19 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       $scope.drawAppropriateLogo(true);
    }
 
+   // start animation and remove the on(animationiteration) binding, if any (to keep looping forever)
+   $scope.startHintAnimation = function(selector){
+      $(selector).addClass("animated");
+      $(selector).off("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration");
+   }
+
+   // stops the animation at the next end of an iteration, to avoid the hint jumping back into place on mouseleave
+   $scope.endHintAnimation = function(selector){
+      $(selector).on("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration", function(){
+        $(selector).removeClass("animated")  
+      })
+   }
+
    // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
       $scope.$evalAsync(function() {
