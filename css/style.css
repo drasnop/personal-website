@@ -472,6 +472,16 @@ ul.inline-list li{
 	padding: 20px 0;
 }
 
+.carousel-control.left, .carousel-control.right{
+	background-image: none;
+	background-color: #444;
+	opacity: 0;
+	transition: opacity .4s ease;
+}
+
+.carousel-control:focus, .carousel-control:hover{
+	opacity: 0.5;
+}
 
 
 /*			footer 			*/
