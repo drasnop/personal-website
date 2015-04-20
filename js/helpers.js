@@ -1,6 +1,10 @@
 // makes sure the tags stick at the top of the page for large displays
 (function moveScroller() {
     var move = function() {
+
+        if($("#filters-anchor").length===0 || $("#filters").length===0)
+            return;
+
         var st = $(window).scrollTop();
         var ot = $("#filters-anchor").offset().top;
         var s = $("#filters");
