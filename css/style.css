@@ -167,8 +167,23 @@ p{
 	position: absolute;
 	font-family: 'Architects Daughter', cursive;
 	font-size: 18px;
+	cursor: default;
+
 	top: -60px;
 	bottom: auto;
+}
+
+.hint:hover{
+	animation-name: swing-down;
+	animation-duration: .7s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes swing-down{
+	0% {top: -60px;}
+	50% {top: -50px;}
+	100% {top: -60px;}
 }
 
 /* small devices and up*/
@@ -177,6 +192,19 @@ p{
 		font-size: 24px;
 		top: auto;
 		bottom:-70px;
+	}
+
+	.hint:hover{
+		animation-name: swing-up;
+		animation-duration: .7s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes swing-up{
+		0% {bottom: -70px;}
+		50% {bottom: -60px;}
+		100% {bottom: -70px;}
 	}
 }
 
@@ -498,13 +526,16 @@ ul.inline-list li{
 
 /*			footer 			*/
 
-
+#content{
+	min-height: 700px; /* to prevent the footer from jumping on page change */
+}
 
 #footer{
 	background-color: #40535d;
 	color: #c8d3d9;
 	padding-top: 80px;
 	padding-bottom: 80px;
+	box-shadow: inset 0px 31px 21px -20px #2C383F;
 }
 
 .social-icon{

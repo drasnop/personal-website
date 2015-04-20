@@ -78,7 +78,9 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
                break;
             default:
                // short, cubic animation between state 1 and 2
-               drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate ? drawing.shortAnimation : false, true);
+               //drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate ? drawing.shortAnimation : false, true);
+               // now that the logo stays in the same place, don't fade in the text
+               drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, false, false);
                break;
          }
       }
