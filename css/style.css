@@ -174,10 +174,21 @@ p{
 }
 
 .hint.animated{
+	-webkit-animation-name: swing-down;
+	-webkit-animation-duration: .7s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+
 	animation-name: swing-down;
 	animation-duration: .7s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes swing-down{
+	0% {top: -60px;}
+	50% {top: -50px;}
+	100% {top: -60px;}
 }
 
 @keyframes swing-down{
@@ -195,12 +206,23 @@ p{
 	}
 
 	.hint.animated{
+		-webkit-animation-name: swing-up;
+		-webkit-animation-duration: .7s;
+		-webkit-animation-timing-function: ease-in-out;
+		-webkit-animation-iteration-count: infinite;
+
 		animation-name: swing-up;
 		animation-duration: .7s;
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: infinite;
 	}
 
+	@-webkit-keyframes swing-up{
+		0% {bottom: -70px;}
+		50% {bottom: -60px;}
+		100% {bottom: -70px;}
+	}
+	
 	@keyframes swing-up{
 		0% {bottom: -70px;}
 		50% {bottom: -60px;}
@@ -384,6 +406,7 @@ a[disabled]{
 	padding: 8px 10px;
 
 	font-family: 'Architects Daughter', cursive;
+	font-size: 16px;
 }
 
 /*			projects 					*/
