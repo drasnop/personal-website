@@ -138,7 +138,7 @@ var drawing = (function() {
          .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
          .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
 
-      /* depending on screen size, the last two animations are synchronous are sequenced */
+      /* depending on screen size, the last two animations are synchronous or sequenced */
 
       $(".logoText").width(0).css("visibility", "visible")
       $("#logoTextImg").width(drawing.logoTextWidth())
@@ -146,25 +146,35 @@ var drawing = (function() {
 
       var t5,t6,t7;
       if(window.innerWidth < 768) {
+         /* one animation for the horizontal line and the text of the logo */
+         
          t5 = t4.transition().ease("quad-in-out").duration(800)
-         t6 = t5.transition().ease("quad-in-out").delay(1100+1200+800+400).duration(300)
-         t7 = t6.transition().ease("quad-in-out").duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
+
+         /* fade in the hints above the logo */
+         
+         t6 = t5.transition().ease("quad-in-out").delay(1100+1200+800+400).duration(300)
+         t7 = t6.transition().ease("quad-in-out").duration(300)
 
          $(".hint").css("top","-80px")
          t6.select(".left-hint").style("top","-60px").style("opacity",1)
          t7.select(".right-hint").style("top","-60px").style("opacity",1)
       }
       else {
-         t5 = t4.transition().ease("linear").duration(150)
+         /* animate the horizontal line, then the text of the logo */
+
+         t5 = t4.transition().ease("linear").duration(200)
          t6 = t5.transition().ease("quad-in-out").duration(800)
-         t7 = t6.transition().ease("quad-in-out").delay(1100+1200+150+800+400).duration(300)
-         var t8 = t7.transition().ease("quad-in-out").duration(300)
 
          t5.select("#horizontal-line").attr("x2", width)
          t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
+
+         /* fade in the hints below the logo */
+
+         t7 = t6.transition().ease("quad-in-out").delay(1100+1200+150+800+400).duration(300)
+         var t8 = t7.transition().ease("quad-in-out").duration(300)
 
          $(".hint").css("bottom","-90px")
          t7.selectAll(".left-hint").style("bottom","-70px").style("opacity",1)
