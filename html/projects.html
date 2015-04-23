@@ -4,7 +4,7 @@
  <div id="filters-anchor"></div>
  <ul id="filters" class="inline-list" ng-mouseleave="model.tagHovered=false">
   <div class="container small-container">
-   <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="model.tag=tag"
+   <li class="filter" ng-class="{active: tag==model.tag}" ng-repeat="tag in tags" ng-click="collapseProjects(); model.tag=tag;"
    ng-mouseenter="model.tagHovered=tag">{{tag}}</li>
   </div>
 </ul>

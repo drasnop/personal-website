@@ -96,15 +96,15 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
    }
 
    // start animation and remove the on(animationiteration) binding, if any (to keep looping forever)
-   $scope.startHintAnimation = function(selector){
+   $scope.startHintAnimation = function(selector) {
       $(selector).addClass("animated");
       $(selector).off("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration");
    }
 
    // stops the animation at the next end of an iteration, to avoid the hint jumping back into place on mouseleave
-   $scope.endHintAnimation = function(selector){
-      $(selector).on("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration", function(){
-        $(selector).removeClass("animated")  
+   $scope.endHintAnimation = function(selector) {
+      $(selector).on("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration", function() {
+         $(selector).removeClass("animated")
       })
    }
 
@@ -122,8 +122,8 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       return $sce.trustAsHtml(html);
    }
 
-   $scope.smallScreen=function(){
-      return window.innerWidth>=768;
+   $scope.smallScreen = function() {
+      return window.innerWidth >= 768;
    }
 
 }])
@@ -141,10 +141,19 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
       project.detailsVisible = !project.detailsVisible;
       project.pictureVisible = project.detailsVisible;
    }
+
+   $scope.collapseProjects = function() {
+      $scope.projects.forEach(function(project) {
+         project.detailsVisible = false;
+         project.pictureVisible = false;
+      });
+   }
 }]);
 
 app.filter('filterByTag', function() {
    return function(input, tag) {
+      if(typeof input == 'undefined')
+         return;
       if(tag == "All")
          return input;
       return input.filter(function(project) {
