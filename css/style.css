@@ -63,11 +63,9 @@ body{
 }
 */
 
-@media (min-width: 1200px) {
-	.container.small-container{
-		/* keep the container fairly small on the page */
-		max-width: 850px;
-	}
+.container.small-container{
+	/* keep the container fairly small on the page */
+	max-width: 850px;
 }
 
 [class*="col-"] {

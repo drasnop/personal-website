@@ -1,3 +1,4 @@
+
 <div id="projects" class="paddingBottom">
 
  <div id="filters-anchor"></div>
@@ -13,7 +14,7 @@
 
   <div class="row vertical-align-center-always" ng-click="toggleProjectDetails(project)">
    <div class="col-sm-2 col-xs-4">
-    <img class="round-image img-responsive project-icon" ng-src="{{project.icon}}"
+    <img class="round-image img-responsive project-icon" ng-src="img/{{project.id}}/{{project.icon}}"
     ng-class="{'highlighted': project.tags.indexOf(model.tagHovered) > -1 }"
     ng-click="project.pictureVisible= !project.pictureVisible; $event.stopPropagation()"></img>
   </div>
@@ -44,11 +45,15 @@
   </div>
   <div class="col-sm-10  col-xs-12">
     <div ng-switch="project.pictures.length" class="project-pictures">
-      <img ng-switch-when="1" ng-src="{{project.pictures[0]}}" alt="{{project.pictures[0]}}"></img>
+      <a ng-switch-when="1" ng-href="img/1-highres/{{project.pictures[0]}}" target="_blank">
+        <img ng-src="img/{{project.id}}/{{project.pictures[0]}}" alt="{{project.pictures[0]}}"></img>
+      </a>
       <div ng-switch-default>
         <carousel interval="3000">
           <slide ng-repeat="picture in project.pictures" alt="{{picture}}">
-            <img ng-src="{{picture}}">
+            <a ng-href="img/1-highres/{{picture}}" target="_blank">
+              <img ng-src="img/{{project.id}}/{{picture}}">
+            </a>
           </slide>
         </carousel>
       </div>
