@@ -495,8 +495,8 @@ ul.inline-list li{
 	transform: none;
 }
 
-.project-icon:hover{
-	transform: scale(1.1);
+.project-icon:hover, .project-icon.expanded{
+	border-radius: 10px;
 }
 
 .project-icon.highlighted{
@@ -519,6 +519,14 @@ ul.inline-list li{
 .project-pictures{
 	width: 100%;
 	padding: 20px 0;
+}
+
+.project-pictures a{
+	max-width: 100%;
+}
+
+.project-pictures a img{
+	max-width: 100%;
 }
 
 .carousel-control.left, .carousel-control.right{
