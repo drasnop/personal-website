@@ -12,13 +12,13 @@
 <div class="container small-container">
 <div class="project" id="project.id" ng-repeat="project in projects | filterByTag:model.tag">
 
-  <div class="row vertical-align-center-always" ng-click="toggleProjectDetails(project)">
+  <div class="row vertical-align-center-always project-header" ng-click="toggleProjectDetails(project)">
    <div class="col-sm-2 col-xs-4">
     <img class="round-image img-responsive project-icon" ng-src="img/{{project.id}}/{{project.icon}}"
     ng-class="{'highlighted': project.tags.indexOf(model.tagHovered) > -1, 'expanded':project.detailsVisible}"
     ng-click="toggleProjectDetails(project); $event.stopPropagation()"></img>
   </div>
-  <div class="col-sm-10 col-xs-8 project-header">
+  <div class="col-sm-10 col-xs-8">
     <h3 class="project-title" ng-bind-html="getTrustedHtml(project.title)"></h3>
     <div>
        <a ng-repeat="link in project.links" ng-disabled="!link.href" ng-click="$event.stopPropagation()"
@@ -32,11 +32,17 @@
   <div class="col-sm-2 col-xs-0">
   </div>
   <div class="col-sm-10  col-xs-12">
-   <p class="project-description">{{project.description}}</p>
+   <p class="justified-text">
+    {{project.description}} </p>
+   <p ng-if="project.team">
+    <b>Team:</b> {{project.team}} </p>
+   <p class="justified-text" ng-if="project.process">
+    <b>Process:</b> {{project.process}} </p>
+   <p>
+    <b>Tools:</b> {{project.tools}}</p>
     <ul class="tags inline-list">
       <li class="tag" ng-repeat="tag in project.tags" ng-click="model.tag=tag">{{tag}}</li>
    </ul>
-   <p>Tools: {{project.tools}}</p>
   </div>
 </div>
 

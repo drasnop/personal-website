@@ -511,7 +511,7 @@ ul.inline-list li{
 	margin-top: 15px;
 }
 
-.project-description{
+.justified-text{
 	text-align: justify;
 	text-justify: inter-word;
 }
