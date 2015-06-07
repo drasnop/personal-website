@@ -435,8 +435,7 @@ ul.inline-list li {
     padding: 13px 0px;
     margin-top: 17px;
     /* 40px between projects, but only 30px padding below logo...*/
-    
-    margin-bottom: 7px;
+    /*margin-bottom: 7px;/*
     /* 20px padding project */
     
     background-color: #E6EBEE;
@@ -484,10 +483,11 @@ ul.inline-list li {
 
 .project {
     padding: 20px;
-    margin: 0 -20px;
+    margin: 0 -20px 5px;
 }
 
-.project:hover {
+.project:hover,
+.project.expanded {
     background-color: white;
 }
 

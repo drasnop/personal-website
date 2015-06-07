@@ -120,20 +120,6 @@
    "tools": "PHP, MySQL, AJAX",
    "tags": ["Interaction Design", "Visual Design", "Web"]
 }, {
-   "id": "angularTodos",
-   "title": "Simple task manager in Angular.js",
-   "pictures": ["angularTodos_0.png"],
-   "icon": "angularTodos-icon.png",
-   "detailsVisible": false,
-   "pictureVisible": false,
-   "links": [{
-      "text": "demo",
-      "href": "//www.cs.ubc.ca/~aponsard/personal-task-manager"
-   }],
-   "description": "I built this simple task manager to learn Angular.js, in particular its templating and filtering features.",
-   "tools": "Angular.js",
-   "tags": ["Web"]
-}, {
    "id": "drone",
    "title": "Image processing for drone stabilization",
    "pictures": ["drone_0.png"],
