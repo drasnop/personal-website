@@ -49,13 +49,13 @@ body {
 body {
     height: 100%;
 }
-/*			bootstrap and spacing 				*/
+/*          bootstrap and spacing               */
 /*
 [class*="col-"] {
-	border: 1px solid rgba(86, 61, 124, 0.2);
+    border: 1px solid rgba(86, 61, 124, 0.2);
 }
 .container{
-	border: 1px solid rgba(86, 61, 124, 0.2);
+    border: 1px solid rgba(86, 61, 124, 0.2);
 }
 */
 
@@ -127,7 +127,7 @@ p {
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
-/*			header 				*/
+/*          header              */
 
 #header {
     background-color: #556e7b;
@@ -271,7 +271,7 @@ p {
         margin: 0 20px;
     }
 }
-/*			typography			*/
+/*          typography          */
 
 h1,
 h2 {
@@ -362,10 +362,10 @@ a[disabled] {
     opacity: 1;
 }
 
-.marginRight {
-    margin-right: 10px;
+.textLink {
+    margin-right: 20px;
 }
-/*			about me 			*/
+/*          about me            */
 
 .pictureFrame {
     background-color: white;
@@ -415,7 +415,7 @@ a[disabled] {
     font-family: 'Architects Daughter', cursive;
     font-size: 16px;
 }
-/*			projects 					*/
+/*          projects                    */
 
 .round-image {
     border-radius: 50%;
@@ -497,6 +497,16 @@ ul.inline-list li {
 
 .project-header:hover a.toggleProjectDetails {
     color: #d16349;
+    transform: rotate(90deg);
+}
+
+.project a.toggleProjectDetails {
+    transform: rotate(90deg);
+    transition: transform ease 0.3s;
+}
+
+.project.expanded a.toggleProjectDetails {
+    transform: rotate(-90deg);
 }
 
 .project-icon {
@@ -505,7 +515,7 @@ ul.inline-list li {
 }
 
 .project-icon:hover,
-.project-icon.expanded {
+.project.expanded .project-icon {
     border-radius: 10px;
 }
 
@@ -564,7 +574,7 @@ ul.inline-list li {
 .carousel-indicators li.active {
     background-color: #556e7b;
 }
-/*			footer 			*/
+/*          footer          */
 
 #content {
     min-height: 700px;
@@ -586,7 +596,7 @@ ul.inline-list li {
 #copyright {
     font-size: 15;
 }
-/*			svg / logo 				*/
+/*          svg / logo              */
 
 svg {
     margin: 0 auto;

@@ -4,7 +4,7 @@
    "pictures": ["customization_0.png", "customization_1.png", "customization_2.png", "customization_3.png", "customization_4.png", "customization_5.png"],
    "icon": "customization-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "(work in progress)",
       "href": ""
@@ -16,10 +16,10 @@
 }, {
    "id": "paperquest",
    "title": "<strong>PaperQuest:</strong><br> A Visualization Tool to Support Literature Review",
-   "pictures": ["paperquest_0.png","paperquest_1.png","paperquest_2.png"],
+   "pictures": ["paperquest_0.png", "paperquest_1.png", "paperquest_2.png"],
    "icon": "paperquest-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "demo",
       "href": "//www.cs.ubc.ca/~aponsard/paperquest"
@@ -35,16 +35,22 @@
 }, {
    "id": "twistAndPulse",
    "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
-   "pictures": ["twistAndPulse_0.png","twistAndPulse_1.png", "twistAndPulse_2.png"],
+   "pictures": ["twistAndPulse_0.png", "twistAndPulse_1.png", "twistAndPulse_2.png"],
    "icon": "twistAndPulse-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "video",
       "href": "//youtu.be/EhsgFFhHUuA"
    }, {
       "text": "paper",
       "href": "res/TwistAndPulse-GI2015.pdf"
+   }, {
+      "text": "slides.pdf",
+      "href": "res/TwistAndPulse-GI2015.pdf"
+   }, {
+      "text": "slides.pptx",
+      "href": "res/TwistAndPulse-GI2015.pptx"
    }],
    "description": "The concept of ephemeral adaptation was introduced to reduce visual search time in GUI menus, while preserving spatial consistency and minimizing distraction. We extend this concept to the visual search of app icons on smartphones in order to speed up launching apps from a homescreen. We created ephemeral highlighting effects based on preattentive visual properties including size, orientation, color, opacity and blur. A controlled experiment showed that Twist (icon rotates back and forth) and Pulse (icon grows and shrinks) improve search time performance by 8-10% over a control condition with no highlighting.",
    "team": "Kamyar Ardekani, Kailun Zhang",
@@ -57,7 +63,7 @@
    "pictures": ["calendarTodolists_0.png", "calendarTodolists_1.png", "calendarTodolists_2.png", "calendarTodolists_3.png", "calendarTodolists_4.png", "calendarTodolists_5.png"],
    "icon": "calendarTodolists-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "demo",
       "href": "//www.cs.ubc.ca/~aponsard/hci-med-fi-prototype"
@@ -77,7 +83,7 @@
    "pictures": ["portfolio_0.png", "portfolio_1.png"],
    "icon": "portfolio-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "home",
       "href": "#!/"
@@ -91,7 +97,7 @@
    "pictures": ["boa_0.png"],
    "icon": "boa-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "(demo coming soon)",
       "href": ""
@@ -105,21 +111,21 @@
    "pictures": ["geppm_0.png"],
    "icon": "geppm-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "demo",
       "href": "//www.cs.ubc.ca/~aponsard/geppm"
    }],
    "description": "A friend and I built this website for GEPPM, an equal opportunity program I was participating in at Ecole polytechnique. We had two types of users: regular tutors who needed to know where and when to meet their tutees, depending on the group and grade; and admins who assign tutors to groups and schedule events for all the groups. My friend set up the database and the events management on the back end, while I built the front end in AJAX, designed the appearance of the website and handled the account management features. You can try the website with the login a@a.com and the password 'a'.",
    "tools": "PHP, MySQL, AJAX",
-   "tags": ["Interaction Design","Visual Design", "Web"]
+   "tags": ["Interaction Design", "Visual Design", "Web"]
 }, {
    "id": "angularTodos",
    "title": "Simple task manager in Angular.js",
    "pictures": ["angularTodos_0.png"],
    "icon": "angularTodos-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "demo",
       "href": "//www.cs.ubc.ca/~aponsard/personal-task-manager"
@@ -133,11 +139,11 @@
    "pictures": ["drone_0.png"],
    "icon": "drone-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "video_flight",
       "href": "//youtu.be/onzO0s7Fn6c"
-   },{
+   }, {
       "text": "video_algorithm",
       "href": "//youtu.be/WZTOihh9bhI"
    }],
@@ -150,7 +156,7 @@
    "pictures": ["sasuke_0.png"],
    "icon": "sasuke-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": ".exe",
       "href": "res/sasuke.exe"
@@ -164,7 +170,7 @@
    "pictures": ["avion_0.png"],
    "icon": "avion-icon.png",
    "detailsVisible": false,
-   "pictureVisible":false,
+   "pictureVisible": false,
    "links": [{
       "text": "video",
       "href": "//youtu.be/-y7MyrMMm-k"
