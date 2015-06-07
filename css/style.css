@@ -520,7 +520,8 @@ ul.inline-list li {
 }
 
 .project-icon.highlighted {
-    transform: scale(1.1);
+    /* cool idea, but somewhat confusing in the list view
+    transform: scale(1.1);*/
 }
 
 .project-details {
