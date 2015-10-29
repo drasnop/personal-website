@@ -42,6 +42,28 @@
    "tools": "jQuery, Angular.js",
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
+   "id": "calendarTodolists",
+   "title": "Integrating calendar and to-do lists",
+   "pictures": ["calendarTodolists_0.png", "calendarTodolists_1.png", "calendarTodolists_2.png", "calendarTodolists_3.png", "calendarTodolists_4.png", "calendarTodolists_5.png"],
+   "icon": "calendarTodolists-icon.png",
+   "detailsVisible": false,
+   "pictureVisible": false,
+   "links": [{
+      "text": "demo",
+      "href": "//www.cs.ubc.ca/~aponsard/hci-med-fi-prototype"
+   }, {
+      "text": "paper",
+      "href": "res/NurseryWeb-stage4.pdf"
+   }, {
+      "text": "slides",
+      "href": "res/calendars-todolists-slides.pdf"
+   }],
+   "description": "We address a major issue in task management: the lack of support for time-sensitive deadlines. On the one hand, calendars are time-centric tools, appropriate for keeping track of events, but they are not great for planning for deadlines. On the other hand, todo lists are task-centric tools, excellent for keeping track of tasks and subtasks; but it is hard to visualize time from a text-only format. Our proposed solution is to combine the strength of both types of tools by tightly coupling them.",
+   "team": "Francisco Escalona, Kamyar Ardekani",
+   "process": "We began by asking our target population (post-secondary students) how they manage their academic workload, including short-term assignments, long-term projects and studying for exams. Most were using a generic calendar tool, and many were using a todo list app. We identified several problems: entering new tasks, estimating business level and planning work. We focused on the last two, because we believe solutions already exist for the first one (e.g. crowdsourcing tasks input). After several brainstormings, we designed an interface that integrates calendar and todolists. We sketched a low-fi mockup to test our design with potential users, before implementing a high-fidelity prototype and testing it with another set of users.",
+   "tools": "Balsamiq, jQuery, Ember.js",
+   "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
+}, {
    "id": "twistAndPulse",
    "title": "<strong>Twist and Pulse:</strong> ephemeral adaptation to improve icon selection on smartphones <em> (Graphics Interface 2015) </em>",
    "pictures": ["twistAndPulse_0.png", "twistAndPulse_1.png", "twistAndPulse_2.png"],
@@ -63,26 +85,6 @@
    "process": "To find inspiration on new ways to launch apps on smartphones, we surveyed many custom Android homescreens and themes, looking at the type of icons, widgets and animations they were using. Given the growing number of apps that people install on their phone, we decided to focus on helping users find the app they're looking for faster. We prototyped some visual effects with PowerPoint, but quickly realized that we needed more power and control on the animations. We then built an Android app mimicking a traditional homescreen, with a variety of highlighting effects that we tested on potential users. Finally we designed and ran a very precise experiment on the two most promising effects.",
    "tools": "Android",
    "tags": ["Interaction Design", "Visual Design", "Mobile", "User Research"]
-}, {
-   "id": "calendarTodolists",
-   "title": "Integrating calendar and to-do lists",
-   "pictures": ["calendarTodolists_0.png", "calendarTodolists_1.png", "calendarTodolists_2.png", "calendarTodolists_3.png", "calendarTodolists_4.png", "calendarTodolists_5.png"],
-   "icon": "calendarTodolists-icon.png",
-   "detailsVisible": false,
-   "pictureVisible": false,
-   "links": [{
-      "text": "demo",
-      "href": "//www.cs.ubc.ca/~aponsard/hci-med-fi-prototype"
-   }, {
-      "text": "paper",
-      "href": "res/NurseryWeb-stage4.pdf"
-
-   }],
-   "description": "We address a major issue in task management: the lack of support for time-sensitive deadlines. On the one hand, calendars are time-centric tools, appropriate for keeping track of events, but they are not great for planning for deadlines. On the other hand, todo lists are task-centric tools, excellent for keeping track of tasks and subtasks; but it is hard to visualize time from a text-only format. Our proposed solution is to combine the strength of both types of tools by tightly coupling them.",
-   "team": "Francisco Escalona, Kamyar Ardekani",
-   "process": "We began by asking our target population (post-secondary students) how they manage their academic workload, including short-term assignments, long-term projects and studying for exams. Most were using a generic calendar tool, and many were using a todo list app. We identified several problems: entering new tasks, estimating business level and planning work. We focused on the last two, because we believe solutions already exist for the first one (e.g. crowdsourcing tasks input). After several brainstormings, we designed an interface that integrates calendar and todolists. We sketched a low-fi mockup to test our design with potential users, before implementing a high-fidelity prototype and testing it with another set of users.",
-   "tools": "Balsamiq, jQuery, Ember.js",
-   "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
    "id": "portfolio",
    "title": "Online portfolio",
@@ -158,7 +160,7 @@
    "tags": ["Other"]
 }, {
    "id": "avion",
-   "title": "Converting my RC car into an RC plane",
+   "title": "Converting an RC car into an RC plane",
    "pictures": ["avion_0.png"],
    "icon": "avion-icon.png",
    "detailsVisible": false,
