@@ -29,10 +29,8 @@ body {
     text-rendering: optimizeLegibility;
     color: #556e7b;
     /* temporarily set the background color to dark, to speed up the change on initial page load */
-    
     background-color: #556e7b;
     /* force scrollbar to avoid the page jumping aroung on AJAX loads */
-    
     overflow-y: scroll;
 }
 
@@ -49,7 +47,11 @@ body {
 body {
     height: 100%;
 }
+
+
 /*          bootstrap and spacing               */
+
+
 /*
 [class*="col-"] {
     border: 1px solid rgba(86, 61, 124, 0.2);
@@ -61,7 +63,6 @@ body {
 
 .container.small-container {
     /* keep the container fairly small on the page */
-    
     max-width: 850px;
 }
 
@@ -74,6 +75,8 @@ body {
     margin-left: -10px;
     margin-right: -10px;
 }
+
+
 /* small devices and up*/
 
 @media (min-width: 768px) {
@@ -127,6 +130,8 @@ p {
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
+
+
 /*          header              */
 
 #header {
@@ -162,7 +167,7 @@ p {
     bottom: auto;
 }
 
-.hint:hover{
+.hint:hover {
     color: #E6EBEE;
 }
 
@@ -200,6 +205,8 @@ p {
         top: -60px;
     }
 }
+
+
 /* small devices and up*/
 
 @media (min-width: 768px) {
@@ -259,7 +266,6 @@ p {
     overflow: hidden;
     white-space: nowrap;
     /* display the text of the logo below the logo on small devices */
-    
     display: block;
 }
 
@@ -276,6 +282,8 @@ p {
         margin: 0 20px;
     }
 }
+
+
 /*          typography          */
 
 h1,
@@ -370,6 +378,8 @@ a[disabled] {
 .textLink {
     margin-right: 20px;
 }
+
+
 /*          about me            */
 
 .pictureFrame {
@@ -420,6 +430,8 @@ a[disabled] {
     font-family: 'Architects Daughter', cursive;
     font-size: 16px;
 }
+
+
 /*          projects                    */
 
 .round-image {
@@ -442,7 +454,6 @@ ul.inline-list li {
     /* 40px between projects, but only 30px padding below logo...*/
     /*margin-bottom: 7px;/*
     /* 20px padding project */
-    
     background-color: #E6EBEE;
     z-index: 10;
     width: 100%;
@@ -580,6 +591,8 @@ ul.inline-list li {
 .carousel-indicators li.active {
     background-color: #556e7b;
 }
+
+
 /*          footer          */
 
 #content {
@@ -602,6 +615,8 @@ ul.inline-list li {
 #copyright {
     font-size: 15;
 }
+
+
 /*          svg / logo              */
 
 svg {
