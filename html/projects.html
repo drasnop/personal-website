@@ -29,41 +29,47 @@
 </div>
 
 <div ng-if="project.detailsVisible" class="row project-details">
+
   <div class="col-sm-2 col-xs-0">
   </div>
   <div class="col-sm-10  col-xs-12">
+
    <p class="justified-text">
-    {{project.description}} </p>
+    {{project.description}}
+    </p>
+
+    <div ng-if="project.pictureVisible">
+      <div ng-switch="project.pictures.length" class="project-pictures">
+        <a ng-switch-when="1" ng-href="img/1-highres/{{project.pictures[0]}}" target="_blank">
+          <img ng-src="img/{{project.id}}/{{project.pictures[0]}}" alt="{{project.pictures[0]}}"></img>
+        </a>
+        <div ng-switch-default>
+          <carousel interval="3000">
+            <slide ng-repeat="picture in project.pictures" alt="{{picture}}">
+              <a ng-href="img/1-highres/{{picture}}" target="_blank">
+                <img ng-src="img/{{project.id}}/{{picture}}">
+              </a>
+            </slide>
+          </carousel>
+        </div>
+      </div>
+    </div>
+
    <p ng-if="project.team">
-    <b>Team:</b> {{project.team}} </p>
+    <b>Team:</b> {{project.team}}
+    </p>
+
    <p class="justified-text" ng-if="project.process">
     <b>Process:</b> {{project.process}} </p>
    <p>
-    <b>Tools:</b> {{project.tools}}</p>
+
+    <b>Tools:</b> {{project.tools}}
+    </p>
+
     <ul class="tags inline-list">
       <li class="tag" ng-repeat="tag in project.tags" ng-click="model.tag=tag">{{tag}}</li>
    </ul>
-  </div>
-</div>
 
-<div ng-if="project.pictureVisible" class="row">
-  <div class="col-sm-2 col-xs-0">
-  </div>
-  <div class="col-sm-10  col-xs-12">
-    <div ng-switch="project.pictures.length" class="project-pictures">
-      <a ng-switch-when="1" ng-href="img/1-highres/{{project.pictures[0]}}" target="_blank">
-        <img ng-src="img/{{project.id}}/{{project.pictures[0]}}" alt="{{project.pictures[0]}}"></img>
-      </a>
-      <div ng-switch-default>
-        <carousel interval="3000">
-          <slide ng-repeat="picture in project.pictures" alt="{{picture}}">
-            <a ng-href="img/1-highres/{{picture}}" target="_blank">
-              <img ng-src="img/{{project.id}}/{{picture}}">
-            </a>
-          </slide>
-        </carousel>
-      </div>
-    </div>
   </div>
 </div>
 
