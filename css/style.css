@@ -155,10 +155,15 @@ p {
 .hint {
     position: absolute;
     font-family: 'Architects Daughter', cursive;
+    color: #E6EBEE;
     font-size: 18px;
     cursor: default;
     top: -60px;
     bottom: auto;
+}
+
+.hint:hover{
+    color: #E6EBEE;
 }
 
 .hint.animated {
