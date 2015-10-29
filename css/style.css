@@ -110,8 +110,15 @@ p {
 .section {
     text-align: justify;
     text-justify: inter-word;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
 }
 
 .section.first-section {
@@ -401,9 +408,16 @@ a[disabled] {
     background-color: #0BB0A4;
     color: white;
     padding: 6px 15px;
+    margin-top: 30px;
     -webkit-transition: padding .4s ease;
     -o-transition: padding .4s ease;
     transition: padding .4s ease;
+}
+
+@media (min-width: 768px) {
+    .greenButton {
+        margin-top: 0px;
+    }
 }
 
 .greenButton:hover,

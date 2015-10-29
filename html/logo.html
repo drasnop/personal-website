@@ -16,9 +16,9 @@
         <path id="circle" class="arc"></path>
     </g>
 </svg>
-<a href="#!/about">
-    <div class="hint left-hint" ng-show="model.state<=0" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>about') : getTrustedHtml('about<br>↓')" ng-mouseenter="startHintAnimation('.left-hint')" ng-mouseleave="endHintAnimation('.left-hint')"></div>
+<a href="#!/about" ng-show="model.state<=0">
+    <div class="hint left-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>about') : getTrustedHtml('about<br>↓')" ng-mouseenter="startHintAnimation('.left-hint')" ng-mouseleave="endHintAnimation('.left-hint')"></div>
 </a>
-<a href="#!/projects">
-    <div class="hint right-hint" ng-show="model.state<=0" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>projects') : getTrustedHtml('projects<br>↓')" ng-mouseenter="startHintAnimation('.right-hint')" ng-mouseleave="endHintAnimation('.right-hint')"></div>
+<a href="#!/projects" ng-show="model.state<=0">
+    <div class="hint right-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>projects') : getTrustedHtml('projects<br>↓')" ng-mouseenter="startHintAnimation('.right-hint')" ng-mouseleave="endHintAnimation('.right-hint')"></div>
 </a>
