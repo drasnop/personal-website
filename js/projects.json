@@ -1,21 +1,6 @@
 [{
-   "id": "customization",
-   "title": "<strong>Direct Customization:</strong><br> Affordances and Preview for Personalization",
-   "pictures": ["customization_0.png", "customization_1.png", "customization_2.png", "customization_3.png", "customization_4.png", "customization_5.png"],
-   "icon": "customization-icon.png",
-   "detailsVisible": false,
-   "pictureVisible": false,
-   "links": [{
-      "text": "(work in progress)",
-      "href": ""
-   }],
-   "description": "Customization panels are the most common customization mechanism in today's software. Often implemented as dialog boxes, they let users modify their software via a set of predefined customization options. However, these panels are how developers think about customization: changing the values of some obscure parameters in a config file. We propose to take the users' side on customization, by embedding it as much as possible in the interface of the app, which they are already familiar with. We are exploring how to add affordances, preview and undo of the customization options available, to create a more direct form of customization.",
-   "process": "I started by surveying a large number of apps, both on the desktop and on smartphones, to see which customization mechanisms are offered to users today. I found that most apps implement a very similar settings panel, with a bunch of checkboxes and drop-downs. Unfortunately, these panels have serious usability shortcomings, as they don't provide affordances, preview nor undo. My idea is to remove these \"proxys\" to let users change directly the app interface. After surveying another set of apps to check that this approach was feasible, I designed a direct customization mechanism that maps settings to visual elements in the interface. I then built a web prototype with several variants, testing and refining them regularly with potential users. I managed to hook this prototype into Wunderlist (a popular todolist app), so that my software replaces their settings panel. I am now planning an experiment on Mechanical Turk to evaluate this system",
-   "tools": "jQuery, Angular.js",
-   "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
-}, {
    "id": "paperquest",
-   "title": "<strong>PaperQuest:</strong><br> A Visualization Tool to Support Literature Review",
+   "title": "<strong>PaperQuest:</strong><br> a visualization tool to support literature review",
    "pictures": ["paperquest_0.png", "paperquest_1.png", "paperquest_2.png"],
    "icon": "paperquest-icon.png",
    "detailsVisible": false,
@@ -26,6 +11,9 @@
    }, {
       "text": "paper",
       "href": "res/PaperQuest.pdf"
+   }, {
+      "text": "slides",
+      "href": "res/paperquest-slides.pdf"
    }],
    "description": "The literature review is a key component of academic research, that allows researchers to build upon each other’s work. Modern search engines enable fast access to publications, but there is a lack of support for filtering out the vast majority of papers that are irrelevant to the current research focus. We present PaperQuest, a visualization tool that supports efficient decision making, by only displaying the information useful at a given step of the exploration process. We propose a relevance algorithm to find and sort papers that are likely to be relevant to users, based on the papers they have expressed interest in before and the number of citations. The current implementation uses papers from the CHI and UIST conferences, and citation counts from Google Scholar, but is easily extensible to other domains of the literature.",
    "team": "Francisco Escalona (\"Pax\")",
@@ -33,8 +21,29 @@
    "tools": "D3.js",
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
+   "id": "customization",
+   "title": "<strong>Anchored Customization:</strong><br> anchoring settings to the application interface to afford customization",
+   "pictures": ["customization_0.png", "customization_1.png", "customization_2.png", "customization_3.png", "customization_4.png", "customization_5.png"],
+   "icon": "customization-icon.png",
+   "detailsVisible": false,
+   "pictureVisible": false,
+   "links": [{
+      "text": "demo",
+      "href": "//www.cs.ubc.ca/~aponsard/stencil/wunderlist/wunderlist-mini.html"
+   }, {
+      "text": "video",
+      "href": "res/AnchoredCustomization.mp4"
+   }, {
+      "text": "slides",
+      "href": "res/AnchoredCustomization-slides.pdf"
+   }],
+   "description": "Customization panels are the most common customization mechanism in today's software. Often implemented as dialog boxes, they let users modify their software via a set of predefined customization options. However, these panels are how developers think about customization: changing the values of some obscure parameters in a config file. We propose to take the users' side on customization, by embedding it as much as possible in the interface of the app, which they are already familiar with. We are exploring how to add affordances, preview and undo of the customization options available, to create a more direct form of customization.",
+   "process": "I started by surveying a large number of apps, both on the desktop and on smartphones, to see which customization mechanisms are offered to users today. I found that most apps implement a very similar settings panel, with a bunch of checkboxes and drop-downs. Unfortunately, these panels have serious usability shortcomings, as they don't provide affordances, preview nor undo. My idea is to remove these \"proxys\" to let users change directly the app interface. After surveying another set of apps to check that this approach was feasible, I designed a direct customization mechanism that maps settings to visual elements in the interface. I then built a web prototype with several variants, testing and refining them regularly with potential users. I managed to hook this prototype into Wunderlist (a popular todolist app), so that my software replaces their settings panel. I am now planning an experiment on Mechanical Turk to evaluate this system",
+   "tools": "jQuery, Angular.js",
+   "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
+}, {
    "id": "twistAndPulse",
-   "title": "<strong>Twist and Pulse:</strong> Ephemeral Adaptation to improve Icon Selection on Smartphones <em> (Graphics Interface 2015) </em>",
+   "title": "<strong>Twist and Pulse:</strong> ephemeral adaptation to improve icon selection on smartphones <em> (Graphics Interface 2015) </em>",
    "pictures": ["twistAndPulse_0.png", "twistAndPulse_1.png", "twistAndPulse_2.png"],
    "icon": "twistAndPulse-icon.png",
    "detailsVisible": false,
@@ -46,11 +55,8 @@
       "text": "paper",
       "href": "res/TwistAndPulse-GI2015.pdf"
    }, {
-      "text": "slides.pdf",
+      "text": "slides",
       "href": "res/TwistAndPulse-GI2015-slides.pdf"
-   }, {
-      "text": "slides.pptx",
-      "href": "res/TwistAndPulse-GI2015.pptx"
    }],
    "description": "The concept of ephemeral adaptation was introduced to reduce visual search time in GUI menus, while preserving spatial consistency and minimizing distraction. We extend this concept to the visual search of app icons on smartphones in order to speed up launching apps from a homescreen. We created ephemeral highlighting effects based on preattentive visual properties including size, orientation, color, opacity and blur. A controlled experiment showed that Twist (icon rotates back and forth) and Pulse (icon grows and shrinks) improve search time performance by 8-10% over a control condition with no highlighting.",
    "team": "Kamyar Ardekani, Kailun Zhang",
