@@ -141,7 +141,7 @@ app.controller('logoCtrl', ['$scope', function($scope) {
 
 /* --------------- Projects Controller -------------- */
 
-app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
    $http.get('js/projects.json').success(function(data) {
       $scope.projects = data;
    });
@@ -153,12 +153,21 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
       project.pictureVisible = project.detailsVisible;
    }
 
+   $scope.changeTag = function(tag) {
+      $scope.collapseProjects();
+      model.tag = "";
+      $timeout(function() {
+         model.tag = tag;
+      }, 300);
+   }
+
    $scope.collapseProjects = function() {
       $scope.projects.forEach(function(project) {
          project.detailsVisible = false;
          project.pictureVisible = false;
       });
    }
+
 }]);
 
 app.filter('filterByTag', function() {

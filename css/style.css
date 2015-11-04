@@ -573,13 +573,15 @@ ul.inline-list li {
 
 /* define transitions for parent and children */
 
-.project.ng-enter {
-    transition: transform .5s linear;
+.project.ng-enter,
+.project.ng-leave {
+    transition: transform .3s linear;
     /*opacity: 0;*/
     /*transform: scale(0.9);*/
 }
 
-.project.ng-enter-stagger {
+.project.ng-enter-stagger,
+.project.ng-leave-stagger {
     /* this will have a 100ms delay between each successive leave animation */
     transition-delay: 0.1s;
     /* As of 1.4.4, this must always be set: it signals ngAnimate
@@ -588,11 +590,11 @@ ul.inline-list li {
 }
 
 
-/* project-icon animation */
+/* project-icon enter animation */
 
 .project.ng-enter .project-icon {
     /* The starting CSS styles for the enter animation */
-    transition: transform .5s linear;
+    transition: transform .3s linear;
     transform: scale(0.6);
 }
 
@@ -604,6 +606,25 @@ ul.inline-list li {
 .project.ng-enter.ng-enter-active .project-icon {
     /* The finishing CSS styles for the enter animation */
     transform: scale(1);
+}
+
+
+/* project-icon leave animation */
+
+.project.ng-leave .project-icon {
+    /* The starting CSS styles for the enter animation */
+    transition: transform .3s linear;
+    transform: scale(1);
+}
+
+.project.ng-leave-stagger .project-icon {
+    /* this will have a 100ms delay between each successive leave animation */
+    transition-delay: 0.1s;
+}
+
+.project.ng-leave.ng-leave-active .project-icon {
+    /* The finishing CSS styles for the enter animation */
+    transform: scale(0.6);
 }
 
 .project-details {
