@@ -537,11 +537,11 @@ ul.inline-list li {
     background-color: white;
 }
 
-.project-header {
+.project-banner {
     cursor: pointer;
 }
 
-.project-header:hover a.toggleProjectDetails {
+.project-banner:hover a.toggleProjectDetails {
     color: #d16349;
     transform: rotate(90deg);
 }
@@ -580,14 +580,15 @@ ul.inline-list li {
     /*transform: scale(0.9);*/
 }
 
-.project.ng-enter-stagger,
+
+/* .project.ng-enter-stagger,
 .project.ng-leave-stagger {
-    /* this will have a 100ms delay between each successive leave animation */
+    this will have a 100ms delay between each successive leave animation
     transition-delay: 0.1s;
-    /* As of 1.4.4, this must always be set: it signals ngAnimate
-    to not accidentally inherit a delay property from another CSS class */
+    As of 1.4.4, this must always be set: it signals ngAnimate
+    to not accidentally inherit a delay property from another CSS class
     transition-duration: 0s;
-}
+} */
 
 
 /* project-icon enter animation */
@@ -595,7 +596,7 @@ ul.inline-list li {
 .project.ng-enter .project-icon {
     /* The starting CSS styles for the enter animation */
     transition: transform .3s linear;
-    transform: scale(0.6);
+    transform: scale(0);
 }
 
 .project.ng-enter-stagger .project-icon {
@@ -624,7 +625,45 @@ ul.inline-list li {
 
 .project.ng-leave.ng-leave-active .project-icon {
     /* The finishing CSS styles for the enter animation */
-    transform: scale(0.6);
+    transform: scale(0);
+}
+
+
+/* project-header enter animation */
+
+.project.ng-enter .project-header {
+    /* The starting CSS styles for the enter animation */
+    transition: opacity .3s linear;
+    opacity: 0;
+}
+
+.project.ng-enter-stagger .project-header {
+    /* this will have a 100ms delay between each successive leave animation */
+    transition-delay: 0.1s;
+}
+
+.project.ng-enter.ng-enter-active .project-header {
+    /* The finishing CSS styles for the enter animation */
+    opacity: 1;
+}
+
+
+/* project-header leave animation */
+
+.project.ng-leave .project-header {
+    /* The starting CSS styles for the enter animation */
+    transition: opacity .3s linear;
+    opacity: 1;
+}
+
+.project.ng-leave-stagger .project-header {
+    /* this will have a 100ms delay between each successive leave animation */
+    transition-delay: 0.1s;
+}
+
+.project.ng-leave.ng-leave-active .project-header {
+    /* The finishing CSS styles for the enter animation */
+    opacity: 0;
 }
 
 .project-details {
