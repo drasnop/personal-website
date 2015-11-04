@@ -71,6 +71,16 @@ app.controller('logoCtrl', ['$scope', function($scope) {
       $scope.drawAppropriateLogo(true);
    })
 
+   // Using $watch would be a bit inefficient in this case as this function will always be run to check for changes.
+   $(window).resize(function() {
+      $scope.$evalAsync(function() {
+         // Resize and reposition the logo
+         $scope.drawAppropriateLogo(false);
+         // Resize the round images to have the size of the logo
+         $(".round-image").width($("#logoProjects").width());
+      });
+   });
+
    $scope.drawAppropriateLogo = function(animate) {
 
       // start appropriate drawing and transitions based on previous state
@@ -149,16 +159,6 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
          project.pictureVisible = false;
       });
    }
-
-   // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
-   $(window).resize(function() {
-      $scope.$evalAsync(function() {
-         // Resize and reposition the logo
-         $scope.drawAppropriateLogo(false);
-         // Resize the round images to have the size of the logo
-         $(".round-image").width($("#logoProjects").width());
-      });
-   });
 }]);
 
 app.filter('filterByTag', function() {
