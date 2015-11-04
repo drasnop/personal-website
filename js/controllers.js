@@ -1,3 +1,7 @@
+/*
+ * Defines the model and the controllers for the different parts of the app
+ */
+
 var model = {
    // -1=empty, 0=logo, 1=about, 2=projects
    "state": -1,
@@ -27,7 +31,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       model.prevState = model.state
 
       // update state
-      switch($location.path()) {
+      switch ($location.path()) {
          case "/about":
             model.state = 1;
             break;
@@ -47,7 +51,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
       // start appropriate drawing and transitions based on previous state
       var logoWidth;
 
-      if(model.state === 0) {
+      if (model.state === 0) {
          // draw large logo, fullscreen
          logoWidth = drawing.largeInnerWidth;
          $("#logoSplash").width(drawing.logoWidth())
@@ -56,20 +60,18 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          // however, when resizing the window on the splashscreen, we don't want it to animate
          //console.log(model.prevState, model.state, animate)
 
-         if(model.prevState <= 0 && animate) {
+         if (model.prevState <= 0 && animate) {
             drawing.firstDrawLogo(logoWidth, logoWidth, drawing.largeStroke);
-         }
-         else {
+         } else {
             drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, model.state, animate ? drawing.longAnimation : false, false);
          }
-      }
-      else {
+      } else {
          logoWidth = $("#logoProjects").width();
          // need to fake it because doesn't contain any svg
          $("#logoSplash").width(drawing.logoWidth())
 
          // just to adapt the time and smoothness of the animation
-         switch(model.prevState) {
+         switch (model.prevState) {
             case -1:
                drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, false, false);
                break;
@@ -129,6 +131,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 }])
 
 
+/* --------------- Projects Controller -------------- */
 
 app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
    $http.get('js/projects.json').success(function(data) {
@@ -152,9 +155,9 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
 
 app.filter('filterByTag', function() {
    return function(input, tag) {
-      if(typeof input == 'undefined')
+      if (typeof input == 'undefined')
          return;
-      if(tag == "All")
+      if (tag == "All")
          return input;
       return input.filter(function(project) {
          return project.tags.indexOf(tag) >= 0;

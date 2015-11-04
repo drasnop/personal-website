@@ -1,3 +1,7 @@
+/*
+ * Initializes the Angular app, and handle page navigation
+ */
+
 var app = angular.module('myApp', ['ui.bootstrap', 'ngRoute', 'ngTouch']);
 
 app.config(['$routeProvider', '$locationProvider',
