@@ -596,7 +596,7 @@ ul.inline-list li {
 .project.ng-enter .project-icon {
     /* The starting CSS styles for the enter animation */
     transition: transform .3s linear;
-    transform: scale(0);
+    transform: scaleY(0);
 }
 
 .project.ng-enter-stagger .project-icon {
@@ -606,7 +606,7 @@ ul.inline-list li {
 
 .project.ng-enter.ng-enter-active .project-icon {
     /* The finishing CSS styles for the enter animation */
-    transform: scale(1);
+    transform: scaleY(1);
 }
 
 
@@ -615,7 +615,7 @@ ul.inline-list li {
 .project.ng-leave .project-icon {
     /* The starting CSS styles for the enter animation */
     transition: transform .3s linear;
-    transform: scale(1);
+    transform: scaleY(1);
 }
 
 .project.ng-leave-stagger .project-icon {
@@ -625,7 +625,7 @@ ul.inline-list li {
 
 .project.ng-leave.ng-leave-active .project-icon {
     /* The finishing CSS styles for the enter animation */
-    transform: scale(0);
+    transform: scaleY(0);
 }
 
 
@@ -633,8 +633,8 @@ ul.inline-list li {
 
 .project.ng-enter .project-header {
     /* The starting CSS styles for the enter animation */
-    transition: opacity .3s linear;
-    opacity: 0;
+    transition: transform .3s linear;
+    transform: scaleY(0);
 }
 
 .project.ng-enter-stagger .project-header {
@@ -644,7 +644,7 @@ ul.inline-list li {
 
 .project.ng-enter.ng-enter-active .project-header {
     /* The finishing CSS styles for the enter animation */
-    opacity: 1;
+    transform: scaleY(1);
 }
 
 
@@ -652,8 +652,8 @@ ul.inline-list li {
 
 .project.ng-leave .project-header {
     /* The starting CSS styles for the enter animation */
-    transition: opacity .3s linear;
-    opacity: 1;
+    transition: transform .3s linear;
+    transform: scaleY(1);
 }
 
 .project.ng-leave-stagger .project-header {
@@ -663,7 +663,7 @@ ul.inline-list li {
 
 .project.ng-leave.ng-leave-active .project-header {
     /* The finishing CSS styles for the enter animation */
-    opacity: 0;
+    transform: scaleY(0);
 }
 
 .project-details {
