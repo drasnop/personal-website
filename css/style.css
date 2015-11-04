@@ -555,19 +555,51 @@ ul.inline-list li {
     transform: rotate(-90deg);
 }
 
-.project-icon {
-    transition: all .2s ease;
-    transform: none;
-}
-
 .project-icon:hover,
 .project.expanded .project-icon {
     border-radius: 10px;
 }
 
+.project-icon {
+    transition: all .2s ease;
+    /*transform: none;*/
+}
+
 .project-icon.highlighted {
     /* cool idea, but somewhat confusing in the list view
     transform: scale(1.1);*/
+}
+
+
+/* define transitions for parent and children */
+
+.project.ng-enter,
+.project.ng-enter .project-icon {
+    transition: .5s linear all;
+    /*opacity: 0;*/
+    /*transform: scale(0.9);*/
+}
+
+.project.ng-enter-stagger,
+.project.ng-enter-stagger .project-icon {
+    /* this will have a 100ms delay between each successive leave animation */
+    transition-delay: 0.1s;
+    /* As of 1.4.4, this must always be set: it signals ngAnimate
+    to not accidentally inherit a delay property from another CSS class */
+    transition-duration: 0s;
+}
+
+
+/* project-icon animation */
+
+.project.ng-enter .project-icon {
+    /* The starting CSS styles for the enter animation */
+    transform: scale(0.6);
+}
+
+.project.ng-enter.ng-enter-active .project-icon {
+    /* The finishing CSS styles for the enter animation */
+    transform: scale(1);
 }
 
 .project-details {
