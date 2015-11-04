@@ -1,24 +1,26 @@
-<svg ng-mouseover="model.mouseover=true" ng-mouseleave="model.mouseover=false">
-    <clipPath id="disk-clipper">
-        <circle class="arc"></circle>
-    </clipPath>
-    <g clip-path="url(#disk-clipper)" id="canvas">
-        <a id="left-half" ng-attr-xlink:href="{{model.state!=1? '#!/about' : '#!/'}}" xlink:href="">
-            <rect></rect>
-        </a>
-        <a id="right-half" ng-attr-xlink:href="{{model.state!=2? '#!/projects' : '#!/'}}" xlink:href="">
-            <rect></rect>
-        </a>
-        <path id="boucle" class="letterP nonStatic arc" ng-hide="model.state==1 && !model.mouseover"></path>
-        <line id="vertical-line" class="letterA letterP"></line>
-        <line id="horizontal-line" class="letterA"></line>
-        <line id="diagonal" class="letterA nonStatic" ng-hide="model.state==2 && !model.mouseover"></line>
-        <path id="circle" class="arc"></path>
-    </g>
-</svg>
-<a href="#!/about" ng-show="model.state<=0">
-    <div class="hint left-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>about') : getTrustedHtml('about<br>↓')" ng-mouseenter="startHintAnimation('.left-hint')" ng-mouseleave="endHintAnimation('.left-hint')"></div>
-</a>
-<a href="#!/projects" ng-show="model.state<=0">
-    <div class="hint right-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>projects') : getTrustedHtml('projects<br>↓')" ng-mouseenter="startHintAnimation('.right-hint')" ng-mouseleave="endHintAnimation('.right-hint')"></div>
-</a>
+<div ng-controller="logoCtrl" ng-init="unfoldLogo()">
+    <svg ng-mouseover="model.mouseover=true" ng-mouseleave="model.mouseover=false">
+        <clipPath id="disk-clipper">
+            <circle class="arc"></circle>
+        </clipPath>
+        <g clip-path="url(#disk-clipper)" id="canvas">
+            <a id="left-half" ng-attr-xlink:href="{{model.state!=1? '#!/about' : '#!/'}}" xlink:href="">
+                <rect></rect>
+            </a>
+            <a id="right-half" ng-attr-xlink:href="{{model.state!=2? '#!/projects' : '#!/'}}" xlink:href="">
+                <rect></rect>
+            </a>
+            <path id="boucle" class="letterP nonStatic arc" ng-hide="model.state==1 && !model.mouseover"></path>
+            <line id="vertical-line" class="letterA letterP"></line>
+            <line id="horizontal-line" class="letterA"></line>
+            <line id="diagonal" class="letterA nonStatic" ng-hide="model.state==2 && !model.mouseover"></line>
+            <path id="circle" class="arc"></path>
+        </g>
+    </svg>
+    <a href="#!/about" ng-show="model.state<=0">
+        <div class="hint left-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>about') : getTrustedHtml('about<br>↓')" ng-mouseenter="startHintAnimation('.left-hint')" ng-mouseleave="endHintAnimation('.left-hint')"></div>
+    </a>
+    <a href="#!/projects" ng-show="model.state<=0">
+        <div class="hint right-hint" ng-bind-html="smallScreen() ? getTrustedHtml('↑<br>projects') : getTrustedHtml('projects<br>↓')" ng-mouseenter="startHintAnimation('.right-hint')" ng-mouseleave="endHintAnimation('.right-hint')"></div>
+    </a>
+</div>

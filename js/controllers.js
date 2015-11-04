@@ -23,12 +23,8 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
    $scope.model = window.model;
 
    $scope.$on('$routeChangeSuccess', function() {
-      $scope.handleRouteChange();
-   })
 
-   $scope.handleRouteChange = function() {
-
-      model.prevState = model.state
+      model.prevState = model.state;
 
       // update state
       switch ($location.path()) {
@@ -43,8 +39,37 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
             break;
       }
 
+      // let logo know that location has changed
+      $scope.$broadcast('stateChanged');
+   })
+
+   $scope.getTrustedHtml = function(html) {
+      return $sce.trustAsHtml(html);
+   }
+
+   $scope.smallScreen = function() {
+      return window.innerWidth >= 768;
+   }
+
+}])
+
+
+/* --------------- Logo Controller -------------- */
+
+app.controller('logoCtrl', ['$scope', function($scope) {
+
+   // called when logo.html is loaded. Initialize the logo and play the animation
+   $scope.unfoldLogo = function() {
+      drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
+      // sad workaround because ng-cloak doesn't seem to have an effect in Firefox...
+      $("#logoText").removeAttr("style");
       $scope.drawAppropriateLogo(true);
    }
+
+   // called everytime the state (hence the route) has changed
+   $scope.$on('stateChanged', function() {
+      $scope.drawAppropriateLogo(true);
+   })
 
    $scope.drawAppropriateLogo = function(animate) {
 
@@ -89,14 +114,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
    }
 
-
-   // wait until logo is created to play the animation
-   $scope.unfoldLogo = function() {
-      drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-      //$scope.handleRouteChange()
-      $scope.drawAppropriateLogo(true);
-   }
-
    // start animation and remove the on(animationiteration) binding, if any (to keep looping forever)
    $scope.startHintAnimation = function(selector) {
       $(selector).addClass("animated");
@@ -109,25 +126,6 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
          $(selector).removeClass("animated")
       })
    }
-
-   // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
-   $(window).resize(function() {
-      $scope.$evalAsync(function() {
-         // Resize and reposition the logo
-         $scope.drawAppropriateLogo(false);
-         // Resize the round images to have the size of the logo
-         $(".round-image").width($("#logoProjects").width());
-      });
-   });
-
-   $scope.getTrustedHtml = function(html) {
-      return $sce.trustAsHtml(html);
-   }
-
-   $scope.smallScreen = function() {
-      return window.innerWidth >= 768;
-   }
-
 }])
 
 
@@ -151,6 +149,16 @@ app.controller('projectsCtrl', ['$scope', '$http', function($scope, $http) {
          project.pictureVisible = false;
       });
    }
+
+   // Using $watch is a bit inefficient in this case as this function will always be run to check for changes.
+   $(window).resize(function() {
+      $scope.$evalAsync(function() {
+         // Resize and reposition the logo
+         $scope.drawAppropriateLogo(false);
+         // Resize the round images to have the size of the logo
+         $(".round-image").width($("#logoProjects").width());
+      });
+   });
 }]);
 
 app.filter('filterByTag', function() {
@@ -165,6 +173,8 @@ app.filter('filterByTag', function() {
    }
 })
 
+
+/* --------------- About Controller -------------- */
 
 app.controller('aboutCtrl', ['$scope', function($scope) {
 
