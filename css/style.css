@@ -591,14 +591,6 @@ ul.inline-list li {
     transform: scaleY(0);
 }
 
-.project.ng-enter-stagger,
-.project.ng-leave-stagger {
-    /*this will have a 100ms delay between each successive leave animation*/
-    transition-delay: 0.1s;
-    /*As of 1.4.4, this must always be set: it signals ngAnimate to not accidentally inherit a delay property from another CSS class*/
-    transition-duration: 0s;
-}
-
 .project-details {
     font-size: 18px;
 }

@@ -148,6 +148,23 @@ app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, 
 
    $scope.tags = ["All", "Interaction Design", "Visual Design", "User Research", "Web", "Mobile", "Other"]
 
+   // play special staggered animation when the projects view loads
+   function onload() {
+      $("head").append("<style id='staggered-animations'>" +
+         ".project.ng-enter-stagger, " +
+         ".project.ng-leave-stagger {" +
+         //this will have a 100ms delay between each successive leave animation
+         "transition-delay: 0.1s; " +
+         //As of 1.4.4, this must always be set: it signals ngAnimate to not accidentally inherit a delay property from another CSS class
+         "transition-duration: 0s;" +
+         "} < /style>");
+
+      setTimeout(function() {
+         $("#staggered-animations").remove();
+      }, 250)
+   }
+   onload();
+
    $scope.toggleProjectDetails = function(project) {
       project.detailsVisible = !project.detailsVisible;
       project.pictureVisible = project.detailsVisible;
@@ -155,6 +172,11 @@ app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, 
 
    $scope.changeTag = function(tag) {
       $scope.collapseProjects();
+
+      // Note that the staggering doesn't work well with this method of animation:
+      // The elements that are leaving flash at the bottom of the list, since they disappear a bit later than the ones above
+      // Besides, the "leave" animation is cut short (or not even started) after 250ms, when we change the tag
+
       model.tag = "";
       $timeout(function() {
          model.tag = tag;
