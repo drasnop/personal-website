@@ -158,7 +158,7 @@ app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, 
       model.tag = "";
       $timeout(function() {
          model.tag = tag;
-      }, 300);
+      }, 250);
    }
 
    $scope.collapseProjects = function() {

@@ -573,97 +573,30 @@ ul.inline-list li {
 
 /* define transitions for parent and children */
 
-.project.ng-enter,
+.project.ng-enter {
+    transition: transform .25s ease-out;
+    transform: scaleY(0);
+}
+
+.project.ng-enter.ng-enter-active {
+    transform: scaleY(1);
+}
+
 .project.ng-leave {
-    transition: transform .3s linear;
-    /*opacity: 0;*/
-    /*transform: scale(0.9);*/
+    transition: transform .25s ease-in;
+    transform: scaleY(1);
 }
 
+.project.ng-leave.ng-leave-active {
+    transform: scaleY(0);
+}
 
-/* .project.ng-enter-stagger,
+.project.ng-enter-stagger,
 .project.ng-leave-stagger {
-    this will have a 100ms delay between each successive leave animation
+    /*this will have a 100ms delay between each successive leave animation*/
     transition-delay: 0.1s;
-    As of 1.4.4, this must always be set: it signals ngAnimate
-    to not accidentally inherit a delay property from another CSS class
+    /*As of 1.4.4, this must always be set: it signals ngAnimate to not accidentally inherit a delay property from another CSS class*/
     transition-duration: 0s;
-} */
-
-
-/* project-icon enter animation */
-
-.project.ng-enter .project-icon {
-    /* The starting CSS styles for the enter animation */
-    transition: transform .3s linear;
-    transform: scaleY(0);
-}
-
-.project.ng-enter-stagger .project-icon {
-    /* this will have a 100ms delay between each successive leave animation */
-    transition-delay: 0.1s;
-}
-
-.project.ng-enter.ng-enter-active .project-icon {
-    /* The finishing CSS styles for the enter animation */
-    transform: scaleY(1);
-}
-
-
-/* project-icon leave animation */
-
-.project.ng-leave .project-icon {
-    /* The starting CSS styles for the enter animation */
-    transition: transform .3s linear;
-    transform: scaleY(1);
-}
-
-.project.ng-leave-stagger .project-icon {
-    /* this will have a 100ms delay between each successive leave animation */
-    transition-delay: 0.1s;
-}
-
-.project.ng-leave.ng-leave-active .project-icon {
-    /* The finishing CSS styles for the enter animation */
-    transform: scaleY(0);
-}
-
-
-/* project-header enter animation */
-
-.project.ng-enter .project-header {
-    /* The starting CSS styles for the enter animation */
-    transition: transform .3s linear;
-    transform: scaleY(0);
-}
-
-.project.ng-enter-stagger .project-header {
-    /* this will have a 100ms delay between each successive leave animation */
-    transition-delay: 0.1s;
-}
-
-.project.ng-enter.ng-enter-active .project-header {
-    /* The finishing CSS styles for the enter animation */
-    transform: scaleY(1);
-}
-
-
-/* project-header leave animation */
-
-.project.ng-leave .project-header {
-    /* The starting CSS styles for the enter animation */
-    transition: transform .3s linear;
-    transform: scaleY(1);
-}
-
-.project.ng-leave-stagger .project-header {
-    /* this will have a 100ms delay between each successive leave animation */
-    transition-delay: 0.1s;
-}
-
-.project.ng-leave.ng-leave-active .project-header {
-    /* The finishing CSS styles for the enter animation */
-    transform: scaleY(0);
 }
 
 .project-details {
