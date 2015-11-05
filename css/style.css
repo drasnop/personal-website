@@ -593,12 +593,32 @@ ul.inline-list li {
 }
 
 .project-details {
-    font-size: 18px;
+    font-size: 17px;
 }
 
-.project-details p,
+@media (max-width: 360px) {
+    .projec-details {
+        font-size: 16px;
+    }
+}
+
+.project-details p:not(:first-child),
 .project-details ul {
     margin-top: 15px;
+}
+
+@media (max-width: 360px) {
+    .project-details p {
+        margin-top: 15px;
+    }
+}
+
+.project-links {
+    margin-top: 10px;
+}
+
+.project-links a {
+    text-decoration: underline;
 }
 
 .justified-text {
@@ -608,7 +628,7 @@ ul.inline-list li {
 
 .project-pictures {
     width: 100%;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
 .project-pictures a {
