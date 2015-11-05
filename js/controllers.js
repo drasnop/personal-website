@@ -56,7 +56,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
 /* --------------- Logo Controller -------------- */
 
-app.controller('logoCtrl', ['$scope', function($scope) {
+app.controller('logoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
    // called when logo.html is loaded. Initialize the logo and play the animation
    $scope.unfoldLogo = function() {
@@ -87,7 +87,9 @@ app.controller('logoCtrl', ['$scope', function($scope) {
       var logoWidth;
 
       if (model.state === 0) {
-         // draw large logo, fullscreen
+
+         /* draw large logo, fullscreen */
+
          logoWidth = drawing.largeInnerWidth;
          $("#logoSplash").width(drawing.logoWidth())
 
@@ -101,6 +103,9 @@ app.controller('logoCtrl', ['$scope', function($scope) {
             drawing.drawLogo(logoWidth, logoWidth, drawing.largeStroke, model.state, animate ? drawing.longAnimation : false, false);
          }
       } else {
+
+         /* draw small logo, at the top-left of the header */
+
          logoWidth = $("#logoProjects").width();
          // need to fake it because doesn't contain any svg
          $("#logoSplash").width(drawing.logoWidth())
@@ -112,6 +117,15 @@ app.controller('logoCtrl', ['$scope', function($scope) {
                break;
             case 0:
                drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate ? drawing.longAnimation : false, false);
+
+               // when coming from state 0, start manually the staggered entrance animation AFTER the screen transition completes
+               // otherwise the staggered animation plays when the projects are still outside of the screen / below the fold
+               if (model.state == 2) {
+                  model.tag = "";
+                  $timeout(function() {
+                     model.tag = "All";
+                  }, drawing.longAnimation);
+               }
                break;
             default:
                // short, cubic animation between state 1 and 2
@@ -150,18 +164,16 @@ app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, 
 
    // play special staggered animation when the projects view loads
    function onload() {
-      $("head").append("<style id='staggered-animations'>" +
-         ".project.ng-enter-stagger, " +
-         ".project.ng-leave-stagger {" +
-         //this will have a 100ms delay between each successive leave animation
-         "transition-delay: 0.1s; " +
-         //As of 1.4.4, this must always be set: it signals ngAnimate to not accidentally inherit a delay property from another CSS class
-         "transition-duration: 0s;" +
-         "} < /style>");
-
-      setTimeout(function() {
-         $("#staggered-animations").remove();
-      }, 250)
+      if (!$("#staggered-transitions").length) {
+         $("head").append("<style id='staggered-transitions'>" +
+            ".project.ng-enter-stagger, " +
+            ".project.ng-leave-stagger {" +
+            //this will have a 100ms delay between each successive leave animation
+            "transition-delay: 0.1s; " +
+            //As of 1.4.4, this must always be set: it signals ngAnimate to not accidentally inherit a delay property from another CSS class
+            "transition-duration: 0s;" +
+            "} < /style>");
+      }
    }
    onload();
 
@@ -171,16 +183,23 @@ app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, 
    }
 
    $scope.changeTag = function(tag) {
-      $scope.collapseProjects();
-
       // Note that the staggering doesn't work well with this method of animation:
       // The elements that are leaving flash at the bottom of the list, since they disappear a bit later than the ones above
       // Besides, the "leave" animation is cut short (or not even started) after 250ms, when we change the tag
+      $("#staggered-transitions").remove();
 
-      model.tag = "";
+      // We must collapse the open projects first, otherwise the transition will flatten them as a huge white rectangle
+      $scope.collapseProjects();
+
+      // Wait for the projects to be closed before starting the transitions
       $timeout(function() {
-         model.tag = tag;
-      }, 250);
+         model.tag = "";
+
+         $timeout(function() {
+            model.tag = tag;
+         }, 250);
+
+      });
    }
 
    $scope.collapseProjects = function() {
