@@ -323,19 +323,20 @@ h2 {
 }
 
 h3 {
-    font-size: 26px;
+    font-size: 23px;
     text-align: inherit;
     margin-top: 0;
 }
 
 @media (max-width: 360px) {
     h3 {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
 h3 strong {
     font-weight: 700;
+    font-size: 25px;
 }
 
 h3 em {
