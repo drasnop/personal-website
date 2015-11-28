@@ -60,11 +60,37 @@ app.controller('logoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
    // called when logo.html is loaded. Initialize the logo and play the animation
    $scope.unfoldLogo = function() {
+
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
+
       // sad workaround because ng-cloak doesn't seem to have an effect in Firefox...
       $("#logoText").removeAttr("style");
       $scope.drawAppropriateLogo(true);
+
+      // preload images while the logo animation is playing
+      preloadImages();
    }
+
+   function preloadImages() {
+
+      jQuery.get("img/Antoine.jpg");
+
+      // all project thumbnails
+      var icons = $scope.projects.map(function(project) {
+         return "img/" + project.id + "/" + project.icon;
+      });
+
+      // first picture of each carousel
+      var firsts = $scope.projects.map(function(project) {
+         return "img/" + project.id + "/" + project.pictures[0];
+      });
+
+      // AJAX calls
+      jQuery.each(icons.concat(firsts), function(i, source) {
+         jQuery.get(source);
+      });
+   }
+
 
    // called everytime the state (hence the route) has changed
    $scope.$on('stateChanged', function() {
@@ -155,10 +181,7 @@ app.controller('logoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
 /* --------------- Projects Controller -------------- */
 
-app.controller('projectsCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
-   $http.get('js/projects.json').success(function(data) {
-      $scope.projects = data;
-   });
+app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
    $scope.tags = ["All", "Interaction Design", "Visual Design", "User Research", "Web", "Mobile", "Other"]
 

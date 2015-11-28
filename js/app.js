@@ -24,13 +24,19 @@ app.config(['$routeProvider', '$locationProvider',
    }
 ]);
 
-app.run(function($rootScope, $location, $anchorScroll, $routeParams) {
+app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
 
    // set up single-page application analytics tracking
    $rootScope.$on('$routeChangeSuccess', function(newRoute) {
       ga('set', 'page', $location.path());
       ga('send', 'pageview');
    })
+
+   // load projects and attach them to rootScope
+   $http.get('js/projects.json').success(function(data) {
+      $rootScope.projects = data;
+   });
+
 
    /*  //when the route is changed scroll to the proper element.
      $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
