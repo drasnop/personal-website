@@ -48,10 +48,8 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function(
          // (to prevent the staggered animation from playing when the projects are still outside of the screen / below the fold)
          // Otherwise, manually start the staggered entrance animation with no delay
          var delay = 10;
-         if (model.prevState <= 0) {
-            console.log("prevState 0")
+         if (model.prevState <= 0)
             delay = drawing.longAnimation;
-         }
 
          $timeout(function() {
             console.log("staggered animation")
