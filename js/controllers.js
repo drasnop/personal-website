@@ -13,12 +13,12 @@ var model = {
    "heading": ["", "bout me", "rojects"],
    // filter the projects by this tag
    "tag": "All",
-   // when user is hovering on a tag
+   // when user is hovering on a tag [deprecated]
    "tagHovered": false,
 }
 
 
-app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce, $location) {
+app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function($scope, $sce, $location, $timeout) {
 
    $scope.model = window.model;
 
@@ -41,7 +41,37 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
       // let logo know that location has changed
       $scope.$broadcast('stateChanged');
+
+      // handle staggered entrance animation of projects
+      if (model.state == 2) {
+         // When coming from state 0, start manually the staggered entrance animation AFTER the screen transition completes
+         // (to prevent the staggered animation from playing when the projects are still outside of the screen / below the fold)
+         // Otherwise, manually start the staggered entrance animation with no delay
+         var delay = 10;
+         if (model.prevState <= 0) {
+            console.log("prevState 0")
+            delay = drawing.longAnimation;
+         }
+
+         $timeout(function() {
+            console.log("staggered animation")
+            model.tag = "All";
+         }, delay);
+      } else {
+         // re-initialize projects list
+         $scope.collapseProjects();
+         model.tag = "";
+      }
    })
+
+   $scope.collapseProjects = function() {
+      if ($scope.projects) {
+         $scope.projects.forEach(function(project) {
+            project.detailsVisible = false;
+            project.pictureVisible = false;
+         });
+      }
+   }
 
    $scope.getTrustedHtml = function(html) {
       return $sce.trustAsHtml(html);
@@ -56,7 +86,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', function($scope, $sce
 
 /* --------------- Logo Controller -------------- */
 
-app.controller('logoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+app.controller('logoCtrl', ['$scope', function($scope) {
 
    // called when logo.html is loaded. Initialize the logo and play the animation
    $scope.unfoldLogo = function() {
@@ -118,15 +148,6 @@ app.controller('logoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
                break;
             case 0:
                drawing.drawLogo(logoWidth, logoWidth, drawing.smallStroke, model.state, animate ? drawing.longAnimation : false, false);
-
-               // when coming from state 0, start manually the staggered entrance animation AFTER the screen transition completes
-               // otherwise the staggered animation plays when the projects are still outside of the screen / below the fold
-               if (model.state == 2) {
-                  model.tag = "";
-                  $timeout(function() {
-                     model.tag = "All";
-                  }, drawing.longAnimation);
-               }
                break;
             default:
                // short, cubic animation between state 1 and 2
@@ -161,7 +182,7 @@ app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout)
    $scope.tags = ["All", "Interaction Design", "Visual Design", "User Research", "Web", "Mobile", "Other"]
 
    // play special staggered animation when the projects view loads
-   function onload() {
+   $scope.onload = function() {
       if (!$("#staggered-transitions").length) {
          $("head").append("<style id='staggered-transitions'>" +
             ".project.ng-enter-stagger, " +
@@ -173,7 +194,7 @@ app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout)
             "} < /style>");
       }
    }
-   onload();
+   $scope.onload();
 
    $scope.toggleProjectDetails = function(project) {
       project.detailsVisible = !project.detailsVisible;
@@ -196,17 +217,8 @@ app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout)
          $timeout(function() {
             model.tag = tag;
          }, 250);
-
       });
    }
-
-   $scope.collapseProjects = function() {
-      $scope.projects.forEach(function(project) {
-         project.detailsVisible = false;
-         project.pictureVisible = false;
-      });
-   }
-
 }]);
 
 app.filter('filterByTag', function() {
