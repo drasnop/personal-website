@@ -43,7 +43,7 @@
    "tags": ["Interaction Design", "Visual Design", "Web", "User Research"]
 }, {
    "id": "calendarTodolists",
-   "title": "Integrating calendar and to-do lists",
+   "title": "Integrating calendars and to-do lists",
    "pictures": ["calendarTodolists_0.png", "calendarTodolists_1.png", "calendarTodolists_2.png", "calendarTodolists_3.png", "calendarTodolists_4.png", "calendarTodolists_5.png"],
    "icon": "calendarTodolists-icon.png",
    "detailsVisible": false,
