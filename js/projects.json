@@ -1,7 +1,7 @@
 [{
    "id": "paperquest",
    "title": "<strong>PaperQuest:</strong><br> a visualization tool to support literature review",
-   "pictures": ["paperquest_0.png", "paperquest_1.png", "paperquest_2.png"],
+   "pictures": ["paperquest_0.png", "paperquest_1.png", "paperquest_2.png", "paperquest_3.png", "paperquest_4.png", "paperquest_5.png"],
    "icon": "paperquest-icon.png",
    "detailsVisible": false,
    "pictureVisible": false,
