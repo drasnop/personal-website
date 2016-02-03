@@ -2,6 +2,7 @@
 .design
 img/0-unused
 img/1-highres
+personal-website.sublime-workspace
 
 # Windows image file caches
 Thumbs.db
@@ -46,6 +47,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-personal-website.sublime-workspace
-img/AlanKay_large.jpg
-img/Alan_Kay.jpg
