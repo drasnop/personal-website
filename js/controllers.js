@@ -231,6 +231,19 @@ app.filter('filterByTag', function() {
    }
 })
 
+app.animation('.project-details', [function() {
+   return {
+      enter: function(element, doneFn) {
+         // ng-if shows .project-details immediately, so we must hide it until jQuery reveals it
+         // 150ms delay to wait for the thumbnail to expand
+         $(element).hide().delay(150).slideDown(500, doneFn);
+      },
+
+      leave: function(element, doneFn) {
+         $(element).delay(150).slideUp(500, doneFn);
+      }
+   }
+}]);
 
 /* --------------- About Controller -------------- */
 
