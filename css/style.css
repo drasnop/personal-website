@@ -21,31 +21,31 @@ max-width: 360px
 */
 
 body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18;
-    text-rendering: optimizeLegibility;
-    color: #556e7b;
-    /* temporarily set the background color to dark, to speed up the change on initial page load */
-    background-color: #556e7b;
-    /* force scrollbar to avoid the page jumping aroung on AJAX loads */
-    overflow-y: scroll;
+   padding: 0;
+   margin: 0;
+   height: 100%;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 18;
+   text-rendering: optimizeLegibility;
+   color: #556e7b;
+   /* temporarily set the background color to dark, to speed up the change on initial page load */
+   background-color: #556e7b;
+   /* force scrollbar to avoid the page jumping aroung on AJAX loads */
+   overflow-y: scroll;
 }
 
 ::-moz-selection {
-    background-color: #556e7b;
-    color: #E6EBEE;
+   background-color: #556e7b;
+   color: #E6EBEE;
 }
 
 ::selection {
-    background-color: #556e7b;
-    color: #E6EBEE;
+   background-color: #556e7b;
+   color: #E6EBEE;
 }
 
 body {
-    height: 100%;
+   height: 100%;
 }
 
 
@@ -61,7 +61,7 @@ body {
 [x-ng-cloak],
 .ng-cloak,
 .x-ng-cloak {
-    display: none !important;
+   display: none !important;
 }
 
 
@@ -78,232 +78,232 @@ body {
 */
 
 .container.small-container {
-    /* keep the container fairly small on the page */
-    max-width: 850px;
+   /* keep the container fairly small on the page */
+   max-width: 850px;
 }
 
 [class*="col-"] {
-    padding-left: 10px;
-    padding-right: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
 }
 
 .row {
-    margin-left: -10px;
-    margin-right: -10px;
+   margin-left: -10px;
+   margin-right: -10px;
 }
 
 
 /* small devices and up*/
 
 @media (min-width: 768px) {
-    .vertical-align-center {
-        display: flex;
-        align-items: center;
-    }
+   .vertical-align-center {
+      display: flex;
+      align-items: center;
+   }
 }
 
 .vertical-align-center-always {
-    display: flex;
-    align-items: center;
+   display: flex;
+   align-items: center;
 }
 
 .position-absolute {
-    position: absolute;
+   position: absolute;
 }
 
 @media (min-width: 768px) {
-    .center-block-small {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-    }
+   .center-block-small {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+   }
 }
 
 p {
-    margin: 0;
+   margin: 0;
 }
 
 .section {
-    text-align: justify;
-    text-justify: inter-word;
-    padding-top: 50px;
-    padding-bottom: 40px;
+   text-align: justify;
+   text-justify: inter-word;
+   padding-top: 50px;
+   padding-bottom: 40px;
 }
 
 @media (min-width: 768px) {
-    .section {
-        padding-top: 100px;
-        padding-bottom: 100px;
-    }
+   .section {
+      padding-top: 100px;
+      padding-bottom: 100px;
+   }
 }
 
 .section.first-section {
-    padding-top: 50px;
+   padding-top: 50px;
 }
 
 .section .bottom-row [class*="col-"] {
-    padding-top: 20px;
-    padding-bottom: 20px;
+   padding-top: 20px;
+   padding-bottom: 20px;
 }
 
 .paragraph {
-    margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .margin-bottom-30 {
-    margin-bottom: 30px;
+   margin-bottom: 30px;
 }
 
 
 /*          header              */
 
 #header {
-    background-color: #556e7b;
-    color: #E6EBEE;
-    fill: #E6EBEE;
-    stroke: #E6EBEE;
-    padding: 30px 0;
+   background-color: #556e7b;
+   color: #E6EBEE;
+   fill: #E6EBEE;
+   stroke: #E6EBEE;
+   padding: 30px 0;
 }
 
 #header [class*="col-"] {
-    pointer-events: none;
+   pointer-events: none;
 }
 
 #logo {
-    padding: 0 10px;
-    display: inline-block;
-    position: relative;
+   padding: 0 10px;
+   display: inline-block;
+   position: relative;
 }
 
 #logoSplash {
-    padding: 0 10px;
-    display: inline-block;
+   padding: 0 10px;
+   display: inline-block;
 }
 
 .hint {
-    position: absolute;
-    font-family: 'Architects Daughter', cursive;
-    color: #E6EBEE;
-    font-size: 18px;
-    cursor: default;
-    top: -60px;
-    bottom: auto;
+   position: absolute;
+   font-family: 'Architects Daughter', cursive;
+   color: #E6EBEE;
+   font-size: 18px;
+   cursor: default;
+   top: -60px;
+   bottom: auto;
 }
 
 .hint:hover {
-    color: #E6EBEE;
+   color: #E6EBEE;
 }
 
 .hint.animated {
-    -webkit-animation-name: swing-down;
-    -webkit-animation-duration: .7s;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-iteration-count: infinite;
-    animation-name: swing-down;
-    animation-duration: .7s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+   -webkit-animation-name: swing-down;
+   -webkit-animation-duration: .7s;
+   -webkit-animation-timing-function: ease-in-out;
+   -webkit-animation-iteration-count: infinite;
+   animation-name: swing-down;
+   animation-duration: .7s;
+   animation-timing-function: ease-in-out;
+   animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes swing-down {
-    0% {
-        top: -60px;
-    }
-    50% {
-        top: -50px;
-    }
-    100% {
-        top: -60px;
-    }
+   0% {
+      top: -60px;
+   }
+   50% {
+      top: -50px;
+   }
+   100% {
+      top: -60px;
+   }
 }
 
 @keyframes swing-down {
-    0% {
-        top: -60px;
-    }
-    50% {
-        top: -50px;
-    }
-    100% {
-        top: -60px;
-    }
+   0% {
+      top: -60px;
+   }
+   50% {
+      top: -50px;
+   }
+   100% {
+      top: -60px;
+   }
 }
 
 
 /* small devices and up*/
 
 @media (min-width: 768px) {
-    .hint {
-        font-size: 24px;
-        top: auto;
-        bottom: -70px;
-    }
-    .hint.animated {
-        -webkit-animation-name: swing-up;
-        -webkit-animation-duration: .7s;
-        -webkit-animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: infinite;
-        animation-name: swing-up;
-        animation-duration: .7s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-    }
-    @-webkit-keyframes swing-up {
-        0% {
-            bottom: -70px;
-        }
-        50% {
-            bottom: -60px;
-        }
-        100% {
-            bottom: -70px;
-        }
-    }
-    @keyframes swing-up {
-        0% {
-            bottom: -70px;
-        }
-        50% {
-            bottom: -60px;
-        }
-        100% {
-            bottom: -70px;
-        }
-    }
+   .hint {
+      font-size: 24px;
+      top: auto;
+      bottom: -70px;
+   }
+   .hint.animated {
+      -webkit-animation-name: swing-up;
+      -webkit-animation-duration: .7s;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: swing-up;
+      animation-duration: .7s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+   }
+   @-webkit-keyframes swing-up {
+      0% {
+         bottom: -70px;
+      }
+      50% {
+         bottom: -60px;
+      }
+      100% {
+         bottom: -70px;
+      }
+   }
+   @keyframes swing-up {
+      0% {
+         bottom: -70px;
+      }
+      50% {
+         bottom: -60px;
+      }
+      100% {
+         bottom: -70px;
+      }
+   }
 }
 
 .left-hint {
-    left: 10px;
+   left: 10px;
 }
 
 .right-hint {
-    right: -5px;
+   right: -5px;
 }
 
 #heading {
-    font-weight: 300;
-    font-size: 40;
+   font-weight: 300;
+   font-size: 40;
 }
 
 .logoText {
-    overflow: hidden;
-    white-space: nowrap;
-    /* display the text of the logo below the logo on small devices */
-    display: block;
+   overflow: hidden;
+   white-space: nowrap;
+   /* display the text of the logo below the logo on small devices */
+   display: block;
 }
 
 #logoText {
-    margin: 30px auto 0 auto;
+   margin: 30px auto 0 auto;
 }
 
 @media (min-width: 768px) {
-    .logoText {
-        display: inline-block;
-        margin: 0 20px;
-    }
-    #logoText {
-        margin: 0 20px;
-    }
+   .logoText {
+      display: inline-block;
+      margin: 0 20px;
+   }
+   #logoText {
+      margin: 0 20px;
+   }
 }
 
 
@@ -311,263 +311,263 @@ p {
 
 h1,
 h2 {
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 25px;
+   font-weight: 700;
+   margin-top: 0;
+   margin-bottom: 25px;
 }
 
 @media (max-width: 768px) {
-    h2.shrinkableFont {
-        font-size: 24px;
-    }
+   h2.shrinkableFont {
+      font-size: 24px;
+   }
 }
 
 h3 {
-    font-size: 23px;
-    text-align: inherit;
-    margin-top: 0;
+   font-size: 23px;
+   text-align: inherit;
+   margin-top: 0;
 }
 
 @media (max-width: 360px) {
-    h3 {
-        font-size: 20px;
-    }
+   h3 {
+      font-size: 20px;
+   }
 }
 
 h3 strong {
-    font-weight: 700;
-    font-size: 25px;
+   font-weight: 700;
+   font-size: 25px;
 }
 
 h3 em {
-    font-style: italic;
-    font-size: 19px;
+   font-style: italic;
+   font-size: 19px;
 }
 
 @media (max-width: 360px) {
-    h3 em {
-        font-size: 17px;
-    }
+   h3 em {
+      font-size: 17px;
+   }
 }
 
 .paddingBottom {
-    padding-bottom: 150px;
+   padding-bottom: 150px;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
-    /* to allow clean breaks on sm screens */
+   text-decoration: none;
+   cursor: pointer;
+   display: inline-block;
+   /* to allow clean breaks on sm screens */
 }
 
 a:hover,
 a:focus {
-    text-decoration: none;
+   text-decoration: none;
 }
 
 a[disabled] {
-    pointer-events: none;
+   pointer-events: none;
 }
 
 .greenLink {
-    color: #0BB0A4;
+   color: #0BB0A4;
 }
 
 .greenLink:hover,
 .greenLink:focus {
-    color: #d16349;
+   color: #d16349;
 }
 
 .greenLinkLight {
-    color: #48BDB5;
+   color: #48BDB5;
 }
 
 .greenLinkLight:hover,
 .greenLinkLight:focus {
-    color: #D87A63;
+   color: #D87A63;
 }
 
 .whiteLink {
-    color: white;
-    opacity: .5;
+   color: white;
+   opacity: .5;
 }
 
 .whiteLink:hover,
 .whiteLink:focus {
-    color: white;
-    opacity: 1;
+   color: white;
+   opacity: 1;
 }
 
 .textLink {
-    margin-right: 20px;
+   margin-right: 20px;
 }
 
 
 /*          about me            */
 
 .pictureFrame {
-    background-color: white;
-    padding: 10px;
+   background-color: white;
+   padding: 10px;
 }
 
 .pictureFrame img {
-    margin-bottom: 10px;
+   margin-bottom: 10px;
 }
 
 .pictureFrame p {
-    text-align: center;
-    color: #556e7b;
-    font-family: 'Architects Daughter', cursive;
+   text-align: center;
+   color: #556e7b;
+   font-family: 'Architects Daughter', cursive;
 }
 
 .greenButton {
-    background-color: #0BB0A4;
-    color: white;
-    padding: 6px 15px;
-    margin-top: 30px;
-    -webkit-transition: padding .4s ease;
-    -o-transition: padding .4s ease;
-    transition: padding .4s ease;
+   background-color: #0BB0A4;
+   color: white;
+   padding: 6px 15px;
+   margin-top: 30px;
+   -webkit-transition: padding .4s ease;
+   -o-transition: padding .4s ease;
+   transition: padding .4s ease;
 }
 
 @media (min-width: 768px) {
-    .greenButton {
-        margin-top: 0px;
-    }
+   .greenButton {
+      margin-top: 0px;
+   }
 }
 
 .greenButton:hover,
 .greenButton:focus {
-    padding: 6px 25px;
-    color: white;
+   padding: 6px 25px;
+   color: white;
 }
 
 .section-red {
-    background-color: #d16349;
-    color: white;
+   background-color: #d16349;
+   color: white;
 }
 
 .section-sand {
-    background-color: #ECE2D0;
-    color: #695B45;
+   background-color: #ECE2D0;
+   color: #695B45;
 }
 
 .quote {
-    background-color: white;
-    color: #556e7b;
-    display: block;
-    padding: 8px 10px;
-    font-family: 'Architects Daughter', cursive;
-    font-size: 16px;
+   background-color: white;
+   color: #556e7b;
+   display: block;
+   padding: 8px 10px;
+   font-family: 'Architects Daughter', cursive;
+   font-size: 16px;
 }
 
 
 /*          projects                    */
 
 .round-image {
-    border-radius: 50%;
+   border-radius: 50%;
 }
 
 ul.inline-list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+   padding: 0;
+   margin: 0;
+   list-style-type: none;
 }
 
 ul.inline-list li {
-    display: inline-block;
+   display: inline-block;
 }
 
 #filters {
-    padding: 13px 0px;
-    margin-top: 17px;
-    /* 40px between projects, but only 30px padding below logo...*/
-    /*margin-bottom: 7px;/*
+   padding: 13px 0px;
+   margin-top: 17px;
+   /* 40px between projects, but only 30px padding below logo...*/
+   /*margin-bottom: 7px;/*
     /* 20px padding project */
-    background-color: #E6EBEE;
-    z-index: 10;
-    width: 100%;
+   background-color: #E6EBEE;
+   z-index: 10;
+   width: 100%;
 }
 
 @media(max-width: 360px) {
-    #filters li {
-        display: block;
-    }
+   #filters li {
+      display: block;
+   }
 }
 
 .filter {
-    padding: 4px 10px;
-    margin: 0 5px;
-    cursor: pointer;
+   padding: 4px 10px;
+   margin: 0 5px;
+   cursor: pointer;
 }
 
 .filter:hover,
 .filter.active {
-    background-color: #556e7b;
-    color: #E6EBEE;
+   background-color: #556e7b;
+   color: #E6EBEE;
 }
 
 @media(max-width: 360px) {
-    ul.tags li {
-        margin: 5px 10px 5px 0px;
-    }
+   ul.tags li {
+      margin: 5px 10px 5px 0px;
+   }
 }
 
 .tag {
-    padding: 1px 6px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 0px;
-    border: 1px solid #556e7b;
+   padding: 1px 6px;
+   margin-right: 10px;
+   cursor: pointer;
+   font-size: 17px;
+   border-radius: 0px;
+   border: 1px solid #556e7b;
 }
 
 .tag:hover {
-    background-color: #556e7b;
-    color: #E6EBEE;
+   background-color: #556e7b;
+   color: #E6EBEE;
 }
 
 .project {
-    padding: 20px;
-    margin: 0 -20px 5px;
+   padding: 20px;
+   margin: 0 -20px 5px;
 }
 
 .project:hover,
 .project.expanded {
-    background-color: white;
+   background-color: white;
 }
 
 .project-banner {
-    cursor: pointer;
+   cursor: pointer;
 }
 
 .project-banner:hover a.toggleProjectDetails {
-    color: #d16349;
-    transform: rotate(90deg);
+   color: #d16349;
+   transform: rotate(90deg);
 }
 
 .project a.toggleProjectDetails {
-    transform: rotate(90deg);
-    transition: transform ease 0.3s;
+   transform: rotate(90deg);
+   transition: transform ease 0.3s;
 }
 
 .project.expanded a.toggleProjectDetails {
-    transform: rotate(-90deg);
+   transform: rotate(-90deg);
 }
 
 .project-icon:hover,
 .project.expanded .project-icon {
-    border-radius: 10px;
+   border-radius: 10px;
 }
 
 .project-icon {
-    transition: border-radius .2s ease;
-    /*transform: none;*/
+   transition: border-radius .2s ease;
+   /*transform: none;*/
 }
 
 .project-icon.highlighted {
-    /* cool idea, but somewhat confusing in the list view
+   /* cool idea, but somewhat confusing in the list view
     transform: scale(1.1);*/
 }
 
@@ -575,164 +575,166 @@ ul.inline-list li {
 /* define transitions for parent and children */
 
 .project.ng-enter {
-    transition: transform .25s ease-out;
-    transform: scaleY(0);
+   transition: transform .25s ease-out;
+   transform: scaleY(0);
 }
 
 .project.ng-enter.ng-enter-active {
-    transform: scaleY(1);
+   transform: scaleY(1);
 }
 
 .project.ng-leave {
-    transition: transform .25s ease-in;
-    transform: scaleY(1);
+   transition: transform .25s ease-in;
+   transform: scaleY(1);
 }
 
 .project.ng-leave.ng-leave-active {
-    transform: scaleY(0);
+   transform: scaleY(0);
 }
 
 .project-details {
-    font-size: 17px;
+   font-size: 17px;
+   /* to prevent flash when sliding down into view */
+   display: none;
 }
 
 @media (max-width: 360px) {
-    .projec-details {
-        font-size: 16px;
-    }
+   .projec-details {
+      font-size: 16px;
+   }
 }
 
 .project-details p:not(:first-child),
 .project-details ul {
-    margin-top: 15px;
+   margin-top: 15px;
 }
 
 @media (max-width: 360px) {
-    .project-details p {
-        margin-top: 15px;
-    }
+   .project-details p {
+      margin-top: 15px;
+   }
 }
 
 .project-links {
-    margin-top: 10px;
+   margin-top: 10px;
 }
 
 .project-links a {
-    text-decoration: underline;
+   text-decoration: underline;
 }
 
 .justified-text {
-    text-align: justify;
-    text-justify: inter-word;
+   text-align: justify;
+   text-justify: inter-word;
 }
 
 .project-pictures {
-    width: 100%;
-    padding: 25px 0;
+   width: 100%;
+   padding: 25px 0;
 }
 
 .project-pictures a {
-    max-width: 100%;
+   max-width: 100%;
 }
 
 .project-pictures a img {
-    max-width: 100%;
+   max-width: 100%;
 }
 
 .carousel-control.left,
 .carousel-control.right {
-    background-image: none;
-    background-color: #444;
-    opacity: 0;
-    transition: opacity .4s ease;
+   background-image: none;
+   background-color: #444;
+   opacity: 0;
+   transition: opacity .4s ease;
 }
 
 .carousel-control:focus,
 .carousel-control:hover {
-    opacity: 0.5;
+   opacity: 0.5;
 }
 
 .carousel-indicators {
-    bottom: -40px;
+   bottom: -40px;
 }
 
 .carousel-indicators li {
-    border-color: #556e7b;
+   border-color: #556e7b;
 }
 
 .carousel-indicators li.active {
-    background-color: #556e7b;
+   background-color: #556e7b;
 }
 
 
 /*          footer          */
 
 #content {
-    min-height: 700px;
-    /* to prevent the footer from jumping on page change */
+   min-height: 700px;
+   /* to prevent the footer from jumping on page change */
 }
 
 #footer {
-    background-color: #40535d;
-    color: #c8d3d9;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    box-shadow: inset 0px 31px 21px -20px #2C383F;
+   background-color: #40535d;
+   color: #c8d3d9;
+   padding-top: 80px;
+   padding-bottom: 80px;
+   box-shadow: inset 0px 31px 21px -20px #2C383F;
 }
 
 .social-icon {
-    margin: 0 10px;
+   margin: 0 10px;
 }
 
 #copyright {
-    font-size: 15;
+   font-size: 15;
 }
 
 
 /*          svg / logo              */
 
 svg {
-    margin: 0 auto;
-    cursor: pointer;
-    pointer-events: none;
+   margin: 0 auto;
+   cursor: pointer;
+   pointer-events: none;
 }
 
 .arc {
-    stroke-width: 0;
+   stroke-width: 0;
 }
 
 #left-half,
 #right-half {
-    visibility: hidden;
-    pointer-events: all;
+   visibility: hidden;
+   pointer-events: all;
 }
 
 #left-half:hover ~ .letterA {
-    stroke: #48BDB5;
-    fill: #48BDB5;
+   stroke: #48BDB5;
+   fill: #48BDB5;
 }
 
 #right-half:hover ~ .letterP {
-    stroke: #D87A63;
-    fill: #D87A63;
+   stroke: #D87A63;
+   fill: #D87A63;
 }
 
 .squashed {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+   height: 0;
+   padding-top: 0;
+   padding-bottom: 0;
 }
 
 .squashed * {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+   height: 0;
+   padding-top: 0;
+   padding-bottom: 0;
 }
 
 .center-wrapper {
-    text-align: center;
+   text-align: center;
 }
 
 .centered {
-    display: inline-block;
+   display: inline-block;
 }

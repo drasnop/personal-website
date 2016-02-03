@@ -234,9 +234,9 @@ app.filter('filterByTag', function() {
 app.animation('.project-details', [function() {
    return {
       enter: function(element, doneFn) {
-         // ng-if shows .project-details immediately, so we must hide it until jQuery reveals it
+         // ng-if shows .project-details immediately, so we hide it with display:none by default in CSS
          // 150ms delay to wait for the thumbnail to expand
-         $(element).hide().delay(150).slideDown(500, doneFn);
+         $(element).delay(150).slideDown(500, doneFn);
       },
 
       leave: function(element, doneFn) {
