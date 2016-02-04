@@ -1,0 +1,39 @@
+<header>
+   <div class="container small-container">
+      <div class="row">
+         <div class="col-sm-5" id="logoAbout"></div>
+         <div class="col-sm-6 col-sm-push-1"></div>
+      </div>
+   </div>
+
+   <div class="container small-container squashed">
+      <div class="project">
+         <div class="row vertical-align-center project-banner">
+            <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
+            <div class="col-sm-10 col-xs-12"></div>
+         </div>
+      </div>
+   </div>
+
+   <div class="center-wrapper">
+      <div class="centered">
+         <div class="vertical-align-center">
+            <div class="logo" id="logoSplash"></div>
+            <div class="logoText"></div>
+         </div>
+      </div>
+   </div>
+
+   <div id="logo-container" class="center-wrapper">
+      <div class="centered">
+         <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
+            <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
+
+            <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
+            <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0" style="display:none!important">
+               <img id="logoTextImg" ng-src="img/logoText.png"></img>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>

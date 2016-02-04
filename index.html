@@ -9,9 +9,13 @@
 
    <title>Antoine Ponsard - My Portfolio</title>
 
+   <!-- load Bootstrap and styles -->
+
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <link rel="icon" type="image/png" href="img/favicon.png">
+
+   <!-- Google Analytics -->
 
    <script>
    (function(i, s, o, g, r, a, m) {
@@ -31,51 +35,15 @@
 </head>
 
 <body ng-app="myApp" ng-controller="mainCtrl" ng-class="{'scrollbar-visible': model.state>0}">
-   <header>
 
-      <div class="container small-container">
-         <div class="row">
-            <div class="col-sm-5" id="logoAbout"></div>
-            <div class="col-sm-6 col-sm-push-1"></div>
-         </div>
-      </div>
-
-      <div class="container small-container squashed">
-         <div class="project">
-            <div class="row vertical-align-center project-banner">
-               <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
-               <div class="col-sm-10 col-xs-12"></div>
-            </div>
-         </div>
-      </div>
-
-      <div class="center-wrapper">
-         <div class="centered">
-            <div class="vertical-align-center">
-               <div class="logo" id="logoSplash"></div>
-               <div class="logoText"></div>
-            </div>
-         </div>
-      </div>
-
-      <div id="logo-container" class="center-wrapper">
-         <div class="centered">
-            <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
-               <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
-
-               <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-               <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0" style="display:none!important">
-                  <img id="logoTextImg" ng-src="img/logoText.png"></img>
-               </div>
-            </div>
-         </div>
-      </div>
-   </header>
+   <header ng-include src="'html/header.html'" include-replace></header>
 
    <main ng-view>
    </main>
 
    <footer ng-include src="'html/footer.html'" include-replace style='display:none'></footer>
+
+   <!-- load libraries -->
 
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -85,9 +53,13 @@
    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
    <script type="text/javascript" src="libs/ui-bootstrap-custom-tpls-0.12.1.min.js"></script>
 
+   <!-- load fonts-->
+
    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+   <!-- load my own scripts -->
 
    <script type="text/javascript" src="js/app.js"></script>
    <script type="text/javascript" src="js/controllers.js"></script>
