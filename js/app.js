@@ -65,15 +65,3 @@ app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
        $location.search('scrollTo', null); 
      });*/
 });
-
-// custom directive so that ng-include replace the DOM node it was called upon
-app.directive('includeReplace', function() {
-   return {
-      require: 'ngInclude',
-      restrict: 'A',
-      /* optional */
-      link: function(scope, el, attrs) {
-         el.replaceWith(el.children());
-      }
-   };
-});

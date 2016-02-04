@@ -36,12 +36,66 @@
 
 <body ng-app="myApp" ng-controller="mainCtrl" ng-class="{'scrollbar-visible': model.state>0}">
 
-   <header ng-include src="'html/header.html'" include-replace></header>
+   <header>
+      <div class="container small-container">
+         <div class="row">
+            <div class="col-sm-5" id="logoAbout"></div>
+            <div class="col-sm-6 col-sm-push-1"></div>
+         </div>
+      </div>
+
+      <div class="container small-container squashed">
+         <div class="project">
+            <div class="row vertical-align-center project-banner">
+               <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
+               <div class="col-sm-10 col-xs-12"></div>
+            </div>
+         </div>
+      </div>
+
+      <div class="center-wrapper">
+         <div class="centered">
+            <div class="vertical-align-center">
+               <div class="logo" id="logoSplash"></div>
+               <div class="logoText"></div>
+            </div>
+         </div>
+      </div>
+
+      <div id="logo-container" class="center-wrapper">
+         <div class="centered">
+            <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
+               <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
+
+               <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
+               <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0">
+                  <img id="logoTextImg" ng-src="img/logoText.png"></img>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
 
    <main ng-view>
    </main>
 
-   <footer ng-include src="'html/footer.html'" include-replace style='display:none'></footer>
+   <footer class="section" ng-hide="model.state<=0" style="display:none">
+      <div class="container small-container">
+         <div class="row bottom-row vertical-align-center">
+            <div class="col-sm-5">
+               <p ng-show="model.state==1" class="paragraph">If you want to know all the nitty-gritty details, here is <a class="greenLinkLight" href="res/Resume_Antoine_Ponsard.pdf" target="_blank">my resume</a>. But it would be more fun to look at <a class="greenLinkLight" href="#!/projects" onclick="window.scrollTo(0,0)">my projects</a> &#x263a </p>
+               <p ng-show="model.state==2" class="paragraph">To learn more about my design process, check out my <a class="greenLinkLight" href="res/portfolio.pdf" target="_blank">portfolio presentation</a>. You can also take a look at <a class="greenLinkLight" href="#!/about" onclick="window.scrollTo(0,0)">my about page</a> &#x263a </p>
+            </div>
+            <div class="col-sm-6 col-sm-push-1">
+               <div class="center-block">
+                  <a class="social-icon fa fa-2x fa-linkedin-square whiteLink" href="//ca.linkedin.com/in/antoineponsard" title="LinkedIn" target="_blank"></a>
+                  <a class="social-icon fa fa-2x fa-github-square whiteLink" href="//github.com/drasnop" title="GitHub" target="_blank"></a>
+                  <a class="social-icon fa fa-2x fa-envelope-o whiteLink" href="mailto:aponsard@cs.ubc.ca" title="email" target="_blank"></a>
+                  <a class="social-icon fa fa-2x fa-file-o whiteLink" href="res/Resume_Antoine_Ponsard.pdf" title="Resume" target="_blank"></a>
+               </div>
+            </div>
+   </footer>
+
 
    <!-- load libraries -->
 

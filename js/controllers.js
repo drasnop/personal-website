@@ -89,9 +89,6 @@ app.controller('logoCtrl', ['$scope', function($scope) {
    // called when logo.html is loaded. Initialize the logo and play the animation
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
-
-      // sad workaround because ng-cloak doesn't seem to have an effect in Firefox...
-      $("#logoText").removeAttr("style");
       $scope.drawAppropriateLogo(true);
    }
 
