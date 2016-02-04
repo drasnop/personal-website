@@ -11,7 +11,7 @@ var drawing = (function() {
       "smallStroke": 2,
       "longAnimation": 1000,
       "shortAnimation": 500
-   }
+   };
    var tau = 2 * Math.PI; // http://tauday.com/tau-manifesto
 
    drawing.initializeLogo = function(width, height, strokeWidth) {
@@ -19,14 +19,14 @@ var drawing = (function() {
       d3.select("svg")
          .attr("width", drawing.logoWidth())
          .attr("height", drawing.logoWidth())
-         .attr("viewBox", "0 0 " + width + " " + height)
+         .attr("viewBox", "0 0 " + width + " " + height);
 
       d3.select("#disk-clipper circle")
          .attr("transform", translate(width / 2, height / 2))
-         .attr("r", height / 2)
+         .attr("r", height / 2);
 
       d3.select("#canvas")
-         .style("stroke-width", strokeWidth)
+         .style("stroke-width", strokeWidth);
 
       /* lines */
 
@@ -34,19 +34,19 @@ var drawing = (function() {
          .attr("x1", width / 2 + strokeWidth / 4)
          .attr("y1", height / 2)
          .attr("x2", width / 2 + strokeWidth / 4)
-         .attr("y2", height / 2)
+         .attr("y2", height / 2);
 
       d3.select("#vertical-line")
          .attr("x1", width / 2)
          .attr("y1", -strokeWidth / 2)
          .attr("x2", width / 2)
-         .attr("y2", 0)
+         .attr("y2", 0);
 
       d3.select("#diagonal")
          .attr("x1", width / 2)
          .attr("y1", 0)
          .attr("x2", width / 2)
-         .attr("y2", 0)
+         .attr("y2", 0);
 
       /* circles */
 
@@ -54,18 +54,18 @@ var drawing = (function() {
          .attr("transform", translate(width / 2, height / 2))
          .datum({
             endAngle: 0
-         })
+         });
 
       d3.select("#boucle")
          .attr("transform", translate(width / 2, height / 4 + strokeWidth / 4))
          .datum({
             endAngle: 0
-         })
+         });
 
       /* bind listeners */
 
       reorderOnHover();
-   }
+   };
 
 
 
@@ -75,30 +75,30 @@ var drawing = (function() {
 
       d3.select("header").style("height", window.innerHeight)
          .style("padding-top", (window.innerHeight - height) / 2)
-         .style("padding-bottom", (window.innerHeight - height) / 2)
+         .style("padding-bottom", (window.innerHeight - height) / 2);
 
       // Now that the page is covered by the header, change the body back to its original color
       $("body").css("background-color", "#E6EBEE");
 
       // unroll the logo
 
-      var t0 = d3.select("header").transition().ease("linear").delay(500).duration(600)
-      var t1 = t0.transition().ease("linear").duration(300)
-      var t2 = t1.transition().ease("linear").duration(300)
-      var t3 = t2.transition().ease("linear").duration(300)
-      var t4 = t3.transition().ease("linear").duration(300)
+      var t0 = d3.select("header").transition().ease("linear").delay(500).duration(600);
+      var t1 = t0.transition().ease("linear").duration(300);
+      var t2 = t1.transition().ease("linear").duration(300);
+      var t3 = t2.transition().ease("linear").duration(300);
+      var t4 = t3.transition().ease("linear").duration(300);
 
       d3.select("#left-half rect")
          .attr("x", 0)
          .attr("y", 0)
          .attr("width", width / 2)
-         .attr("height", height)
+         .attr("height", height);
 
       d3.select("#right-half rect")
          .attr("x", width / 2)
          .attr("y", 0)
          .attr("width", width / 2)
-         .attr("height", height)
+         .attr("height", height);
 
       /* half circles */
 
@@ -117,7 +117,7 @@ var drawing = (function() {
          .attr("x1", 0)
          .attr("y1", height / 2)
          .attr("x2", width / 2 + strokeWidth / 4)
-         .attr("y2", height / 2)
+         .attr("y2", height / 2);
 
       /* finish circle */
 
@@ -127,64 +127,65 @@ var drawing = (function() {
       /* fall from top to middle */
 
       t3.select("#vertical-line")
-         .attr("y2", height / 2)
+         .attr("y2", height / 2);
 
       t3.select("#diagonal")
          .attr("x2", width / 2 * Math.sqrt(2) / (1 + Math.sqrt(2)))
-         .attr("y2", height / 2)
+         .attr("y2", height / 2);
 
       /* bouquet final */
 
       t4.select("#vertical-line")
-         .attr("y2", height - strokeWidth)
+         .attr("y2", height - strokeWidth);
 
       t4.select("#diagonal")
          .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
-         .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
+         .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)));
 
       /* depending on screen size, the last two animations are synchronous or sequenced */
 
-      $(".logoText").width(0).css("visibility", "visible")
-      $("#logoTextImg").width(drawing.logoTextWidth())
-      $(".hint").css("opacity", 0)
+      $(".logoText").width(0).css("visibility", "visible");
+      $("#logoTextImg").width(drawing.logoTextWidth());
+      $(".hint").css("opacity", 0);
 
       var t5, t6, t7;
       if (window.innerWidth < 768) {
          /* one animation for the horizontal line and the text of the logo */
 
-         t5 = t4.transition().ease("quad-in-out").duration(800)
+         t5 = t4.transition().ease("quad-in-out").duration(800);
 
-         t5.select("#horizontal-line").attr("x2", width)
-         t5.selectAll(".logoText").style("width", drawing.logoTextWidth())
+         t5.select("#horizontal-line").attr("x2", width);
+         t5.selectAll(".logoText").style("width", drawing.logoTextWidth());
 
          /* fade in the hints above the logo */
 
-         t6 = t5.transition().ease("quad-in-out").delay(1100 + 1200 + 800 + 400).duration(300)
-         t7 = t6.transition().ease("quad-in-out").duration(300)
+         t6 = t5.transition().ease("quad-in-out").delay(1100 + 1200 + 800 + 400).duration(300);
+         t7 = t6.transition().ease("quad-in-out").duration(300);
 
-         $(".hint").css("top", "-80px")
-         t6.select(".left-hint").style("top", "-60px").style("opacity", 1)
-         t7.select(".right-hint").style("top", "-60px").style("opacity", 1)
+         $(".hint").css("top", "-80px");
+         t6.select(".left-hint").style("top", "-60px").style("opacity", 1);
+         t7.select(".right-hint").style("top", "-60px").style("opacity", 1);
       } else {
          /* animate the horizontal line, then the text of the logo */
 
-         t5 = t4.transition().ease("linear").duration(200)
-         t6 = t5.transition().ease("quad-in-out").duration(800)
+         t5 = t4.transition().ease("linear").duration(200);
+         t6 = t5.transition().ease("quad-in-out").duration(800);
 
-         t5.select("#horizontal-line").attr("x2", width)
-         t6.selectAll(".logoText").style("width", drawing.logoTextWidth())
+         t5.select("#horizontal-line").attr("x2", width);
+         t6.selectAll(".logoText").style("width", drawing.logoTextWidth());
 
          /* fade in the hints below the logo */
 
-         t7 = t6.transition().ease("quad-in-out").delay(1100 + 1200 + 150 + 800 + 400).duration(300)
-         var t8 = t7.transition().ease("quad-in-out").duration(300)
+         t7 = t6.transition().ease("quad-in-out").delay(1100 + 1200 + 150 + 800 + 400).duration(300);
+         var t8 = t7.transition().ease("quad-in-out").duration(300);
 
-         $(".hint").css("bottom", "-90px")
-         t7.selectAll(".left-hint").style("bottom", "-70px").style("opacity", 1)
-         t8.selectAll(".right-hint").style("bottom", "-70px").style("opacity", 1)
+         $(".hint").css("bottom", "-90px");
+         t7.selectAll(".left-hint").style("bottom", "-70px").style("opacity", 1);
+         t8.selectAll(".right-hint").style("bottom", "-70px").style("opacity", 1);
       }
 
-   }
+   };
+
 
 
 
@@ -194,43 +195,43 @@ var drawing = (function() {
       $("body").css("background-color", "#E6EBEE");
       $("footer").attr("style", "");
 
-      var t0 = d3.select("header")
+      var t0 = d3.select("header");
       if (animate)
-         t0 = t0.transition(cubic ? "cubic-out" : "quad-in-out").duration(animate)
+         t0 = t0.transition(cubic ? "cubic-out" : "quad-in-out").duration(animate);
 
       // animate the dark background of the header
       t0.style("height", state > 0 ? width + 2 * 30 : window.innerHeight)
          .style("padding-top", state > 0 ? 30 : (window.innerHeight - height) / 2)
-         .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2)
+         .style("padding-bottom", state > 0 ? 30 : (window.innerHeight - height) / 2);
 
 
       // position the logo horizontally, using animatable margins
       if (state > 0) {
-         $("#logo").css("margin-left", $("#logo").offset().left)
-         $("#logo-container").removeClass("center-wrapper")
+         $("#logo").css("margin-left", $("#logo").offset().left);
+         $("#logo-container").removeClass("center-wrapper");
       } else {
          // always resize the image
-         $("#logoTextImg").width(drawing.logoTextWidth())
+         $("#logoTextImg").width(drawing.logoTextWidth());
 
          if (model.prevState !== 0 && animate) {
             // prepare entrance animation of the text
-            $(".logoText").width(0)
+            $(".logoText").width(0);
          }
       }
 
       // animate the logo to its new horizontal position
-      t0.select("#logo").style("margin-left", logoLeftMargin(state, width))
+      t0.select("#logo").style("margin-left", logoLeftMargin(state, width));
 
       // at the end of the animation, remove margin-left and put center class back
       if (state === 0) {
          if (animate) {
             t0.select("#logo").each("end", function() {
-               $("#logo").css("margin-left", 0)
-               $("#logo-container").addClass("center-wrapper")
-            })
+               $("#logo").css("margin-left", 0);
+               $("#logo-container").addClass("center-wrapper");
+            });
          } else {
-            $("#logo").css("margin-left", 0)
-            $("#logo-container").addClass("center-wrapper")
+            $("#logo").css("margin-left", 0);
+            $("#logo-container").addClass("center-wrapper");
          }
       }
 
@@ -238,85 +239,85 @@ var drawing = (function() {
       t0.select("svg")
          .attr("width", drawing.logoWidth())
          .attr("height", drawing.logoWidth())
-         .attr("viewBox", "0 0 " + width + " " + height)
+         .attr("viewBox", "0 0 " + width + " " + height);
 
       // We need to increase the strokeWidth, to keep the lines visible
-      t0.select("#canvas").style("stroke-width", strokeWidth)
+      t0.select("#canvas").style("stroke-width", strokeWidth);
 
       t0.select("#left-half rect")
          .attr("x", 0)
          .attr("y", 0)
          .attr("width", width / 2)
-         .attr("height", height)
+         .attr("height", height);
 
       t0.select("#right-half rect")
          .attr("x", width / 2)
          .attr("y", 0)
          .attr("width", width / 2)
-         .attr("height", height)
+         .attr("height", height);
 
       t0.select("#circle")
          .attr("transform", translate(width / 2, height / 2))
-         .attr("d", arcGenerator(width / 2, strokeWidth).endAngle(tau))
+         .attr("d", arcGenerator(width / 2, strokeWidth).endAngle(tau));
 
       t0.select("#boucle")
          .attr("transform", translate(width / 2, width / 4 + strokeWidth / 4))
-         .attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau))
+         .attr("d", arcGenerator(width / 4 + strokeWidth / 4, strokeWidth).endAngle(0.5 * tau));
 
       t0.select("#disk-clipper")
          .select("circle")
          .attr("transform", translate(width / 2, height / 2))
-         .attr("r", height / 2)
+         .attr("r", height / 2);
 
       t0.select("#vertical-line")
          .attr("x1", width / 2)
          .attr("y1", -strokeWidth / 2)
          .attr("x2", width / 2)
-         .attr("y2", height - strokeWidth)
+         .attr("y2", height - strokeWidth);
 
       t0.select("#horizontal-line")
          .attr("x1", 0)
          .attr("y1", height / 2)
          .attr("x2", width)
-         .attr("y2", height / 2)
+         .attr("y2", height / 2);
 
       t0.select("#diagonal")
          .attr("x1", width / 2)
          .attr("y1", 0)
          .attr("x2", width / 2 * (1 - 1 / Math.sqrt(2)))
-         .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)))
+         .attr("y2", height / 2 * (1 + 1 / Math.sqrt(2)));
 
       if (animate && state !== 0) {
-         d3.select("#heading").style("opacity", 0)
+         d3.select("#heading").style("opacity", 0);
 
          d3.select("#heading")
             .transition().duration(400).delay(animate)
-            .style("opacity", 1)
+            .style("opacity", 1);
       }
 
       if (animate) {
          var t1 = t0.transition().ease("quad-in-out").duration(800);
-         t1.selectAll(".logoText").style("width", drawing.logoTextWidth())
+         t1.selectAll(".logoText").style("width", drawing.logoTextWidth());
 
-         $(".hint").css("opacity", 0)
+         $(".hint").css("opacity", 0);
 
          var t2 = t1.transition().ease("quad-in-out").duration(300);
          var t3 = t2.transition().ease("quad-in-out").duration(300);
 
          if (window.innerWidth < 768) {
-            $(".hint").css("top", "-80px")
+            $(".hint").css("top", "-80px");
 
-            t2.select(".left-hint").style("top", "-60px").style("opacity", 1)
-            t3.select(".right-hint").style("top", "-60px").style("opacity", 1)
+            t2.select(".left-hint").style("top", "-60px").style("opacity", 1);
+            t3.select(".right-hint").style("top", "-60px").style("opacity", 1);
          } else {
-            $(".hint").css("bottom", "-90px")
+            $(".hint").css("bottom", "-90px");
 
-            t2.selectAll(".left-hint").style("bottom", "-70px").style("opacity", 1)
-            t3.selectAll(".right-hint").style("bottom", "-70px").style("opacity", 1)
+            t2.selectAll(".left-hint").style("bottom", "-70px").style("opacity", 1);
+            t3.selectAll(".right-hint").style("bottom", "-70px").style("opacity", 1);
          }
       } else
-         d3.selectAll(".logoText").style("width", drawing.logoTextWidth())
-   }
+         d3.selectAll(".logoText").style("width", drawing.logoTextWidth());
+   };
 
 
 
@@ -329,12 +330,12 @@ var drawing = (function() {
          d3.select("#horizontal-line").moveToFront();
          d3.select("#diagonal").moveToFront();
          d3.select("#circle").moveToFront();
-      })
+      });
 
       $("#right-half").mouseenter(function() {
          d3.select("#boucle").moveToFront();
          d3.select("#vertical-line").moveToFront();
-      })
+      });
    }
 
    function logoLeftMargin(state, logoWidth) {
@@ -359,21 +360,21 @@ var drawing = (function() {
 
    drawing.logoTextWidth = function() {
       if (window.innerWidth > 360)
-         return Math.min(drawing.largeInnerWidth * 2, 4 / 10 * window.innerWidth)
+         return Math.min(drawing.largeInnerWidth * 2, 4 / 10 * window.innerWidth);
       else
          return 8 / 10 * window.innerWidth;
-   }
+   };
 
    drawing.logoWidth = function() {
       if (model.state <= 0) {
          if (window.innerWidth > 360)
-            return Math.min(drawing.largeInnerWidth, 2 / 10 * window.innerWidth)
+            return Math.min(drawing.largeInnerWidth, 2 / 10 * window.innerWidth);
          else
             return 4 / 10 * window.innerWidth;
       } else {
          return $("#logoProjects").width();
       }
-   }
+   };
 
    function arcGenerator(radius, strokeWidth) {
       return d3.svg.arc()

@@ -20,7 +20,7 @@ app.config(['$routeProvider', '$locationProvider',
          })
          .otherwise({
             redirectTo: '/'
-         })
+         });
    }
 ]);
 
@@ -30,7 +30,7 @@ app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
    $rootScope.$on('$routeChangeSuccess', function(newRoute) {
       ga('set', 'page', $location.path());
       ga('send', 'pageview');
-   })
+   });
 
    // load projects and attach them to rootScope
    $http.get('js/projects.json').success(function(data) {

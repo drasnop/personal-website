@@ -15,7 +15,7 @@ var model = {
    "tag": "All",
    // when user is hovering on a tag [deprecated]
    "tagHovered": false,
-}
+};
 
 
 app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function($scope, $sce, $location, $timeout) {
@@ -52,7 +52,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function(
             delay = drawing.longAnimation;
 
          $timeout(function() {
-            console.log("staggered animation")
+            console.log("staggered animation");
             model.tag = "All";
          }, delay);
       } else {
@@ -60,7 +60,7 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function(
          $scope.collapseProjects();
          model.tag = "";
       }
-   })
+   });
 
    $scope.collapseProjects = function() {
       if ($scope.projects) {
@@ -69,17 +69,17 @@ app.controller('mainCtrl', ['$scope', '$sce', '$location', '$timeout', function(
             project.pictureVisible = false;
          });
       }
-   }
+   };
 
    $scope.getTrustedHtml = function(html) {
       return $sce.trustAsHtml(html);
-   }
+   };
 
    $scope.smallScreen = function() {
       return window.innerWidth >= 768;
-   }
+   };
 
-}])
+}]);
 
 
 /* --------------- Logo Controller -------------- */
@@ -90,12 +90,12 @@ app.controller('logoCtrl', ['$scope', function($scope) {
    $scope.unfoldLogo = function() {
       drawing.initializeLogo(drawing.largeInnerWidth, drawing.largeInnerWidth, drawing.largeStroke);
       $scope.drawAppropriateLogo(true);
-   }
+   };
 
    // called everytime the state (hence the route) has changed
    $scope.$on('stateChanged', function() {
       $scope.drawAppropriateLogo(true);
-   })
+   });
 
    // Using $watch would be a bit inefficient in this case as this function will always be run to check for changes.
    $(window).resize(function() {
@@ -117,7 +117,7 @@ app.controller('logoCtrl', ['$scope', function($scope) {
          /* draw large logo, fullscreen */
 
          logoWidth = drawing.largeInnerWidth;
-         $("#logoSplash").width(drawing.logoWidth())
+         $("#logoSplash").width(drawing.logoWidth());
 
          // it should be only -1; but in some cases the route changes twice on loading (hence we're already at state 0)
          // however, when resizing the window on the splashscreen, we don't want it to animate
@@ -134,7 +134,7 @@ app.controller('logoCtrl', ['$scope', function($scope) {
 
          logoWidth = $("#logoProjects").width();
          // need to fake it because doesn't contain any svg
-         $("#logoSplash").width(drawing.logoWidth())
+         $("#logoSplash").width(drawing.logoWidth());
 
          // just to adapt the time and smoothness of the animation
          switch (model.prevState) {
@@ -153,28 +153,28 @@ app.controller('logoCtrl', ['$scope', function($scope) {
          }
       }
 
-   }
+   };
 
    // start animation and remove the on(animationiteration) binding, if any (to keep looping forever)
    $scope.startHintAnimation = function(selector) {
       $(selector).addClass("animated");
       $(selector).off("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration");
-   }
+   };
 
    // stops the animation at the next end of an iteration, to avoid the hint jumping back into place on mouseleave
    $scope.endHintAnimation = function(selector) {
       $(selector).on("animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration", function() {
-         $(selector).removeClass("animated")
-      })
-   }
-}])
+         $(selector).removeClass("animated");
+      });
+   };
+}]);
 
 
 /* --------------- Projects Controller -------------- */
 
 app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
-   $scope.tags = ["All", "Interaction Design", "Visual Design", "User Research", "Web", "Mobile", "Other"]
+   $scope.tags = ["All", "Interaction Design", "Visual Design", "User Research", "Web", "Mobile", "Other"];
 
    // play special staggered animation when the projects view loads
    $scope.onload = function() {
@@ -188,13 +188,13 @@ app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout)
             "transition-duration: 0s;" +
             "} < /style>");
       }
-   }
+   };
    $scope.onload();
 
    $scope.toggleProjectDetails = function(project) {
       project.detailsVisible = !project.detailsVisible;
       project.pictureVisible = project.detailsVisible;
-   }
+   };
 
    $scope.changeTag = function(tag) {
       // Note that the staggering doesn't work well with this method of animation:
@@ -213,7 +213,7 @@ app.controller('projectsCtrl', ['$scope', '$timeout', function($scope, $timeout)
             model.tag = tag;
          }, 250);
       });
-   }
+   };
 }]);
 
 app.filter('filterByTag', function() {
@@ -224,9 +224,9 @@ app.filter('filterByTag', function() {
          return input;
       return input.filter(function(project) {
          return project.tags.indexOf(tag) >= 0;
-      })
-   }
-})
+      });
+   };
+});
 
 app.animation('.project-details', [function() {
    return {
@@ -239,7 +239,7 @@ app.animation('.project-details', [function() {
       leave: function(element, doneFn) {
          $(element).delay(150).slideUp(500, doneFn);
       }
-   }
+   };
 }]);
 
 /* --------------- About Controller -------------- */
@@ -252,4 +252,4 @@ app.controller('aboutCtrl', ['$scope', function($scope) {
       $(".round-image").width($("#logoProjects").width());
    });
 
-}])
+}]);
