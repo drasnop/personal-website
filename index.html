@@ -2,91 +2,97 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="I'm an interaction designer with a CS background. I love to design sleek interfaces with beautiful colors and subtle animations. And I know how to build them.">
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="I'm an interaction designer with a CS background. I love to design sleek interfaces with beautiful colors and subtle animations. And I know how to build them.">
 
-    <title>Antoine Ponsard - My Portfolio</title>
+   <title>Antoine Ponsard - My Portfolio</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/png" href="img/favicon.png">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+   <script>
+   (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+         (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+         m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-60712214-1', 'auto');
-    </script>
+   ga('create', 'UA-60712214-1', 'auto');
+   </script>
 </head>
 
 <body ng-app="myApp" ng-controller="mainCtrl" ng-class="{'scrollbar-visible': model.state>0}">
-    <div id="header">
+   <header>
 
-        <div class="container small-container">
-            <div class="row">
-                <div class="col-sm-5" id="logoAbout"></div>
-                <div class="col-sm-6 col-sm-push-1"></div>
+      <div class="container small-container">
+         <div class="row">
+            <div class="col-sm-5" id="logoAbout"></div>
+            <div class="col-sm-6 col-sm-push-1"></div>
+         </div>
+      </div>
+
+      <div class="container small-container squashed">
+         <div class="project">
+            <div class="row vertical-align-center project-banner">
+               <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
+               <div class="col-sm-10 col-xs-12"></div>
             </div>
-        </div>
+         </div>
+      </div>
 
-        <div class="container small-container squashed">
-            <div class="project">
-                <div class="row vertical-align-center project-banner">
-                    <div id="logoProjects" class="col-sm-2 col-xs-4"></div>
-                    <div class="col-sm-10 col-xs-12"></div>
-                </div>
+      <div class="center-wrapper">
+         <div class="centered">
+            <div class="vertical-align-center">
+               <div class="logo" id="logoSplash"></div>
+               <div class="logoText"></div>
             </div>
-        </div>
+         </div>
+      </div>
 
-        <div class="center-wrapper">
-            <div class="centered">
-                <div class="vertical-align-center">
-                    <div class="logo" id="logoSplash"></div>
-                    <div class="logoText"></div>
-                </div>
+      <div id="logo-container" class="center-wrapper">
+         <div class="centered">
+            <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
+               <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
+
+               <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
+               <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0" style="display:none!important">
+                  <img id="logoTextImg" ng-src="img/logoText.png"></img>
+               </div>
             </div>
-        </div>
+         </div>
+      </div>
+   </header>
 
-        <div id="logo-container" class="center-wrapper">
-            <div class="centered">
-                <div ng-class="{'vertical-align-center': model.state<=0, 'vertical-align-center-always': model.state>0}">
-                    <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
+   <main ng-view>
+   </main>
 
-                    <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-                    <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0" style="display:none!important">
-                       <img id="logoTextImg" ng-src="img/logoText.png"></img>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <footer ng-include src="'html/footer.html'" include-replace style='display:none'></footer>
 
-    <div id="content">
-        <div ng-view></div>
-    </div>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
+   <script type="text/javascript" src="libs/ui-bootstrap-custom-tpls-0.12.1.min.js"></script>
 
-    <div ng-include="'html/footer.html'"></div>
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.min.js"></script>
-    <script type="text/javascript" src="libs/ui-bootstrap-custom-tpls-0.12.1.min.js"></script>
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
-    <script type="text/javascript" src="js/drawing.js"></script>
-    <script type="text/javascript" src="js/helpers.js"></script>
+   <script type="text/javascript" src="js/app.js"></script>
+   <script type="text/javascript" src="js/controllers.js"></script>
+   <script type="text/javascript" src="js/drawing.js"></script>
+   <script type="text/javascript" src="js/helpers.js"></script>
 </body>
 
 </html>

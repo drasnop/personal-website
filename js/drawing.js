@@ -71,9 +71,9 @@ var drawing = (function() {
 
    drawing.firstDrawLogo = function(width, height, strokeWidth) {
 
-      // make #header full height, and prepare its shrinking animation
+      // make header full height, and prepare its shrinking animation
 
-      d3.select("#header").style("height", window.innerHeight)
+      d3.select("header").style("height", window.innerHeight)
          .style("padding-top", (window.innerHeight - height) / 2)
          .style("padding-bottom", (window.innerHeight - height) / 2)
 
@@ -82,7 +82,7 @@ var drawing = (function() {
 
       // unroll the logo
 
-      var t0 = d3.select("#header").transition().ease("linear").delay(500).duration(600)
+      var t0 = d3.select("header").transition().ease("linear").delay(500).duration(600)
       var t1 = t0.transition().ease("linear").duration(300)
       var t2 = t1.transition().ease("linear").duration(300)
       var t3 = t2.transition().ease("linear").duration(300)
@@ -192,9 +192,9 @@ var drawing = (function() {
 
       // change the body back to its original color if needed (=if skipping splash page)
       $("body").css("background-color", "#E6EBEE");
-      $("#footer").attr("style", "")
+      $("footer").attr("style", "")
 
-      var t0 = d3.select("#header")
+      var t0 = d3.select("header")
       if (animate)
          t0 = t0.transition(cubic ? "cubic-out" : "quad-in-out").duration(animate)
 

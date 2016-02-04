@@ -157,7 +157,7 @@ p {
 
 /*          header              */
 
-#header {
+header {
    background-color: #556e7b;
    color: #E6EBEE;
    fill: #E6EBEE;
@@ -165,7 +165,7 @@ p {
    padding: 30px 0;
 }
 
-#header [class*="col-"] {
+header [class*="col-"] {
    pointer-events: none;
 }
 
@@ -669,12 +669,12 @@ ul.inline-list li {
 
 /*          footer          */
 
-#content {
+main {
    min-height: 700px;
    /* to prevent the footer from jumping on page change */
 }
 
-#footer {
+footer {
    background-color: #40535d;
    color: #c8d3d9;
    padding-top: 80px;
