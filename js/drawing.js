@@ -192,7 +192,7 @@ var drawing = (function() {
 
       // change the body back to its original color if needed (=if skipping splash page)
       $("body").css("background-color", "#E6EBEE");
-      $("footer").attr("style", "")
+      $("footer").attr("style", "");
 
       var t0 = d3.select("header")
       if (animate)
