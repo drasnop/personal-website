@@ -351,6 +351,7 @@ var drawing = (function() {
                return (window.innerWidth - drawing.logoWidth()) / 2;
             else
                return $("#logoSplash").offset().left;
+            break;
          case 1:
             return $("#logoAbout").offset().left;
          case 2:

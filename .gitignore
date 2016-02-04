@@ -4,6 +4,10 @@ img/0-unused
 img/1-highres
 personal-website.sublime-workspace
 
+# Node & grunt
+node_modules
+dist
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
