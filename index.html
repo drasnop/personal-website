@@ -68,7 +68,7 @@
                <div id="logo" class="logo" ng-include="'html/logo.html'"></div>
 
                <span id="heading" ng-show="model.state>0" ng-bind="model.heading[model.state]"></span>
-               <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0">
+               <div id="logoText" class="logoText ng-cloak" ng-cloak ng-show="model.state===0" style="display:none!important">
                   <img id="logoTextImg" ng-src="img/logoText.png"></img>
                </div>
             </div>

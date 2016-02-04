@@ -140,6 +140,7 @@ p {
 
 .section.first-section {
    padding-top: 50px;
+   min-height: 555px;
 }
 
 .section .bottom-row [class*="col-"] {
@@ -672,6 +673,7 @@ ul.inline-list li {
 
 main {
    flex: 1;
+   min-height: calc(100vh - 180px);
 }
 
 footer {
