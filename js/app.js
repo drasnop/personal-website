@@ -24,7 +24,7 @@ app.config(['$routeProvider', '$locationProvider',
    }
 ]);
 
-app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
+app.run(['$rootScope', '$location', '$anchorScroll', '$routeParams', '$http', function($rootScope, $location, $anchorScroll, $routeParams, $http) {
 
    // set up single-page application analytics tracking
    $rootScope.$on('$routeChangeSuccess', function(newRoute) {
@@ -33,7 +33,7 @@ app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
    });
 
    // load projects and attach them to rootScope
-   $http.get('js/projects.json').success(function(data) {
+   $http.get('data/projects.json').success(function(data) {
       $rootScope.projects = data;
       preloadImages();
    });
@@ -64,4 +64,4 @@ app.run(function($rootScope, $location, $anchorScroll, $routeParams, $http) {
        $anchorScroll();
        $location.search('scrollTo', null); 
      });*/
-});
+}]);
