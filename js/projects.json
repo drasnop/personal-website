@@ -14,6 +14,9 @@
    }, {
       "text": "slides",
       "href": "res/paperquest-slides.pdf"
+   }, {
+      "text": "report",
+      "href": "res/PaperQuest-technical-report.pdf"
    }],
    "description": "The literature review is a key component of academic research, that allows researchers to build upon each other’s work. Modern search engines enable fast access to publications, but there is a lack of support for filtering out the vast majority of papers that are irrelevant to the current research focus. We present PaperQuest, a visualization tool that supports efficient decision making, by only displaying the information useful at a given step of the exploration process. We propose a relevance algorithm to find and sort papers that are likely to be relevant to users, based on the papers they have expressed interest in before and the number of citations. The current implementation uses papers from the CHI and UIST conferences, and citation counts from Google Scholar, but is easily extensible to other domains of the literature.",
    "team": "Francisco Escalona (\"Pax\")",
