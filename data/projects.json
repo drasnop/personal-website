@@ -7,7 +7,7 @@
    "pictureVisible": false,
    "links": [{
       "text": "demo",
-      "href": "//www.cs.ubc.ca/~aponsard/paperquest"
+      "href": "//paperquest.github.io"
    }, {
       "text": "paper",
       "href": "res/PaperQuest.pdf"
